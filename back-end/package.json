@@ -11,9 +11,9 @@
     "nodemon": "^1.11.0"
   },
   "scripts": {
-    "startBE": "nodemon BackEnd/index.js --exec babel-node",
-    "buildBE": "babel BackEnd -d dist/BackEnd",
-    "serveBE": "node dist/BackEnd/index.js"
+    "start": "nodemon index.js --exec babel-node",
+    "build": "babel src -d dist",
+    "serve": "node dist/index.js"
   },
   "repository": {
     "type": "git",

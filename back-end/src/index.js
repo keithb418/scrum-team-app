@@ -1,4 +1,4 @@
-import express from 'express';
+import express from 'express'
 let app = express();
 
 app.all('*', function(req, res, next) {
@@ -18,3 +18,5 @@ let server = app.listen(8081, function() {
     console.log(`Scrum Team App BackEnd listening at http://localhost:${port}`);
 
 });
+
+export default server;
