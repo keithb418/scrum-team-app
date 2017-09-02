@@ -1,0 +1,24 @@
+{
+  "name": "scrum-team-app",
+  "version": "1.0.0",
+  "description": "Scrum Team App",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "startBE": "nodemon BackEnd/index.js --exec babel-node",
+    "buildBE": "babel BackEnd -d dist/BackEnd",
+    "serveBE": "node dist/BackEnd/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keithb418/scrum-team-app.git"
+  },
+  "homepage": "https://github.com/keithb418/scrum-team-app#readme",
+  "license": "Apache-2.0"
+}
