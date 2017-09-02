@@ -10,8 +10,15 @@
     "redux": "^3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build-css": "node-sass ./src/scss --include-path ./src/scss --include-path ./node_modules src/ -o ./public/css",
+    "watch-css": "npm run build-css && node-sass ./src/scss --include-path ./src/scss --include-path ./node_modules src/ -o ./public/css --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.1"
   }
 }
