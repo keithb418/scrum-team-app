@@ -1,4 +1,4 @@
-const {MongoClient} = require('mongodb');
+const {MongoClient, ObjectID} = require('mongodb');
 
 let url = 'mongodb://localhost:27017/scrumteamappdb';
 
@@ -20,10 +20,26 @@ let MongoDataLayer = () => {
             });
         },
         getAll: (resourceType = '') => {
-
+            return new Promise((resolve, reject) => {
+                db.collection(resourceType).find().toArray((err, result) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(result);
+                    }
+                });
+            });
         },
-        getOne: (resourceType = '', id = '') => {
-
+        getOneById: (resourceType = '', id = '') => {
+            return new Promise((resolve, reject) => {
+                db.collection(resourceType).findOne({_id: new ObjectID(id)}).then((document) => {
+                    if (document) {
+                        resolve(document);
+                    } else {
+                        reject();
+                    }
+                });
+            });
         },
         create: (resourceType = '', resource) => {
 

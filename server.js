@@ -48,7 +48,7 @@ MongoDataLayer.connect(() => {
 
   app.use('/public', express.static(path.join(__dirname, 'front-end/public')));
 
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
-  });
+  // app.get('*', function(req, res) {
+  //   res.sendFile(path.join(__dirname, 'dist/index.html'));
+  // });
 });
