@@ -68,10 +68,34 @@ let MongoDataLayer = function () {
             });
         },
         update: (resourceType = '', resource = {}) => {
+            return new Promise((resolve, reject) => {
+                let updateResource = Object.assign({}, resource);
 
+                updateResource.delete('_id');
+
+                db.collection(resourceType).updateOne({_id: ObjectID(resource._id)}, {
+                    $set: updateResource
+                }).then((err, result) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(resource);
+                    }
+                }).catch((err) => {
+                    reject(err);
+                });
+            });
         },
         delete: (resourceType = '', id = '') => {
-
+            return new Promise((resolve, reject) => {
+                db.collection(resourceType).deleteOne({_id: ObjectID(id)}, {}, (err, result) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve();
+                    }
+                });
+            });
         }
     };
 };
