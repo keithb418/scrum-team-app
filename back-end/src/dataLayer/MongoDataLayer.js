@@ -2,13 +2,15 @@ const {MongoClient, ObjectID} = require('mongodb');
 
 let url = 'mongodb://localhost:27017/scrumteamappdb';
 
-let MongoDataLayer = () => {
+let MongoDataLayer = function () {
     let db = null;
 
     return {
         connect: (callback) => {
             MongoClient.connect(url, (err, database) => {
-                if (err) return console.log(err);
+                if (err) {
+                    return console.log(err);
+                }
 
                 console.log('Connected successfully to MongoDB');
 
@@ -41,10 +43,31 @@ let MongoDataLayer = () => {
                 });
             });
         },
-        create: (resourceType = '', resource) => {
-
+        getOneByQuery: (resourceType = '', query = {}) => {
+            return new Promise((resolve, reject) => {
+                db.collection(resourceType).findOne(query).then((document) => {
+                    if (document) {
+                        resolve(document);
+                    } else {
+                        reject();
+                    }
+                });
+            });
         },
-        update: (resourceType = '', resource) => {
+        create: (resourceType = '', resource = {}) => {
+            return new Promise((resolve, reject) => {
+                db.collection(resourceType).insertOne(resource, (err, result) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(Object.assign({
+                            _id: result.upsertedId
+                        }, resource));
+                    }
+                });
+            });
+        },
+        update: (resourceType = '', resource = {}) => {
 
         },
         delete: (resourceType = '', id = '') => {
@@ -53,4 +76,4 @@ let MongoDataLayer = () => {
     };
 };
 
-module.exports = MongoDataLayer();
+module.exports = new MongoDataLayer();

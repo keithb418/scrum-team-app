@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
+const bodyParser = require('body-parser');
 const MongoDataLayer = require('./back-end/src/dataLayer/MongoDataLayer');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
@@ -43,6 +44,8 @@ MongoDataLayer.connect(() => {
   app.listen(process.env.PORT || 3000);
 
   console.log("App is running on port " + (process.env.PORT || 3000));
+
+  app.use(bodyParser.json());
 
   app.use('/api', require('./back-end/src/index'));
 
