@@ -2,8 +2,12 @@ import express from 'express'
 let router = express.Router();
 
 import teamsResource from './resources/TeamsResource';
+import teamMembersResource from './resources/TeamMembersResource';
+import rolesResource from './resources/RolesResource';
 
 teamsResource(router);
+teamMembersResource(router);
+rolesResource(router);
 
 router.get('', function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});

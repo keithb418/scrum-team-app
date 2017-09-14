@@ -2,7 +2,7 @@ const {MongoClient, ObjectID} = require('mongodb');
 
 let url = 'mongodb://localhost:27017/scrumteamappdb';
 
-let MongoDataLayer = function () {
+let MongoDataLayer = () => {
     let db = null;
 
     return {
