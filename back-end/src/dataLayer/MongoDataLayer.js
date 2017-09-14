@@ -1,6 +1,7 @@
 const {MongoClient, ObjectID} = require('mongodb');
 
-let url = 'mongodb://localhost:27017/scrumteamappdb';
+let mongoAddress = process.env.MONGO_ADDRESS || 'localhost';
+let url = `mongodb://${mongoAddress}:27017/scrumteamappdb`;
 
 let MongoDataLayer = () => {
     let db = null;
