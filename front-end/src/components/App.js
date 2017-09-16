@@ -1,9 +1,10 @@
 import React from 'react';
-import TeamMember from './TeamMember';
+import TeamMemberContainer from '../containers/TeamMemberContainer';
 
 const App = () => (
   <div>
-    <TeamMember name="Keith Brown" role="Front-End Developer" />
+    <TeamMemberContainer id={1} />
+    <TeamMemberContainer id={2} />
   </div>
 );
 

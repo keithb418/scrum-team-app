@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Row, Col  } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 
-const TeamMember = ({ id: _id, name, teamLead, role}) => {
+const TeamMember = ({ _id: id, name, teamLead, role }) => {
     let teamLeadText = teamLead ? <p>Team Lead</p> : '';
 
     return (

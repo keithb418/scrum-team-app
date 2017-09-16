@@ -1,13 +1,16 @@
 [
   {
+    "_id": 1,
     "name": "Member One",
     "email": "member.one@example.com",
     "team": "ReactDojo",
+    "teamLead": true,
     "teamHistory": ["ReactDojo", "AngularDojo"],
     "role": "Front-End Developer",
     "skills": ["HTML5", "CSS3", "ES6", "ReactJS", "AngularJS"]
   },
   {
+    "_id": 2,
     "name": "Member Two",
     "email": "member.two@example.com",
     "team": "ReactDojo",
@@ -16,6 +19,7 @@
     "skills": ["Java 8", "Spring", "Spring Boot", "Spring Security", "REST", "Docker"]
   },
   {
+    "_id": 3,
     "name": "Member Three",
     "email": "member.three@example.com",
     "team": "ReactDojo",
@@ -24,6 +28,7 @@
     "skills": ["HTML5", "CSS3", "ES7", "ReactJS", "BackboneJS"]
   },
   {
+    "_id": 4,
     "name": "Member Four",
     "email": "member.four@example.com",
     "team": "none",
