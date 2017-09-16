@@ -1,0 +1,28 @@
+.team-member {
+    width: 100%;
+
+    .row {
+        @include flex;
+
+        margin: 0;
+    }
+
+    .user-img {
+        font-size: 4em;
+        padding: 0;
+        text-align: left
+    }
+
+    .details {
+        @include flex;
+
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+        text-align: right;
+
+        p {
+            margin: 0;
+        }
+    }
+}
