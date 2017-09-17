@@ -9,7 +9,12 @@ const TeamHeader = ({_id: id, teamName}) => {
                 <Col xs={2}>
                     <FontAwesome name="user-add"/>
                 </Col>
+                <Col xs={10} className="team-name">
+                    <p>{teamName}</p>
+                </Col>
             </Row>
         </Button>
-    )
-}
+    );
+};
+
+export default TeamHeader;
