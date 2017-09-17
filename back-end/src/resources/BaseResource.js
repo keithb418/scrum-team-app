@@ -53,19 +53,16 @@ class BaseResource {
     addPut() {
         let updateResource = (id, resource, req, res) => {
             if (!id) {
-                res.writeHead(500, {'Content-Type': 'text/plain'});
-                res.end("A resource id must be specified.");
+                res.status(500).send("A resource id must be specified.");
             } else {
                 MongoDataLayer.getOneById(this.resourceType, id).then(() => {
                     MongoDataLayer.update(this.resourceType, resource).then((result) => {
                         res.json(result);
                     }).catch((err) => {
-                        res.writeHead(500, {'Content-Type': 'text/plain'});
-                        res.end(err);
+                        res.status(500).send("Internal Server Error");
                     });
                 }).catch(() => {
-                    res.writeHead(500, {'Content-Type': 'text/plain'});
-                    res.end("A resource does not exist with that id. Use a POST request to create it.");
+                    res.status(500).send("A resource does not exist with that id. Use a POST request to create it.");
                 });
             }
         };
@@ -74,9 +71,9 @@ class BaseResource {
             updateResource(req.body._id, req.body, req, res);
         });
     
-        this.router.put(`/${this.resourceType}/:id`, (req, res) => {
-            updateTeam(req.params.id, req.body, req, res);
-        });
+        // this.router.put(`/${this.resourceType}/:id`, (req, res) => {
+        //     updateResource(req.params.id, req.body, req, res);
+        // });
     }
     addDelete() {
         this.router.delete(`/${this.resourceType}/:id`, (req, res) => {
