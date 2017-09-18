@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Row, Col } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 
-const TeamHeader = ({_id: id, teamName}) => {
+const TeamHeader = ({_id: id, teamName, projectName}) => {
     return(
         <Button className="team-header">
             <Row>
@@ -10,7 +10,7 @@ const TeamHeader = ({_id: id, teamName}) => {
                     <FontAwesome name="user-add"/>
                 </Col>
                 <Col xs={10} className="team-name">
-                    <p>{teamName}</p>
+                    <p>{teamName} / {projectName}</p>
                 </Col>
             </Row>
         </Button>
