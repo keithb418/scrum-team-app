@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Member One",
+    "email": "member.one@example.com",
+    "team": "ReactDojo",
+    "teamHistory": ["ReactDojo", "AngularDojo"],
+    "role": "Front-End Developer",
+    "skills": ["HTML5", "CSS3", "ES6", "ReactJS", "AngularJS"]
+  },
+  {
+    "name": "Member Two",
+    "email": "member.two@example.com",
+    "team": "ReactDojo",
+    "teamHistory": ["ReactDojo"],
+    "role": "Back-End Developer",
+    "skills": ["Java 8", "Spring", "Spring Boot", "Spring Security", "REST", "Docker"]
+  },
+  {
+    "name": "Member Three",
+    "email": "member.three@example.com",
+    "team": "ReactDojo",
+    "teamHistory": ["ReactDojo", "AngularDojo", "BackboneDojo"],
+    "role": "Front-End Developer",
+    "skills": ["HTML5", "CSS3", "ES7", "ReactJS", "BackboneJS"]
+  },
+  {
+    "name": "Member Four",
+    "email": "member.four@example.com",
+    "team": "none",
+    "teamHistory": [],
+    "role": "Business Analyst",
+    "skills": ["Documentation", "Requirements Analysis"]
+  }
+]
