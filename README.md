@@ -6,6 +6,10 @@ On the first time, install the node modules:
 `npm install`
 
 When developing, use the following command:
+
+`mongod --dbpath=./data/db --smallfiles`
+This will start mongo on port=27017. Make sure you have data/db directory created in the root level.
+
 `npm start`
 
 This will start a server on localhost:3000
