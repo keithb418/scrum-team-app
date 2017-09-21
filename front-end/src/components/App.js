@@ -1,10 +1,12 @@
 import React from 'react';
+import TeamMemberContainer from '../containers/TeamMemberContainer';
 import Header from './Header'
 
 const App = () => (
   <div>
     <Header />
-    <h1 className="title">Hello World!  I will be the Scrum Team app!</h1>
+    <TeamMemberContainer id={1} />
+    <TeamMemberContainer id={2} />
   </div>
 );
 
