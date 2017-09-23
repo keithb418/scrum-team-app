@@ -1,7 +1,7 @@
-import React from 'react';
-import TeamMemberContainer from '../containers/TeamMemberContainer';
-import Header from './Header';
-import AddTeamColumn from './AddTeamColumn';
+import React from "react";
+import TeamMemberContainer from "../containers/TeamMemberContainer";
+import Header from "./Header";
+import AddTeamColumn from "./AddTeamColumn";
 
 const App = () => (
   <div>

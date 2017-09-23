@@ -11,10 +11,10 @@
     "curly": "warn",
     "quotes": ["error", "double"],
     "space-before-function-paren": ["error", "always"],
-    "space-blocks-blocks": "error",
+    "space-before-blocks": "error",
     "arrow-spacing": "error",
     "spaced-comment": ["error", "always"],
-    "semi": ["error", "never"],
+    "semi": ["error", "always"],
     "object-curly-spacing": ["error", "always"]
   }
 }

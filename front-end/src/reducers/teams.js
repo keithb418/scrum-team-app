@@ -1,8 +1,8 @@
 const teams = (state = [], action) => {
     switch (action.type) {
       default:
-        return state
+        return state;
     }
-  }
+  };
   
-  export default teams
+  export default teams;

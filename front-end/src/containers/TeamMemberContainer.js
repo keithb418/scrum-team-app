@@ -1,22 +1,22 @@
-import { connect } from 'react-redux';
-import TeamMember from '../components/TeamMember';
+import { connect } from "react-redux";
+import TeamMember from "../components/TeamMember";
 
 const mapStateToProps = (state, ownProps) => {
     return state.teamMembers.find((teamMember) => { 
-        return teamMember._id === ownProps.id 
-    })
+        return teamMember._id === ownProps.id;
+    });
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onClick: () => {
         dispatch({
-            type: 'SHOW_DETAILS',
+            type: "SHOW_DETAILS",
             id: ownProps.id
         });
     },
     onEdit: () => {
         dispatch({
-            type: 'EDIT_DETAILS',
+            type: "EDIT_DETAILS",
             id: ownProps.id
         });
     }

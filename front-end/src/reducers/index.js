@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import teams from './teams';
-import teamMembers from './teamMembers';
+import { combineReducers } from "redux";
+import teams from "./teams";
+import teamMembers from "./teamMembers";
 
 const reducers = combineReducers({
   teams,
