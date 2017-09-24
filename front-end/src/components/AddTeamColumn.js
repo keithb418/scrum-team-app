@@ -1,14 +1,16 @@
 import React from "react";
-import { Button, Row, Col } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 
 const AddTeamColumn = () => {
   return (
-    <Button>
-      <FontAwesome
-        name="plus-circle"
-      />
-      Add Team Column
+    <Button className="add-team-button">
+      <span className="content">
+        <FontAwesome
+          name="plus-circle"
+        />
+        Add Team Column
+      </span>
     </Button>
   );
 };

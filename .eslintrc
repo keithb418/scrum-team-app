@@ -6,7 +6,7 @@
   "extends": ["react-app", "plugin:jsx-a11y/recommended"],
   "plugins": ["jsx-a11y"],
   "rules": {
-    "no-console": ["error", {allow: ["warn", "error"]}],
+    "no-console": ["error", {"allow": ["warn", "error"]}],
     "strict": ["error", "global"],
     "curly": "warn",
     "quotes": ["error", "double"],

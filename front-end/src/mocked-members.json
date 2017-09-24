@@ -3,7 +3,7 @@
     "_id": 1,
     "name": "Member One",
     "email": "member.one@example.com",
-    "team": "ReactDojo",
+    "team": "1t",
     "teamLead": true,
     "teamHistory": ["ReactDojo", "AngularDojo"],
     "role": "Front-End Developer",
@@ -13,7 +13,7 @@
     "_id": 2,
     "name": "Member Two",
     "email": "member.two@example.com",
-    "team": "ReactDojo",
+    "team": "1t",
     "teamHistory": ["ReactDojo"],
     "role": "Back-End Developer",
     "skills": ["Java 8", "Spring", "Spring Boot", "Spring Security", "REST", "Docker"]
@@ -22,7 +22,7 @@
     "_id": 3,
     "name": "Member Three",
     "email": "member.three@example.com",
-    "team": "ReactDojo",
+    "team": "2t",
     "teamHistory": ["ReactDojo", "AngularDojo", "BackboneDojo"],
     "role": "Front-End Developer",
     "skills": ["HTML5", "CSS3", "ES7", "ReactJS", "BackboneJS"]
