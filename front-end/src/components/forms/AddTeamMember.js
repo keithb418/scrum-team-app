@@ -20,14 +20,16 @@ export default class AddTeamMember extends React.Component {
   render() {
     return(
       <Form inline>
-        <FieldGroup id="name" type="text" label="Name" placeholder="Enter your name" required/>
-        <FieldGroup id="email" type="email" label="Email" placeholder="Enter your email" required/>
-        <FieldGroup id="teamLead" type="checkbox" label="Team Lead"/>
+        <FieldGroup id="name" type="text" value={this.state.name} label="Name" name="name" placeholder="Enter your name" onChange={this.onInputChange}/>
+
+        <FieldGroup id="email" type="email" value={this.state.email} label="Email" name="email" placeholder="Enter your email" onChange={this.onInputChange}/>
+
+        <FieldGroup id="teamLead" type="checkbox" checked={this.state.teamLead} label="Team Lead" name="teamLead" onChange={this.onInputChange}/>
 
         <Button type="submit" bsStyle="primary" onClick={this.submitForm}>Add Team Member</Button>
         <Button type="reset" bsStyle="danger">Reset</Button>
       </Form>
-    )
+    );
   }
 
   FieldGroup({id, label, ...props}) {
@@ -39,11 +41,13 @@ export default class AddTeamMember extends React.Component {
     );
   }
 
-  getInput() {
-    return document.getElementById(this.props.id).value;
-  }
+  onInputChange() {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
 
-  resetInput() {
-    document.getElementById(this.props.id).value = "";
+    this.setState({
+      [name]: value
+    });
   }
 }
