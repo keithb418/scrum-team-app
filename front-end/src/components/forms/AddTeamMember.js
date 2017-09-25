@@ -18,16 +18,19 @@ export default class AddTeamMember extends React.Component {
 
   render() {
     return(
-      <Form inline>
-        <FieldGroup id="name" type="text" value={this.state.name} label="Name" name="name" placeholder="Enter your name" onChange={this.onInputChange}/>
+      <div>
+        <h3>{this.state.title}</h3>
+        <Form inline>
+          <FieldGroup id="name" type="text" value={this.state.name} label="Name" name="name" placeholder="Enter your name" onChange={this.onInputChange}/>
 
-        <FieldGroup id="email" type="email" value={this.state.email} label="Email" name="email" placeholder="Enter your email" onChange={this.onInputChange}/>
+          <FieldGroup id="email" type="email" value={this.state.email} label="Email" name="email" placeholder="Enter your email" onChange={this.onInputChange}/>
 
-        <FieldGroup id="teamLead" type="checkbox" checked={this.state.teamLead} label="Team Lead" name="teamLead" onChange={this.onInputChange}/>
+          <FieldGroup id="teamLead" type="checkbox" checked={this.state.teamLead} label="Team Lead" name="teamLead" onChange={this.onInputChange}/>
 
-        <Button type="submit" bsStyle="primary" onClick={this.submitForm}>Add Team Member</Button>
-        <Button type="reset" bsStyle="danger">Reset</Button>
-      </Form>
+          <Button type="submit" bsStyle="primary" onClick={this.submitForm}>Add Team Member</Button>
+          <Button type="reset" bsStyle="danger">Reset</Button>
+        </Form>
+      </div>
     );
   }
 
