@@ -13,21 +13,18 @@ export default class AddTeamMember extends React.Component {
       title: "Add Team Member",
       name: "",
       email: "",
-      isTeamLead: false
+      teamLead: false
     }
   }
 
   render() {
-    let formTitle = this.state.title;
-    let teamMemberName = this.state.name;
-    let teamMemberEmail = this.state.email;
-    let isTeamLeadStatus = this.state.isTeamLead;
-
     return(
       <Form inline>
         <FieldGroup id="name" type="text" label="Name" placeholder="Enter your name" required/>
         <FieldGroup id="email" type="email" label="Email" placeholder="Enter your email" required/>
-        <Button type="submit" bsStyle="primary">Add Team Member</Button>
+        <FieldGroup id="teamLead" type="checkbox" label="Team Lead"/>
+
+        <Button type="submit" bsStyle="primary" onClick={this.submitForm}>Add Team Member</Button>
         <Button type="reset" bsStyle="danger">Reset</Button>
       </Form>
     )
