@@ -6,8 +6,7 @@ export default class AddTeamMember extends React.Component {
   constructor(props) {
     super(props);
 
-    this.getInput = this.getInput.bind(this);
-    this.resetInput = this.resetInput.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
 
     this.state = {
       title: "Add Team Member",
