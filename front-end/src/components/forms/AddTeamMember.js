@@ -24,19 +24,22 @@ export default class AddTeamMember extends React.Component {
     let isTeamLeadStatus = this.state.isTeamLead;
 
     return(
-      <div>
-        <FormGroup controlId={this.props.id}>
-          <ControlLabel>Name</ControlLabel>
-          <FormControl type="text" placeholder="Enter your full name"/>
-
-          <ControlLabel>Email</ControlLabel>
-          <FormControl type="email" placeholder="Enter your email"/>
-
-          <Button type="submit" bsStyle="primary">Add Team Member</Button>
-          <Button type="reset" bsStyle="danger">Reset</Button>
-        </FormGroup>
-      </div>
+      <Form inline>
+        <FieldGroup id="name" type="text" label="Name" placeholder="Enter your name" required/>
+        <FieldGroup id="email" type="email" label="Email" placeholder="Enter your email" required/>
+        <Button type="submit" bsStyle="primary">Add Team Member</Button>
+        <Button type="reset" bsStyle="danger">Reset</Button>
+      </Form>
     )
+  }
+
+  FieldGroup({id, label, ...props}) {
+    return(
+      <FormGroup controlId={id}>
+        <ControlLabel>{label}</ControlLabel>
+        <FormControl {...props}/>
+      </FormGroup>
+    );
   }
 
   getInput() {
