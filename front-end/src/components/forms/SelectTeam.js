@@ -7,7 +7,7 @@ const SelectTeam = ({ teams, onSelect }) => {
       <FormControl
       	componentClass="select"
       	placeholder="Select Team"
-      	onChange={this.props.onSelect} >
+      	onChange={onSelect} >
 
       {teams.map(team => {
       	<option value={team} key={team}>{team}</option>

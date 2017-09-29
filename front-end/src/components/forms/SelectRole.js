@@ -7,7 +7,7 @@ const SelectRole = ({ roles, onSelect }) => {
       <FormControl
         componentClass="select"
         placeholder="Select Role"
-        onChange={ this.props.onSelect }
+        onChange={ onSelect }
       >
 
       {roles.map(role => {
