@@ -2,7 +2,7 @@ import React from "react";
 import TeamMember from "./TeamMember";
 import TeamHeader from "./TeamHeader";
 
-const TeamColumn = ({ teamName = "" , project = "", teamMembers = [] }) => {
+const TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [] }) => {
 
   teamMembers.sort((a, b) => {
     if (b.teamLead) {
@@ -28,6 +28,7 @@ const TeamColumn = ({ teamName = "" , project = "", teamMembers = [] }) => {
   return (
     <div className="panel panel-default team-column">
       <TeamHeader 
+        id={id}
         teamName={teamName} 
         project={project} />
       <div className="panel-body team-body">

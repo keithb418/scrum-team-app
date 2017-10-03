@@ -6,7 +6,8 @@ const TeamColumns = ({ teams }) => {
   
   let teamColumns = teams.map((team) => 
     <TeamColumn
-      key={team._id} 
+      key={team._id}
+      id={team._id} 
       teamName={team.name} 
       project={team.project}
       teamMembers={team.teamMembers} />
