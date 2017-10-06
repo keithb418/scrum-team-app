@@ -40,6 +40,7 @@ export default class AddTeamMember extends React.Component {
             <FormGroup
               type="text"
               placeholder="Enter your name"
+              value={this.state.name}
             />
           </FormControl>
 
@@ -48,11 +49,14 @@ export default class AddTeamMember extends React.Component {
             <FormControl
               type="email"
               placeholder="Enter your email"
+              value={this.state.email}
             />
           </FormGroup>
 
-          <FormGroup controlId="isTeamLead">
-            <Checkbox inline>Team Lead</Checkbox>
+          <FormGroup controlId="teamLead">
+            <Checkbox 
+              value={this.state.teamLead}
+              inline>Team Lead</Checkbox>
           </FormGroup>
 
           <SelectTeam teams={teams} onSelect={() => {}} />
