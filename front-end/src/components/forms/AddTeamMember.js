@@ -65,15 +65,6 @@ export default class AddTeamMember extends React.Component {
     );
   }
 
-  FieldGroup({id, label, ...props}) {
-    return(
-      <FormGroup controlId={id}>
-        <ControlLabel>{label}</ControlLabel>
-        <FormControl {...props}/>
-      </FormGroup>
-    );
-  }
-
   onInputChange() {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
