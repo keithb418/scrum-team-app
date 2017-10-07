@@ -1,8 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import TeamMember from "./TeamMember";
 import TeamHeader from "./TeamHeader";
 
-const TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [] }) => {
+let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dispatch }) => {
 
   teamMembers.sort((a, b) => {
     if (b.teamLead) {
@@ -25,18 +26,33 @@ const TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [] })
       role={teamMember.role} />
   );
 
+  let allowDrop = (e) => {
+    e.preventDefault();
+  };
+
+  let drop = (e) => {
+    e.preventDefault();
+
+    dispatch({
+      type: "CHANGE_TEAM",
+      teamMemberId: e.dataTransfer.getData("tmId"),
+      team: id
+    });
+  };
+
   return (
-    <div className="panel panel-default team-column">
+    <div className="panel panel-default team-column" onDragOver={allowDrop} onDrop={drop}>
       <TeamHeader 
         id={id}
         teamName={teamName} 
         project={project} />
-      <div className="panel-body team-body">
+      <div className="panel-body team-body" onDrop={drop} onDragOver={allowDrop} >
         {teamMemberComponents}
       </div>
     </div>
   );
 };
 
+TeamColumn = connect()(TeamColumn);
 
 export default TeamColumn;

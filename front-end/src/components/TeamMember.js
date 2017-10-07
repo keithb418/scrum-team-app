@@ -2,13 +2,21 @@ import React from "react";
 import { Button, Row, Col } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 
-const TeamMember = ({ _id: id, name, teamLead, role }) => {
+const TeamMember = ({ id, name, teamLead, role }) => {
   let teamLeadText = teamLead ? <p>Team Lead</p> : "";
+  let dragStart = (e) => {
+    e.dataTransfer.setData("tmId", id);
+  };
+
+  let className = `team-member btn ${teamLead ? "btn-info" : "btn-default" }`;
 
   return (
-    <Button 
-      bsStyle={teamLead ? "info" : "default"} 
-      className="team-member">
+    <button 
+      className={className}
+      draggable="true"
+      onDragStart={(e) => {
+        e.dataTransfer.setData("tmId", id);
+      }}>
       <Row>
         <Col 
           xs={4} 
@@ -24,7 +32,7 @@ const TeamMember = ({ _id: id, name, teamLead, role }) => {
           <FontAwesome name="edit" />
         </Col>
       </Row>
-    </Button>
+    </button>
   );
 };
 

@@ -5,7 +5,7 @@ const mapStateToProps = (state, ownProps) => {
   let teams = [...state.teams];
   let teamMembers = [...state.teamMembers];
 
-  teamMembers.forEach((teamMember) => {
+  teamMembers.map((teamMember) => {
     let team = teams.find((team) => team._id === teamMember.team);
 
     if (team) {

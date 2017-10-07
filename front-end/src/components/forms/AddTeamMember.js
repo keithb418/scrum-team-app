@@ -1,12 +1,12 @@
 import React from "react";
-import {Form, FormGroup, FormControl, ControlLabel, Button} from "react-bootstrap";
+import { Form, FormGroup, FormControl, ControlLabel, Button, Checkbox } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 
 import SelectRole from "./SelectRole";
 import SelectTeam from "./SelectTeam";
 
 export default class AddTeamMember extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
 
     this.onInputChange = this.onInputChange.bind(this);
@@ -16,10 +16,10 @@ export default class AddTeamMember extends React.Component {
       name: "",
       email: "",
       teamLead: false
-    }
+    };
   }
 
-  render() {
+  render () {
     let teams = [
       "ReactDojo",
       "AngularDojo",
@@ -36,13 +36,13 @@ export default class AddTeamMember extends React.Component {
         <h3>{this.state.title}</h3>
         <Form inline>
           <ControlLabel>Name</ControlLabel>
-          <FormControl controlId="name">
-            <FormGroup
+          <FormGroup controlId="name">
+            <FormControl
               type="text"
               placeholder="Enter your name"
               value={this.state.name}
             />
-          </FormControl>
+          </FormGroup>
 
           <ControlLabel>Email</ControlLabel>
           <FormGroup controlId="email">
@@ -69,9 +69,9 @@ export default class AddTeamMember extends React.Component {
     );
   }
 
-  onInputChange() {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+  onInputChange (e) {
+    const target = e.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
     this.setState({
