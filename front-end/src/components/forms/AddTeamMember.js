@@ -1,5 +1,5 @@
 import React from "react";
-import {Form, FormGroup, FormControl, ControlLabel, Button} from "react-bootstrap";
+import {Form, FormGroup, FormControl, ControlLabel, Button, Checkbox} from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 
 import SelectRole from "./SelectRole";
