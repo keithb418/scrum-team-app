@@ -3,6 +3,12 @@ import TeamColumnsContainer from "../containers/TeamColumnsContainer";
 import AddTeamMember from "./forms/AddTeamMember";
 
 const Router = ({ route }) => {
+	let currentPath = window.location.pathname.replace(/\//g, "");
+
+	if (currentPath != route) {
+		history.pushState(null, "", route);
+	}
+  	
   switch (route) {
   	case "":
 			return (
@@ -36,7 +42,7 @@ const Router = ({ route }) => {
 			// TO DO: create 404 page component
 		);
 	}
-	
+
 };
 
 export default Router;
