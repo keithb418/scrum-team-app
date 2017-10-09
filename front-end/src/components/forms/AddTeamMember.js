@@ -39,8 +39,10 @@ export default class AddTeamMember extends React.Component {
           <FormControl controlId="name">
             <FormGroup
               type="text"
+              name="name"
               placeholder="Enter your name"
               value={this.state.name}
+              onChange={this.onInputChange}
             />
           </FormControl>
 
@@ -48,15 +50,20 @@ export default class AddTeamMember extends React.Component {
           <FormGroup controlId="email">
             <FormControl
               type="email"
+              name="email"
               placeholder="Enter your email"
               value={this.state.email}
+              onChange={this.onInputChange}
             />
           </FormGroup>
 
           <FormGroup controlId="teamLead">
-            <Checkbox 
+            <Checkbox
+              name="teamLead"
               value={this.state.teamLead}
-              inline>Team Lead</Checkbox>
+              onChange={this.onInputChange}
+              inline>Team Lead
+            </Checkbox>
           </FormGroup>
 
           <SelectTeam teams={teams} onSelect={() => {}} />
