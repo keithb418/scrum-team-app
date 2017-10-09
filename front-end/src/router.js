@@ -2,45 +2,56 @@ import React from "react";
 import TeamColumnsContainer from "../containers/TeamColumnsContainer";
 import AddTeamMember from "./forms/AddTeamMember";
 
-const Router = ({ route }) => {
-	let currentPath = window.location.pathname.replace(/\//g, "");
+class Router extends React.Component {
 
-	if (currentPath != route) {
-		history.pushState(null, "", route);
+	componentDidMount() {
+		window.onpopstate = () => {
+			this.props.dispatch({
+	            type: "CHANGE_ROUTE",
+	            route: window.location.pathname.replace(/\//g, "")
+	        });
+		};
 	}
-  	
-  switch (route) {
-  	case "":
+
+	render() {
+		let currentPath = window.location.pathname.replace(/\//g, "");
+
+		if (currentPath != this.props.route) {
+			history.pushState(null, "", this.props.route);
+		}
+	  	
+	  	switch (this.props.route) {
+		  	case "":
+				return (
+					<TeamColumnsContainer />
+				);
+		  	case "add-team-member":
+				return (
+					<AddTeamMember />
+				);
+		  	case "add-team":
+				return (
+					// TO DO: create AddTeam component
+				);
+		}
+
+		if (this.props.route.indexOf("edit-team-member-") > -1) {
 			return (
-				<TeamColumnsContainer />
-				<AddTeamMember />
+				// TO DO: create edit team member component
 			);
-  	case "add-team-member":
+		}
+
+		else if (this.props.route.indexOf("edit-team-") > -1) {
 			return (
-				<AddTeamMember />
+				// TO DO: create edit team component
 			);
-  	case "add-team":
+		}
+
+		else {
 			return (
-				// TO DO: create AddTeam component
+				// TO DO: create 404 page component
 			);
-	}
-
-	if (route.indexOf("edit-team-member-") > -1) {
-		return (
-			// TO DO: create edit team member component
-		);
-	}
-
-	else if (route.indexOf("edit-team-") > -1) {
-		return (
-			// TO DO: create edit team component
-		);
-	}
-
-	else {
-		return (
-			// TO DO: create 404 page component
-		);
+		}
 	}
 
 };
