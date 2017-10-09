@@ -1,8 +1,11 @@
 import React from "react";
-import TeamColumnsContainer from "../containers/TeamColumnsContainer";
-import AddTeamMember from "./forms/AddTeamMember";
+import TeamColumnsContainer from "./containers/TeamColumnsContainer";
+import AddTeamMember from "./components/forms/AddTeamMember";
 
 class Router extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
 	componentDidMount() {
 		window.onpopstate = () => {
@@ -30,27 +33,27 @@ class Router extends React.Component {
 					<AddTeamMember />
 				);
 		  	case "add-team":
-				return (
+				return;
 					// TO DO: create AddTeam component
-				);
+				
 		}
-
+		// TO DO: fix error: this.props.route is null
 		if (this.props.route.indexOf("edit-team-member-") > -1) {
-			return (
+			return;
 				// TO DO: create edit team member component
-			);
+			
 		}
 
 		else if (this.props.route.indexOf("edit-team-") > -1) {
-			return (
+			return;
 				// TO DO: create edit team component
-			);
+			
 		}
 
 		else {
-			return (
+			return;
 				// TO DO: create 404 page component
-			);
+			
 		}
 	}
 

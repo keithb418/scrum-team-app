@@ -12,7 +12,7 @@ import teamMembers from "./mocked-members.json";
 const store = createStore(reducer, {
   teams,
   teamMembers,
-  route: window.location.pathname.replace(/\//g, "");
+  route: window.location.pathname.replace(/\//g, "")
 });
 
 render(
