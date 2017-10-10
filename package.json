@@ -28,10 +28,14 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-jest": "^21.2.0",
     "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "jest": "^21.2.1",
     "node-sass": "^4.5.3",
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.1.1",
+    "react-test-renderer": "^16.0.0",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-hot-middleware": "^2.19.1"
   },
@@ -39,7 +43,8 @@
     "start": "nodemon server.js --exec babel-node",
     "build": "rm -rf dist && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "build-css": "node-sass ./src/scss --include-path ./src/scss --include-path ./node_modules src/ -o ./public/css",
-    "watch-css": "npm run build-css && node-sass ./src/scss --include-path ./src/scss --include-path ./node_modules src/ -o ./public/css --watch --recursive"
+    "watch-css": "npm run build-css && node-sass ./src/scss --include-path ./src/scss --include-path ./node_modules src/ -o ./public/css --watch --recursive",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
