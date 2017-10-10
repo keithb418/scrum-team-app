@@ -2,6 +2,11 @@
   "name": "scrum-team-app",
   "version": "1.0.0",
   "description": "Scrum Team App",
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "coverageFormats": ["json", "html"]
+  },
   "dependencies": {
     "babel-loader": "^7.1.2",
     "babel-preset-react": "^6.24.1",
