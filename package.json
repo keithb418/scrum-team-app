@@ -4,8 +4,7 @@
   "description": "Scrum Team App",
   "jest": {
     "verbose": true,
-    "collectCoverage": true,
-    "coverageFormats": ["json", "html"]
+    "collectCoverage": true
   },
   "dependencies": {
     "babel-loader": "^7.1.2",
