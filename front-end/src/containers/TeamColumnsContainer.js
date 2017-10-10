@@ -2,8 +2,8 @@ import { connect } from "react-redux";
 import TeamColumns from "../components/TeamColumns";
 
 const mapStateToProps = (state, ownProps) => {
-  let teams = [...state.teams];
-  let teamMembers = [...state.teamMembers];
+  let teams = state.teams.map(item => ( { ...item } ));
+  let teamMembers = state.teamMembers.map(item => ( { ...item } ));
 
   teamMembers.map((teamMember) => {
     let team = teams.find((team) => team._id === teamMember.team);
