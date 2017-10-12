@@ -31,6 +31,8 @@ export default class AddTeamMember extends React.Component {
       "Back-End Developer"
     ];
 
+    let teamMemberId = 100;
+
     return(
       <div>
         <h3>{this.state.title}</h3>
@@ -69,7 +71,20 @@ export default class AddTeamMember extends React.Component {
           <SelectTeam teams={teams} onSelect={() => {}} />
           <SelectRole roles={roles} onSelect={() => {}} />
 
-          <Button type="submit" bsStyle="primary" onClick={this.submitForm}>Add Team Member</Button>
+          <Button type="submit" bsStyle="primary" onClick={() => dispatch({
+            type: "ADD_TEAM_MEMBER",
+            teamMember: {
+              "_id": `${teamMemberId++}teamMember`,
+              "name": this.state.name,
+              "email": this.state.email,
+              "team": "",
+              "teamHistory": ["ReactDojo", "AngularDojo"],
+              "role": "Front-End Developer",
+              "skills": ["React", "Redux", "Angular"]
+            }
+          })}>
+            Add Team Member
+          </Button>
           <Button type="reset" bsStyle="danger">Reset</Button>
         </Form>
       </div>
