@@ -10,6 +10,7 @@ export default class AddTeam extends React.Component {
       team: "",
       title: "Add a New Team"
     };
+    this.onInputChange = this.onInputChange.bind(this);
   }
 
   render() {
@@ -20,6 +21,7 @@ export default class AddTeam extends React.Component {
           <FormControl
             type="text"
             placeholder="Enter team name"
+            onChange={this.onInputChange}
           />
         </FormGroup>
         <Button onClick={() => dispatch({
@@ -31,6 +33,16 @@ export default class AddTeam extends React.Component {
         </Button>
       </div>
     );
+  };
+
+  onInputChange() {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
   }
 };
 
