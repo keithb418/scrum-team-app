@@ -26,8 +26,10 @@ export default class AddTeam extends React.Component {
         </FormGroup>
         <Button onClick={() => dispatch({
           type: "ADD_TEAM",
-          "_id": `${teamId++}team`,
-          "team": this.state.team
+          team: {
+            "_id": `${teamId++}team`,
+            "team": this.state.team
+          }
         })}>
           Add Team
         </Button>
