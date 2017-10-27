@@ -5,3 +5,6 @@ build
 .vscode
 package-lock.json
 data
+
+# testing
+/coverage
