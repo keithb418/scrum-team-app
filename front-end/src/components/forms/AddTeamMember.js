@@ -36,7 +36,7 @@ export default class AddTeamMember extends React.Component {
     return(
       <div>
         <h3>{this.state.title}</h3>
-        <Form inline>
+        <Form>
           <ControlLabel>Name</ControlLabel>
           <FormGroup controlId="name">
             <FormControl
