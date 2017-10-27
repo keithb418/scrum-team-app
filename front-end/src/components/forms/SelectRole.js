@@ -1,5 +1,5 @@
-import React from 'React';
-import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import React from "react";
+import { FormGroup, ControlLabel, FormControl } from "react-bootstrap";
 
 const SelectRole = ({ roles, onSelect }) => {
   return (
@@ -11,7 +11,7 @@ const SelectRole = ({ roles, onSelect }) => {
       >
 
       {roles.map(role => {
-        <option value={role} key={role}>{role}</option>
+        <option value={role} key={role}>{role}</option>;
       })}
       
       </FormControl>

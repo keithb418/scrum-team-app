@@ -34,6 +34,10 @@ The SCSS compiler is set up in such a way that you don't have to use relative pa
 @import 'package-name/file-name' //For a stylesheet from a node module
 ```
 
+## Test
+
+Run `npm test` to run tests with Jest
+
 ## Acknowledgements
 
 The setup and commands for the Back End come from https://github.com/babel/example-node-server

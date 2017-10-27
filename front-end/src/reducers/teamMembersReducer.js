@@ -5,6 +5,15 @@ const teamMembers = (state = [], action) => {
           ...state,
           action.teamMember
         ];
+      case "CHANGE_TEAM":
+        let newState = [...state];
+        let teamMember = newState.find((item) => {
+          return item._id === action.teamMemberId;
+        });
+
+        teamMember.team = action.team;
+
+        return newState;
       default:
         return state;
     }
