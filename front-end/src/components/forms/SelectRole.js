@@ -1,7 +1,7 @@
 import React from "react";
 import { FormGroup, ControlLabel, FormControl } from "react-bootstrap";
 
-const SelectRole = ({ roles, onSelect }) => {
+const SelectRole = ({ roles = [], onSelect }) => {
   return (
     <FormGroup controlId="formControlSelect">
       <FormControl
@@ -13,7 +13,7 @@ const SelectRole = ({ roles, onSelect }) => {
       {roles.map(role => {
         <option value={role} key={role}>{role}</option>;
       })}
-      
+
       </FormControl>
     </FormGroup>
   );

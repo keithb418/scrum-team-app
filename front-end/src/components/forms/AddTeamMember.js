@@ -1,11 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import { Form, FormGroup, FormControl, ControlLabel, Button, Checkbox } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 
 import SelectRole from "./SelectRole";
 import SelectTeam from "./SelectTeam";
 
-export default class AddTeamMember extends React.Component {
+class AddTeamMember extends React.Component {
   constructor (props) {
     super(props);
 
@@ -68,8 +70,8 @@ export default class AddTeamMember extends React.Component {
             </Checkbox>
           </FormGroup>
 
-          <SelectTeam teams={teams} onSelect={() => {}} />
-          <SelectRole roles={roles} onSelect={() => {}} />
+          <SelectTeam teams={this.props.teams} onSelect={() => {}} />
+          <SelectRole roles={this.props.roles} onSelect={() => {}} />
 
           <Button type="submit" bsStyle="primary" onClick={() => dispatch({
             type: "ADD_TEAM_MEMBER",
@@ -101,3 +103,12 @@ export default class AddTeamMember extends React.Component {
     });
   }
 }
+
+AddTeamMember = connect((state, ownProps) => {
+  return {
+    teams: state.teams,
+    roles: state.roles
+  };
+})(AddTeamMember);
+
+export default AddTeamMember;

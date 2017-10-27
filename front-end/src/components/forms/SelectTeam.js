@@ -1,7 +1,7 @@
 import React from "react";
 import {FormGroup, ControlLabel, FormControl} from "react-bootstrap";
 
-const SelectTeam = ({ teams, onSelect }) => {
+const SelectTeam = ({ teams = [], onSelect }) => {
   return (
     <FormGroup controlId="formControlsSelect">
       <FormControl
@@ -10,9 +10,9 @@ const SelectTeam = ({ teams, onSelect }) => {
       	onChange={onSelect} >
 
       {teams.map(team => {
-      	<option value={team} key={team}>{team}</option>
+      	<option value={team._id} key={team._id}>{team.name}</option>
       })}
-      
+
       </FormControl>
     </FormGroup>
   );
