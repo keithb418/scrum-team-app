@@ -1,9 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-
 import { Form, FormGroup, FormControl, ControlLabel, Button, Checkbox } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
-
 import SelectRole from "./SelectRole";
 import SelectTeam from "./SelectTeam";
 

@@ -11,7 +11,8 @@ import teamMembers from "./mocked-members.json";
 
 const store = createStore(reducer, {
   teams,
-  teamMembers
+  teamMembers,
+  route: window.location.pathname.replace(/\//g, "")
 });
 
 render(

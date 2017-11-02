@@ -1,13 +1,11 @@
 import React from "react";
-import TeamColumnsContainer from "../containers/TeamColumnsContainer";
-import AddTeamMember from "./forms/AddTeamMember";
+import RouterContainer from "../containers/RouterContainer";
 import Header from "./Header";
 
 const App = () => (
   <div>
     <Header />
-    <TeamColumnsContainer />
-    <AddTeamMember />
+    <RouterContainer />
   </div>
 );
 

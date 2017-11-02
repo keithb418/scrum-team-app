@@ -8,7 +8,8 @@ let teamMemberId = 100;
 let TeamHeader = ({ id, teamName, projectName, dispatch }) => {
   return (
     <div className="team-header panel-heading">
-        <Button className="col-xs-2" onClick={() => dispatch({
+        <Button className="col-xs-2" onClick={() => {
+          dispatch({
             type: "ADD_TEAM_MEMBER",
             teamMember: {
               "_id": `${teamMemberId++}tm`,
@@ -19,7 +20,14 @@ let TeamHeader = ({ id, teamName, projectName, dispatch }) => {
               "role": "Front-End Developer",
               "skills": ["React", "Redux", "Angular"]
             }
-          })}>
+          });
+
+          dispatch({
+            type: "CHANGE_ROUTE",
+            route: "add-team-member"
+          });
+
+      }}>
           <FontAwesome name="user-plus" />
         </Button>
         <h2 className="col-xs-10 panel-title">{teamName} { projectName ? `/ ${projectName}`: "" }</h2>
