@@ -1,8 +1,13 @@
-import React from 'react';
+import React from "react";
+import TeamColumnsContainer from "../containers/TeamColumnsContainer";
+import AddTeamMember from "./forms/AddTeamMember";
+import Header from "./Header";
 
 const App = () => (
   <div>
-    <h1 className="title">Hello World!  I will be the Scrum Team app!</h1>
+    <Header />
+    <TeamColumnsContainer />
+    <AddTeamMember />
   </div>
 );
 

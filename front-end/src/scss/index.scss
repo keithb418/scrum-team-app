@@ -1,4 +1,7 @@
-.title {
-    color: blue;
-    font-size: 32px;
-}
+
+@import "common/main.scss";
+@import "common/mixins";
+@import "common/variables";
+
+@import "components/team-columns";
+@import "components/team-member";

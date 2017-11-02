@@ -49,11 +49,6 @@ module.exports = {
       },
     },
     {
-      test: /\.json?$/,
-      exclude: /node_modules/,
-      loader: 'json'
-    },
-    {
       test: /\.scss$/,
       exclude: /node_modules/,
       loader: ExtractTextPlugin.extract({
