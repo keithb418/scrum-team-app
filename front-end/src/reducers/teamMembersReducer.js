@@ -1,3 +1,5 @@
+import { ADD_TEAM_MEMBER, CHANGE_TEAM } from "../actionTypes"
+
 const teamMembers = (state = [], action) => {
     switch (action.type) {
       case "ADD_TEAM_MEMBER":

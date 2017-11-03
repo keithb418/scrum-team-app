@@ -1,3 +1,5 @@
+import { ADD_TEAM } from "../actionTypes"
+
 const teams = (state = [], action) => {
     switch (action.type) {
       case "ADD_TEAM":
