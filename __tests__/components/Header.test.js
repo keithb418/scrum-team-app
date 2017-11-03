@@ -8,7 +8,7 @@ import { shallow } from "enzyme";
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("Header component", () => {
-  it("should have h1 tag with Scrum Team", () => {
+  it("should have h1 tag with Scrum Team text", () => {
     const wrapper = shallow(
       <Header />
     );
