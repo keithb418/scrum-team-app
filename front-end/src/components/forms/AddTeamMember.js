@@ -34,8 +34,8 @@ class AddTeamMember extends React.Component {
     let teamMemberId = 100;
 
     return(
-      <div class="row">
-        <div class="col-md-8">
+      <div className="row">
+        <div className="col-md-8">
           <h3>{this.state.title}</h3>
           <Form>
             <ControlLabel>Name</ControlLabel>
@@ -72,7 +72,7 @@ class AddTeamMember extends React.Component {
             <SelectTeam teams={this.props.teams} onSelect={() => {}} />
             <SelectRole roles={this.props.roles} onSelect={() => {}} />
 
-            <Button type="submit" bsStyle="primary" onClick={() => dispatch({
+            <Button type="submit" bsStyle="primary" onClick={() => this.props.dispatch({
               type: "ADD_TEAM_MEMBER",
               teamMember: {
                 "_id": `${teamMemberId++}teamMember`,
