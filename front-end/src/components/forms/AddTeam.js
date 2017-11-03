@@ -1,9 +1,10 @@
 import React from "react";
-import {FormGroup, ControlLabel, FormControl, Button} from "react-bootstrap";
+import { connect } from "react-redux";
+import { FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
 
 let teamId = 200;
 
-export default class AddTeam extends React.Component {
+class AddTeam extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,22 +18,23 @@ export default class AddTeam extends React.Component {
     return (
       <div>
         <h3>{this.state.title}</h3>
-        <FormGroup controlId="team">
-          <FormControl
-            type="text"
-            placeholder="Enter team name"
-            onChange={this.onInputChange}
-          />
-        </FormGroup>
-        <Button onClick={() => dispatch({
-          type: "ADD_TEAM",
-          team: {
-            "_id": `${teamId++}team`,
-            "team": this.state.team
-          }
-        })}>
-          Add Team
-        </Button>
+        <Form>
+          <FormGroup controlId="team">
+            <FormControl
+              type="text"
+              placeholder="Enter team name"
+              onChange={this.onInputChange}
+            />
+          </FormGroup>
+          <Button onClick={() => dispatch({
+            type: "ADD_TEAM",
+            team: {
+              "_id": `${teamId++}team`,
+              "team": this.state.team
+            }
+          })}>Add Team
+          </Button>
+        </Form>
       </div>
     );
   };
@@ -47,6 +49,12 @@ export default class AddTeam extends React.Component {
     });
   }
 };
+
+AddTeam = connect((state, ownProps) => {
+  return {
+    name: state.name
+  }
+})(AddTeam);
 
 
 export default AddTeam;
