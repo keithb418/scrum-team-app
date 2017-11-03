@@ -100,7 +100,7 @@ class AddTeamMember extends React.Component {
       [name]: value
     });
   }
-}
+};
 
 AddTeamMember = connect((state, ownProps) => {
   return {

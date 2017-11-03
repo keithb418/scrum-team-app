@@ -1,9 +1,10 @@
 import React from "react";
-import {FormGroup, ControlLabel, FormControl, Button} from "react-bootstrap";
+import { connect } from "react-redux";
+import { FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
 
 let teamId = 200;
 
-export default class AddTeam extends React.Component {
+class AddTeam extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,6 +48,12 @@ export default class AddTeam extends React.Component {
     });
   }
 };
+
+AddTeam = connect((state, ownProps) => {
+  return {
+    name: state.name
+  }
+})(AddTeam);
 
 
 export default AddTeam;
