@@ -7,3 +7,4 @@ export const CHANGE_TEAM = "CHANGE_TEAM"
 
 // team
 export const ADD_TEAM = "ADD_TEAM"
+export const UPDATE_TEAMS = "UPDATE_TEAMS"

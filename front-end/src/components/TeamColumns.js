@@ -3,7 +3,6 @@ import TeamColumn from "./TeamColumn";
 import AddTeamColumn from "./AddTeamColumn";
 
 const TeamColumns = ({ teams }) => {
-  
   let teamColumns = teams.map((team) => 
     <TeamColumn
       key={team._id}

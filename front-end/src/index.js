@@ -6,12 +6,12 @@ import App from "./components/App";
 import reducer from "./reducers";
 import style from "./scss/index.scss";
 
-import teams from "./mocked-teams.json";
-import teamMembers from "./mocked-members.json";
+// import teams from "./mocked-teams.json";
+// import teamMembers from "./mocked-members.json";
 
 const store = createStore(reducer, {
-  teams,
-  teamMembers,
+  teams: [],
+  teamMembers: [],
   route: window.location.pathname.replace(/\//g, "")
 });
 

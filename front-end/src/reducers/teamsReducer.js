@@ -1,4 +1,4 @@
-import { ADD_TEAM } from "../actionTypes"
+import { ADD_TEAM, UPDATE_TEAMS } from "../actionTypes"
 
 const teams = (state = [], action) => {
     switch (action.type) {
@@ -6,6 +6,11 @@ const teams = (state = [], action) => {
         return [
           ...state,
           action.team
+        ];
+      case UPDATE_TEAMS:
+        return [
+          ...state,
+          teams: action.teams
         ];
       default:
         return state;
