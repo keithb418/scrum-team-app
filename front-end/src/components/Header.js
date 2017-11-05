@@ -7,7 +7,7 @@ const Header = () => {
       <Row>
         <Col xs={12}>
           <div className="page-header">
-            <h1>Scrum Team</h1>
+            <h1>Scrum Team App</h1>
           </div>
         </Col>
       </Row>

@@ -11,7 +11,7 @@ const SelectRole = ({ roles = [], onSelect }) => {
       >
 
       {roles.map(role => {
-        <option value={role} key={role}>{role}</option>;
+        return <option value={role} key={role}>{role}</option>;
       })}
 
       </FormControl>

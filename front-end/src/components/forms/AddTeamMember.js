@@ -20,11 +20,6 @@ class AddTeamMember extends React.Component {
   }
 
   render () {
-    let teams = [
-      "ReactDojo",
-      "AngularDojo",
-      "BackboneDojo"
-    ];
 
     let roles = [
       "Front-End Developer",
@@ -32,7 +27,7 @@ class AddTeamMember extends React.Component {
     ];
 
     let teamMemberId = 100;
-
+    
     return(
       <div className="row">
         <div className="col-md-8">
@@ -70,7 +65,7 @@ class AddTeamMember extends React.Component {
             </FormGroup>
 
             <SelectTeam teams={this.props.teams} onSelect={() => {}} />
-            <SelectRole roles={this.props.roles} onSelect={() => {}} />
+            <SelectRole roles={roles} onSelect={() => {}} />
 
             <Button type="submit" bsStyle="primary" onClick={() => this.props.dispatch({
               type: "ADD_TEAM_MEMBER",
@@ -104,7 +99,7 @@ class AddTeamMember extends React.Component {
   }
 };
 
-AddTeamMember = connect((state, ownProps) => {
+AddTeamMember = connect(state => {
   return {
     teams: state.teams,
     roles: state.roles

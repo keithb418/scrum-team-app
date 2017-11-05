@@ -10,7 +10,7 @@ const SelectTeam = ({ teams = [], onSelect }) => {
       	onChange={onSelect} >
 
       {teams.map(team => {
-      	<option value={team._id} key={team._id}>{team.name}</option>
+      	return <option value={team._id} key={team._id}>{team.name}</option>
       })}
 
       </FormControl>
