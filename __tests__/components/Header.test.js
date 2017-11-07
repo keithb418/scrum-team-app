@@ -7,14 +7,16 @@ import { shallow } from "enzyme";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("Header component", () => {
+describe("header component", () => {
   const wrapper = shallow(
     <Header />
   );
+
   it("should render a header tag", () => {
     const header = wrapper.find('header');
     expect(header.length).toEqual(1);
   });
+
   it("should have h1 tag with Scrum Team text", () => {
     expect(wrapper.contains(<h1>Scrum Team</h1>)).toBe(true);
   });
