@@ -6,15 +6,15 @@
   "extends": ["react-app", "plugin:jsx-a11y/recommended"],
   "plugins": ["jsx-a11y"],
   "rules": {
-    "no-console": ["error", {allow: ["warn", "error"]}],
+    "no-console": ["error", {"allow": ["warn", "error"]}],
     "strict": ["error", "global"],
     "curly": "warn",
     "quotes": ["error", "double"],
     "space-before-function-paren": ["error", "always"],
-    "space-blocks-blocks": "error",
+    "space-before-blocks": "error",
     "arrow-spacing": "error",
     "spaced-comment": ["error", "always"],
-    "semi": ["error", "never"],
+    "semi": ["error", "always"],
     "object-curly-spacing": ["error", "always"]
   }
 }

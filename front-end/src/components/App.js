@@ -1,8 +1,11 @@
-import React from 'react';
+import React from "react";
+import RouterContainer from "../containers/RouterContainer";
+import Header from "./Header";
 
 const App = () => (
   <div>
-    <h1 className="title">Hello World!  I will be the Scrum Team app!</h1>
+    <Header />
+    <RouterContainer />
   </div>
 );
 
