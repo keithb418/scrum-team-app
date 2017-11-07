@@ -34,59 +34,61 @@ class AddTeamMember extends React.Component {
     let teamMemberId = 100;
 
     return(
-      <div>
-        <h3>{this.state.title}</h3>
-        <Form>
-          <ControlLabel>Name</ControlLabel>
-          <FormGroup controlId="name">
-            <FormControl
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-              value={this.state.name}
-              onChange={this.onInputChange}
-            />
-          </FormGroup>
+      <div className="row">
+        <div className="col-md-8">
+          <h3>{this.state.title}</h3>
+          <Form>
+            <ControlLabel>Name</ControlLabel>
+            <FormGroup controlId="name">
+              <FormControl
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                value={this.state.name}
+                onChange={this.onInputChange}
+              />
+            </FormGroup>
 
-          <ControlLabel>Email</ControlLabel>
-          <FormGroup controlId="email">
-            <FormControl
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              value={this.state.email}
-              onChange={this.onInputChange}
-            />
-          </FormGroup>
+            <ControlLabel>Email</ControlLabel>
+            <FormGroup controlId="email">
+              <FormControl
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                value={this.state.email}
+                onChange={this.onInputChange}
+              />
+            </FormGroup>
 
-          <FormGroup controlId="teamLead">
-            <Checkbox
-              name="teamLead"
-              value={this.state.teamLead}
-              onChange={this.onInputChange}
-              inline>Team Lead
-            </Checkbox>
-          </FormGroup>
+            <FormGroup controlId="teamLead">
+              <Checkbox
+                name="teamLead"
+                value={this.state.teamLead}
+                onChange={this.onInputChange}
+                inline>Team Lead
+              </Checkbox>
+            </FormGroup>
 
-          <SelectTeam teams={this.props.teams} onSelect={() => {}} />
-          <SelectRole roles={this.props.roles} onSelect={() => {}} />
+            <SelectTeam teams={this.props.teams} onSelect={() => {}} />
+            <SelectRole roles={this.props.roles} onSelect={() => {}} />
 
-          <Button type="submit" bsStyle="primary" onClick={() => dispatch({
-            type: "ADD_TEAM_MEMBER",
-            teamMember: {
-              "_id": `${teamMemberId++}teamMember`,
-              "name": this.state.name,
-              "email": this.state.email,
-              "team": "",
-              "teamHistory": ["ReactDojo", "AngularDojo"],
-              "role": "Front-End Developer",
-              "skills": ["React", "Redux", "Angular"]
-            }
-          })}>
-            Add Team Member
-          </Button>
-          <Button type="reset" bsStyle="danger">Reset</Button>
-        </Form>
+            <Button type="submit" bsStyle="primary" onClick={() => this.props.dispatch({
+              type: "ADD_TEAM_MEMBER",
+              teamMember: {
+                "_id": `${teamMemberId++}teamMember`,
+                "name": this.state.name,
+                "email": this.state.email,
+                "team": "",
+                "teamHistory": ["ReactDojo", "AngularDojo"],
+                "role": "Front-End Developer",
+                "skills": ["React", "Redux", "Angular"]
+              }
+            })}>
+              Add Team Member
+            </Button>
+            <Button type="reset" bsStyle="danger">Reset</Button>
+          </Form>
+        </div>
       </div>
     );
   }
@@ -100,7 +102,7 @@ class AddTeamMember extends React.Component {
       [name]: value
     });
   }
-}
+};
 
 AddTeamMember = connect((state, ownProps) => {
   return {
