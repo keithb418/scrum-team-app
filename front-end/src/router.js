@@ -3,11 +3,11 @@ import TeamColumnsContainer from "./containers/TeamColumnsContainer";
 import AddTeamMember from "./components/forms/AddTeamMember";
 
 class Router extends React.Component {
-	constructor(props) {
+	constructor (props) {
 		super(props);
 	}
 
-	componentDidMount() {
+	componentDidMount () {
 		window.onpopstate = () => {
 			this.props.dispatch({
 	            type: "CHANGE_ROUTE",
@@ -16,7 +16,7 @@ class Router extends React.Component {
 		};
 	}
 
-	render() {
+	render () {
 		let currentPath = window.location.pathname.replace(/\//g, "");
 
 		if (currentPath != this.props.route) {

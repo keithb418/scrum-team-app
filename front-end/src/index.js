@@ -8,11 +8,13 @@ import style from "./scss/index.scss";
 
 import teams from "./mocked-teams.json";
 import teamMembers from "./mocked-members.json";
+import roles from "./mocked-roles.json";
 
 const store = createStore(reducer, {
   teams,
   teamMembers,
-  route: window.location.pathname.replace(/\//g, "")
+  route: window.location.pathname.replace(/\//g, ""),
+  roles
 });
 
 render(

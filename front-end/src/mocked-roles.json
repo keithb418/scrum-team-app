@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "1r",
+    "name": "Front-End Developer"
+  },
+  {
+    "_id": "2r",
+    "name": "Back-End Developer"
+  },
+  {
+    "_id": "3r",
+    "name": "Full-Stack Developer"
+  },
+  {
+    "_id": "4r",
+    "name": "Manual Tester"
+  },
+  {
+    "_id": "5r",
+    "name": "Automation Tester"
+  }
+]
