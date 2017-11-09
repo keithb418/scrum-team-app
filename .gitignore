@@ -6,5 +6,11 @@ build
 package-lock.json
 data
 
+*.swp
+*.log
+npm-debug.log*
+.eslintcache
+.npm
+
 # testing
 /coverage
