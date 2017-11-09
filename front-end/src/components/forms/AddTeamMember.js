@@ -20,18 +20,7 @@ class AddTeamMember extends React.Component {
   }
 
   render () {
-    let teams = [
-      "ReactDojo",
-      "AngularDojo",
-      "BackboneDojo"
-    ];
-
-    let roles = [
-      "Front-End Developer",
-      "Back-End Developer"
-    ];
-
-    let teamMemberId = 100;
+   let teamMemberId = 100;
 
     return(
       <div className="row">
@@ -69,21 +58,32 @@ class AddTeamMember extends React.Component {
               </Checkbox>
             </FormGroup>
 
-            <SelectTeam teams={this.props.teams} onSelect={() => {}} />
-            <SelectRole roles={this.props.roles} onSelect={() => {}} />
+            <SelectTeam teams={this.props.teams} onSelect={(e) => {
+              this.onInputChange(e);
+            }} />
+            <SelectRole roles={this.props.roles} onSelect={(e) => {
+              this.onInputChange(e);
+            }} />
 
-            <Button type="submit" bsStyle="primary" onClick={() => this.props.dispatch({
-              type: "ADD_TEAM_MEMBER",
-              teamMember: {
-                "_id": `${teamMemberId++}teamMember`,
-                "name": this.state.name,
-                "email": this.state.email,
-                "team": "",
-                "teamHistory": ["ReactDojo", "AngularDojo"],
-                "role": "Front-End Developer",
-                "skills": ["React", "Redux", "Angular"]
-              }
-            })}>
+            <Button type="submit" bsStyle="primary" onClick={() => {
+              this.props.dispatch({
+                type: "ADD_TEAM_MEMBER",
+                teamMember: {
+                  "_id": `${teamMemberId++}teamMember`,
+                  "name": this.state.name,
+                  "email": this.state.email,
+                  "team": this.state.team,
+                  "teamHistory": ["ReactDojo", "AngularDojo"],
+                  "role": this.state.role,
+                  "skills": ["React", "Redux", "Angular"]
+                }
+              });
+            
+              this.props.dispatch({
+                type: "CHANGE_ROUTE",
+                route: ""
+              });
+            }}>
               Add Team Member
             </Button>
             <Button type="reset" bsStyle="danger">Reset</Button>

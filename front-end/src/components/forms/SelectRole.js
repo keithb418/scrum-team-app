@@ -6,6 +6,7 @@ const SelectRole = ({ roles = [], onSelect }) => {
     <FormGroup controlId="roleSelect">
       <ControlLabel>Role</ControlLabel>
       <FormControl
+        name="role"
         componentClass="select"
         placeholder="Select Role"
         onChange={ onSelect }
@@ -14,7 +15,7 @@ const SelectRole = ({ roles = [], onSelect }) => {
       <option>Select Role...</option>
 
       {roles.map(role =>
-        <option value={role._id} key={role._id}>{role.name}</option>
+        <option value={role.name} key={role._id}>{role.name}</option>
       )}
 
       </FormControl>

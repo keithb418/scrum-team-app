@@ -1,10 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 
-const AddTeamColumn = () => {
+let AddTeamColumn = ({ dispatch }) => {
   return (
-    <Button className="add-team-button">
+    <Button className="add-team-button" onClick={() => dispatch({
+      type: "CHANGE_ROUTE",
+      route: "add-team"
+    })}>
       <span className="content">
         <FontAwesome
           name="plus-circle"
@@ -14,5 +18,7 @@ const AddTeamColumn = () => {
     </Button>
   );
 };
+
+AddTeamColumn = connect()(AddTeamColumn);
 
 export default AddTeamColumn;

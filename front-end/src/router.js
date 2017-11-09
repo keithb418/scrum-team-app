@@ -1,6 +1,7 @@
 import React from "react";
 import TeamColumnsContainer from "./containers/TeamColumnsContainer";
 import AddTeamMember from "./components/forms/AddTeamMember";
+import AddTeam from "./components/forms/AddTeam";
 
 class Router extends React.Component {
 	constructor (props) {
@@ -25,16 +26,17 @@ class Router extends React.Component {
 	  	
 	  	switch (this.props.route) {
 		  	case "":
-				return (
-					<TeamColumnsContainer />
-				);
+          return (
+            <TeamColumnsContainer />
+          );
 		  	case "add-team-member":
-				return (
-					<AddTeamMember />
-				);
+          return (
+            <AddTeamMember />
+          );
 		  	case "add-team":
-				return;
-					// TO DO: create AddTeam component
+			  	return (
+            <AddTeam />
+          );
 				
 		}
 		// TO DO: fix error: this.props.route is null
