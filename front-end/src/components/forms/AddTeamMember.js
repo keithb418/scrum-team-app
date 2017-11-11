@@ -4,12 +4,17 @@ import { Form, FormGroup, FormControl, ControlLabel, Button, Checkbox } from "re
 import FontAwesome from "react-fontawesome";
 import SelectRole from "./SelectRole";
 import SelectTeam from "./SelectTeam";
+import AddSkills from "./AddSkills";
+
+let teamMemberId = 100;
 
 class AddTeamMember extends React.Component {
   constructor (props) {
     super(props);
 
     this.onInputChange = this.onInputChange.bind(this);
+    this.onSkillsChange = this.onSkillsChange.bind(this);
+    this.onSubmitForm = this.onSubmitForm.bind(this);
 
     this.state = {
       title: "Add Team Member",
@@ -20,8 +25,6 @@ class AddTeamMember extends React.Component {
   }
 
   render () {
-   let teamMemberId = 100;
-
     return(
       <div className="row">
         <div className="col-md-8">
@@ -61,29 +64,14 @@ class AddTeamMember extends React.Component {
             <SelectTeam teams={this.props.teams} onSelect={(e) => {
               this.onInputChange(e);
             }} />
+            
             <SelectRole roles={this.props.roles} onSelect={(e) => {
               this.onInputChange(e);
             }} />
 
-            <Button type="submit" bsStyle="primary" onClick={() => {
-              this.props.dispatch({
-                type: "ADD_TEAM_MEMBER",
-                teamMember: {
-                  "_id": `${teamMemberId++}teamMember`,
-                  "name": this.state.name,
-                  "email": this.state.email,
-                  "team": this.state.team,
-                  "teamHistory": ["ReactDojo", "AngularDojo"],
-                  "role": this.state.role,
-                  "skills": ["React", "Redux", "Angular"]
-                }
-              });
-            
-              this.props.dispatch({
-                type: "CHANGE_ROUTE",
-                route: ""
-              });
-            }}>
+            <AddSkills id="add-skills" onChange={this.onSkillsChange} />
+
+            <Button type="submit" bsStyle="primary" onClick={this.onSubmitForm}>
               Add Team Member
             </Button>
             <Button type="reset" bsStyle="danger">Reset</Button>
@@ -100,6 +88,32 @@ class AddTeamMember extends React.Component {
 
     this.setState({
       [name]: value
+    });
+  }
+
+  onSkillsChange (skills) {
+    this.setState({
+      skills
+    });
+  }
+
+  onSubmitForm () {
+    this.props.dispatch({
+      type: "ADD_TEAM_MEMBER",
+      teamMember: {
+        "_id": `${teamMemberId++}teamMember`,
+        "name": this.state.name,
+        "email": this.state.email,
+        "team": this.state.team,
+        "teamHistory": ["ReactDojo", "AngularDojo"],
+        "role": this.state.role,
+        "skills": ["React", "Redux", "Angular"]
+      }
+    });
+  
+    this.props.dispatch({
+      type: "CHANGE_ROUTE",
+      route: ""
     });
   }
 };
