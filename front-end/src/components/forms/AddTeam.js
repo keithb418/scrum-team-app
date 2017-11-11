@@ -29,13 +29,13 @@ class AddTeam extends React.Component {
               />
             </FormGroup>
             <Button onClick={() => {
-              // this.props.dispatch({
-              //   type: "ADD_TEAM",
-              //   team: {
-              //     "_id": `${teamId++}team`,
-              //     "team": this.state.team
-              //   }
-              // });
+              this.props.dispatch({
+                type: "ADD_TEAM",
+                team: {
+                  "_id": `${teamId++}team`,
+                  "name": this.state.team
+                }
+              });
 
               this.props.dispatch({
                 type: "CHANGE_ROUTE",
@@ -60,11 +60,7 @@ class AddTeam extends React.Component {
   }
 };
 
-AddTeam = connect((state, ownProps) => {
-  return {
-    name: state.name
-  };
-})(AddTeam);
+AddTeam = connect()(AddTeam);
 
 
 export default AddTeam;
