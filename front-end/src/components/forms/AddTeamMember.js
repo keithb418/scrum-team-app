@@ -5,6 +5,7 @@ import FontAwesome from "react-fontawesome";
 import SelectRole from "./SelectRole";
 import SelectTeam from "./SelectTeam";
 import AddSkills from "./AddSkills";
+import CancelButton from "./CancelButton";
 
 let teamMemberId = 100;
 
@@ -75,6 +76,7 @@ class AddTeamMember extends React.Component {
               Add Team Member
             </Button>
             <Button type="reset" bsStyle="danger">Reset</Button>
+            <CancelButton />
           </Form>
         </div>
       </div>

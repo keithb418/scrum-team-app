@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Form, FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
+import CancelButton from "./CancelButton";
 
 let teamId = 200;
 
@@ -43,6 +44,7 @@ class AddTeam extends React.Component {
               });
             }}>Add Team
             </Button>
+            <CancelButton />
           </Form>
         </div>
       </div>
