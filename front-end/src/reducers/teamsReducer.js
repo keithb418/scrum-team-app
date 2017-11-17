@@ -8,10 +8,7 @@ const teams = (state = [], action) => {
           action.team
         ];
       case UPDATE_TEAMS:
-        return [
-          ...state,
-          teams: action.teams
-        ];
+        return action.teams;
       default:
         return state;
     }

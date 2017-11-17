@@ -13,7 +13,9 @@ const store = createStore(reducer, {
   teams: [],
   teamMembers: [],
   route: window.location.pathname.replace(/\//g, "")
-});
+},
+// to make code compatible with chrome extension
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 render(
   <Provider store={store}>
