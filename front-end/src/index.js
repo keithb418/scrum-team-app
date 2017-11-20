@@ -15,7 +15,15 @@ const store = createStore(reducer, {
   teamMembers,
   route: window.location.pathname.replace(/\//g, ""),
   roles
-});
+},
+
+/*
+  chrome redux dev tools
+  download and install chrome plugin
+  https://github.com/zalmoxisus/redux-devtools-extension
+*/
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 render(
   <Provider store={store}>
