@@ -1,5 +1,6 @@
 import React from "react";
 import { FormGroup, ControlLabel, FormControl } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 const SelectRole = ({ roles = [], onSelect }) => {
   return (
@@ -21,6 +22,11 @@ const SelectRole = ({ roles = [], onSelect }) => {
       </FormControl>
     </FormGroup>
   );
+};
+
+SelectRole.propTypes = {
+  onSelect: PropTypes.func,
+  roles: PropTypes.array,
 };
 
 export default SelectRole;
