@@ -121,7 +121,7 @@ class AddTeamMember extends React.Component {
   }
 };
 
-AddTeamMember = connect((state, ownProps) => {
+AddTeamMember = connect(state => {
   return {
     teams: state.teams,
     roles: state.roles
