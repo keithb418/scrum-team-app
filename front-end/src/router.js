@@ -1,13 +1,14 @@
 import React from "react";
 import TeamColumnsContainer from "./containers/TeamColumnsContainer";
 import AddTeamMember from "./components/forms/AddTeamMember";
+import AddTeam from "./components/forms/AddTeam";
 
 class Router extends React.Component {
-	constructor(props) {
+	constructor (props) {
 		super(props);
 	}
 
-	componentDidMount() {
+	componentDidMount () {
 		window.onpopstate = () => {
 			this.props.dispatch({
 	            type: "CHANGE_ROUTE",
@@ -16,7 +17,7 @@ class Router extends React.Component {
 		};
 	}
 
-	render() {
+	render () {
 		let currentPath = window.location.pathname.replace(/\//g, "");
 
 		if (currentPath != this.props.route) {
@@ -25,16 +26,17 @@ class Router extends React.Component {
 	  	
 	  	switch (this.props.route) {
 		  	case "":
-				return (
-					<TeamColumnsContainer />
-				);
+          return (
+            <TeamColumnsContainer />
+          );
 		  	case "add-team-member":
-				return (
-					<AddTeamMember />
-				);
+          return (
+            <AddTeamMember />
+          );
 		  	case "add-team":
-				return;
-					// TO DO: create AddTeam component
+			  	return (
+            <AddTeam />
+          );
 				
 		}
 		// TO DO: fix error: this.props.route is null
