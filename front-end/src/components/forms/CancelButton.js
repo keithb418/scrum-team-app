@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 let CancelButton = ({ dispatch }) => {
   return (
@@ -14,5 +15,9 @@ let CancelButton = ({ dispatch }) => {
 };
 
 CancelButton = connect()(CancelButton);
+
+CancelButton.propTypes = {
+  dispatch: PropTypes.func,
+};
 
 export default CancelButton;

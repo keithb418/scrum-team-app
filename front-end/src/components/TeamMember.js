@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Row, Col } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
+import PropTypes from "prop-types";
 
 const TeamMember = ({ id, name, teamLead, role }) => {
   let teamLeadText = teamLead ? <p>Team Lead</p> : "";
@@ -11,20 +12,20 @@ const TeamMember = ({ id, name, teamLead, role }) => {
   let className = `team-member btn ${teamLead ? "btn-info" : "btn-default" }`;
 
   return (
-    <button 
+    <button
       className={className}
       draggable="true"
       onDragStart={(e) => {
         e.dataTransfer.setData("tmId", id);
       }}>
       <Row>
-        <Col 
-          xs={4} 
+        <Col
+          xs={4}
           className="user-img">
           <FontAwesome name="user-circle" />
         </Col>
-        <Col 
-          xs={8} 
+        <Col
+          xs={8}
           className="details">
           <p>{name}</p>
           {teamLeadText}
@@ -34,6 +35,13 @@ const TeamMember = ({ id, name, teamLead, role }) => {
       </Row>
     </button>
   );
+};
+
+TeamMember.propTypes = {
+  role: PropTypes.string,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  teamLead: PropTypes.bool
 };
 
 export default TeamMember;

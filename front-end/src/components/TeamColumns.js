@@ -1,14 +1,15 @@
 import React from "react";
 import TeamColumn from "./TeamColumn";
 import AddTeamColumn from "./AddTeamColumn";
+import PropTypes from "prop-types";
 
 const TeamColumns = ({ teams }) => {
-  
-  let teamColumns = teams.map((team) => 
+
+  let teamColumns = teams.map((team) =>
     <TeamColumn
       key={team._id}
-      id={team._id} 
-      teamName={team.name} 
+      id={team._id}
+      teamName={team.name}
       project={team.project}
       teamMembers={team.teamMembers} />
   );
@@ -22,3 +23,7 @@ const TeamColumns = ({ teams }) => {
 };
 
 export default TeamColumns;
+
+TeamColumns.propTypes = {
+  teams: PropTypes.array
+};

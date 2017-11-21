@@ -1,6 +1,7 @@
 import React from "react";
 import { FormGroup, FormControl, InputGroup } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
+import PropTypes from "prop-types";
 
 export default class AddSkills extends React.Component {
   constructor (props) {
@@ -62,3 +63,8 @@ export default class AddSkills extends React.Component {
     );
   }
 }
+
+AddSkills.propTypes = {
+  id: PropTypes.string,
+  onChange: PropTypes.func
+};
