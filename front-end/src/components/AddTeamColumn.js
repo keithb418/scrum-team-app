@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
+import PropTypes from "prop-types";
 
 let AddTeamColumn = ({ dispatch }) => {
   return (
@@ -20,5 +21,9 @@ let AddTeamColumn = ({ dispatch }) => {
 };
 
 AddTeamColumn = connect()(AddTeamColumn);
+
+AddTeamColumn.propTypes = {
+  dispatch: PropTypes.func,
+};
 
 export default AddTeamColumn;

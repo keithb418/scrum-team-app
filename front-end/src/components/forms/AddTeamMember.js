@@ -6,6 +6,7 @@ import SelectRole from "./SelectRole";
 import SelectTeam from "./SelectTeam";
 import AddSkills from "./AddSkills";
 import CancelButton from "./CancelButton";
+import PropTypes from "prop-types";
 
 let teamMemberId = 100;
 
@@ -65,7 +66,7 @@ class AddTeamMember extends React.Component {
             <SelectTeam teams={this.props.teams} onSelect={(e) => {
               this.onInputChange(e);
             }} />
-            
+
             <SelectRole roles={this.props.roles} onSelect={(e) => {
               this.onInputChange(e);
             }} />
@@ -112,7 +113,7 @@ class AddTeamMember extends React.Component {
         "skills": ["React", "Redux", "Angular"]
       }
     });
-  
+
     this.props.dispatch({
       type: "CHANGE_ROUTE",
       route: ""
@@ -126,5 +127,11 @@ AddTeamMember = connect((state, ownProps) => {
     roles: state.roles
   };
 })(AddTeamMember);
+
+AddTeamMember.propTypes = {
+  dispatch: PropTypes.func,
+  roles: PropTypes.array,
+  teams: PropTypes.array
+};
 
 export default AddTeamMember;

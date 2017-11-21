@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import TeamMember from "./TeamMember";
 import TeamHeader from "./TeamHeader";
+import PropTypes from "prop-types";
 
 let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dispatch }) => {
 
@@ -18,11 +19,11 @@ let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dis
   });
 
   const teamMemberComponents = teamMembers.map((teamMember) =>
-    <TeamMember 
+    <TeamMember
       key={teamMember._id}
-      id={teamMember._id} 
-      name={teamMember.name} 
-      teamLead={teamMember.teamLead} 
+      id={teamMember._id}
+      name={teamMember.name}
+      teamLead={teamMember.teamLead}
       role={teamMember.role} />
   );
 
@@ -42,9 +43,9 @@ let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dis
 
   return (
     <div className="panel panel-default team-column" onDragOver={allowDrop} onDrop={drop}>
-      <TeamHeader 
+      <TeamHeader
         id={id}
-        teamName={teamName} 
+        teamName={teamName}
         project={project} />
       <div className="panel-body team-body" onDrop={drop} onDragOver={allowDrop} >
         {teamMemberComponents}
@@ -54,5 +55,12 @@ let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dis
 };
 
 TeamColumn = connect()(TeamColumn);
+
+TeamColumn.propTypes = {
+  dispatch: PropTypes.func,
+  id: PropTypes.string,
+  teamMembers: PropTypes.array,
+  teamName: PropTypes.string
+};
 
 export default TeamColumn;
