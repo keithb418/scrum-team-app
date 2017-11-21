@@ -1,4 +1,4 @@
-import { CHANGE_ROUTE } from "../actionTypes"
+import { CHANGE_ROUTE } from "../actionTypes";
 
 const route = (state = "", action) => {
     switch (action.type) {

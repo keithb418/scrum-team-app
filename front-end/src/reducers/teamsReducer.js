@@ -15,3 +15,4 @@ const teams = (state = [], action) => {
   };
   
   export default teams;
+
