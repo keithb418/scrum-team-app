@@ -11,7 +11,7 @@ const SelectTeam = ({ teams = [], onSelect }) => {
       	componentClass="select"
       	placeholder="Select Team"
       	onChange={onSelect} >
-
+    
         <option>Select Team...</option>
 
         {teams.map(team =>
