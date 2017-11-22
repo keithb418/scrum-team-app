@@ -8,5 +8,5 @@ const route = (state = "", action) => {
         return state;
     }
   };
-  
-  export default route;
+
+export default route;
