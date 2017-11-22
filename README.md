@@ -39,6 +39,15 @@ The SCSS compiler is set up in such a way that you don't have to use relative pa
 
 Run `npm test` to run tests with Jest
 
+## Seed Mongo Data
+
+```
+$ npm install -g node-mongo-seeds
+
+To seed your mongodb with mock data from /seeds folder
+$ seed
+```
+
 ## API Server
 
 Information about the API server and how to use it.

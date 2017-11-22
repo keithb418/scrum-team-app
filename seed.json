@@ -1,0 +1,5 @@
+{
+	"undefined": "localhost/scrumteamappdb",
+	"dev": "localhost/scrumteamappdb",
+	"prod": "localhost/scrumteamappdb"
+}
