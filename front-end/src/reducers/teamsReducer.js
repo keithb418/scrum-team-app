@@ -1,4 +1,4 @@
-import { ADD_TEAM, UPDATE_TEAMS, FETCH_TEAMS_SUCCESS } from "../actionTypes"
+import { ADD_TEAM, UPDATE_TEAMS, FETCH_TEAMS_SUCCESS } from "../actionTypes";
 
 const teams = (state = [], action) => {
   switch (action.type) {
@@ -25,4 +25,3 @@ const teams = (state = [], action) => {
 };
 
 export default teams;
-
