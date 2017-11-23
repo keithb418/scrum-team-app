@@ -11,7 +11,8 @@ class AddTeam extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      name: ""
+      name: "",
+      title: "Add a New Team"
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.handleCreateTeam = this.handleCreateTeam.bind(this);
