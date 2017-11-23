@@ -11,7 +11,8 @@ class AddTeam extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      name: ""
+      name: "",
+      title: "Add a New Team"
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.handleCreateTeam = this.handleCreateTeam.bind(this);
@@ -62,14 +63,14 @@ const mapStateToProps = (state, props) => {
   return {
     teams: state.teams,
     error: state.error && state.erro.message
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ createTeam, navigate }, dispatch);
 
 AddTeam.propTypes = {
-  dispatch: PropTypes.func,
+  dispatch: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTeam);

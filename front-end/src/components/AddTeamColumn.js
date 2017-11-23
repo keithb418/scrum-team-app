@@ -3,13 +3,12 @@ import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
+import { bindActionCreators } from "redux";
+import { navigate } from "../actions";
 
-let AddTeamColumn = ({ dispatch }) => {
+let AddTeamColumn = ({ navigate }) => {
   return (
-    <Button className="add-team-button" onClick={() => dispatch({
-      type: "CHANGE_ROUTE",
-      route: "add-team"
-    })}>
+    <Button className="add-team-button" onClick={() => navigate("add-team")}>
       <span className="content">
         <FontAwesome
           name="plus-circle"
@@ -20,10 +19,17 @@ let AddTeamColumn = ({ dispatch }) => {
   );
 };
 
-AddTeamColumn = connect()(AddTeamColumn);
-
-AddTeamColumn.propTypes = {
-  dispatch: PropTypes.func,
+const mapStateToProps = (state, props) => {
+  return {
+    error: state.error && state.erro.message
+  };
 };
 
-export default AddTeamColumn;
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ navigate }, dispatch);
+
+  AddTeamColumn.propTypes = {
+    dispatch: PropTypes.func
+  };
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddTeamColumn);
