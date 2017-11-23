@@ -1,4 +1,4 @@
-import { ADD_TEAM, UPDATE_TEAMS, FETCH_TEAMS_SUCCESS } from "../actionTypes";
+import { CREATE_TEAM_SUCCESS, UPDATE_TEAMS, FETCH_TEAMS_SUCCESS } from "../actionTypes";
 
 const teams = (state = [], action) => {
   switch (action.type) {
@@ -7,10 +7,12 @@ const teams = (state = [], action) => {
       return teams;
     }
 
-    case ADD_TEAM: {
+    case CREATE_TEAM_SUCCESS: {
+      const { result } = action;
+
       return [
         ...state,
-        action.team
+        result
       ];
     }
 

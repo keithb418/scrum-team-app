@@ -42,7 +42,7 @@ class Router extends React.Component {
 		if (currentPath != this.props.route) {
 			history.pushState(null, "", this.props.route);
 		}
-	  	
+
 	  	switch (this.props.route) {
 		  	case "":
 
@@ -57,25 +57,25 @@ class Router extends React.Component {
 			  	return (
             <AddTeam />
           );
-				
+
 		}
 
 		if (this.props.route.indexOf("edit-team-member-") > -1) {
 			return;
 				// TO DO: create edit team member component
-			
+
 		}
 
 		else if (this.props.route.indexOf("edit-team-") > -1) {
 			return;
 				// TO DO: create edit team component
-			
+
 		}
 
 		else {
 			return;
 				// TO DO: create 404 page component
-			
+
 		}
 	}
 

@@ -1,19 +1,37 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Form, FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
+
 import CancelButton from "./CancelButton";
 import PropTypes from "prop-types";
-
-let teamId = 200;
+import { bindActionCreators } from "redux";
+import { createTeam, navigate } from "../../actions";
 
 class AddTeam extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      team: "",
-      title: "Add a New Team"
+      name: ""
     };
     this.onInputChange = this.onInputChange.bind(this);
+    this.handleCreateTeam = this.handleCreateTeam.bind(this);
+  }
+
+  onInputChange (evt) {
+    const target = evt.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleCreateTeam () {
+    const { name } = this.state;
+
+    this.props.createTeam({ name });
+    this.props.navigate("");
   }
 
   render () {
@@ -25,48 +43,33 @@ class AddTeam extends React.Component {
             <FormGroup controlId="team">
               <FormControl
                 type="text"
-                name="team"
+                name="name"
+                value={this.state.name}
                 placeholder="Enter team name"
                 onChange={this.onInputChange}
               />
             </FormGroup>
-            <Button onClick={() => {
-              this.props.dispatch({
-                type: "ADD_TEAM",
-                team: {
-                  "_id": `${teamId++}team`,
-                  "name": this.state.team
-                }
-              });
-
-              this.props.dispatch({
-                type: "CHANGE_ROUTE",
-                route: ""
-              });
-            }}>Add Team
-            </Button>
+            <Button onClick={this.handleCreateTeam}>Add Team</Button>
             <CancelButton />
           </Form>
         </div>
       </div>
     );
   };
-
-  onInputChange (e) {
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
-  }
 };
 
-AddTeam = connect()(AddTeam);
+const mapStateToProps = (state, props) => {
+  return {
+    teams: state.teams,
+    error: state.error && state.erro.message
+  }
+}
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ createTeam, navigate }, dispatch);
 
 AddTeam.propTypes = {
   dispatch: PropTypes.func,
 };
 
-export default AddTeam;
+export default connect(mapStateToProps, mapDispatchToProps)(AddTeam);
