@@ -5,15 +5,6 @@ import PropTypes from "prop-types";
 
 const TeamColumns = ({ teams, teamMembers }) => {
 
-  teamMembers.map((teamMember) => {
-    let team = teams.find((team) => team._id === teamMember.team);
-
-    if (team) {
-      team.teamMembers = team.teamMembers || [];
-      team.teamMembers.push(teamMember);
-    }
-  });
-
   const teamColumns = teams.map((team) =>
     <TeamColumn
       key={team._id}
