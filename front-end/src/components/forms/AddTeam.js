@@ -5,7 +5,7 @@ import { Form, FormGroup, ControlLabel, FormControl, Button } from "react-bootst
 import CancelButton from "./CancelButton";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
-import { createTeam } from "../../actions";
+import { createTeam, navigate } from "../../actions";
 
 class AddTeam extends React.Component {
   constructor (props) {
@@ -28,9 +28,10 @@ class AddTeam extends React.Component {
   }
 
   handleCreateTeam () {
-    const { name } = this.state
+    const { name } = this.state;
 
-    this.props.createTeam({ name })
+    this.props.createTeam({ name });
+    this.props.navigate("");
   }
 
   render () {
@@ -48,7 +49,7 @@ class AddTeam extends React.Component {
                 onChange={this.onInputChange}
               />
             </FormGroup>
-            <Button onClick={this.handleCreateTeam}>Add Team</Button>       
+            <Button onClick={this.handleCreateTeam}>Add Team</Button>
             <CancelButton />
           </Form>
         </div>
@@ -65,10 +66,10 @@ const mapStateToProps = (state, props) => {
 }
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ createTeam }, dispatch)
+  bindActionCreators({ createTeam, navigate }, dispatch);
 
 AddTeam.propTypes = {
   dispatch: PropTypes.func,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddTeam)
+export default connect(mapStateToProps, mapDispatchToProps)(AddTeam);

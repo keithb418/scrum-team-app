@@ -8,7 +8,7 @@ const teams = (state = [], action) => {
     }
 
     case CREATE_TEAM_SUCCESS: {
-      const { result } = action
+      const { result } = action;
 
       return [
         ...state,
