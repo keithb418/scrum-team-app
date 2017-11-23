@@ -1,8 +1,10 @@
 import { connect } from "react-redux";
-import Router from "../router";
+import Router from "../components/Router";
 
 const mapStateToProps = (state) => {
-  return { route: state.route };
+  const { route } = state;
+
+  return { route };
 };
 
 const RouterContainer = connect(mapStateToProps)(Router);

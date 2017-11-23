@@ -62,14 +62,14 @@ const mapStateToProps = (state, props) => {
   return {
     teams: state.teams,
     error: state.error && state.erro.message
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ createTeam, navigate }, dispatch);
 
 AddTeam.propTypes = {
-  dispatch: PropTypes.func,
+  dispatch: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTeam);
