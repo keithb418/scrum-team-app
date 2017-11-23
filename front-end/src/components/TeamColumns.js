@@ -1,9 +1,10 @@
 import React from "react";
-import TeamColumn from "./TeamColumn";
-import AddTeamColumn from "./AddTeamColumn";
 import PropTypes from "prop-types";
 
-const TeamColumns = ({ teams, teamMembers }) => {
+import TeamColumn from "./TeamColumn";
+import AddTeamColumn from "./AddTeamColumn";
+
+const TeamColumns = ({ teams, navigate }) => {
 
   const teamColumns = teams.map((team) =>
     <TeamColumn
@@ -11,7 +12,8 @@ const TeamColumns = ({ teams, teamMembers }) => {
       id={team._id}
       teamName={team.name}
       project={team.project}
-      teamMembers={team.teamMembers} />
+      teamMembers={team.teamMembers}
+      navigate={navigate} />
   );
 
   return (

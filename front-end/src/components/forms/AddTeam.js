@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Form, FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
+import { bindActionCreators } from "redux";
+import PropTypes from "prop-types";
 
 import CancelButton from "./CancelButton";
-import PropTypes from "prop-types";
-import { bindActionCreators } from "redux";
-import { createTeam, navigate } from "../../actions";
+import { createTeam } from "../../actions";
 
 class AddTeam extends React.Component {
   constructor (props) {
@@ -61,16 +61,16 @@ class AddTeam extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    teams: state.teams,
     error: state.error && state.erro.message
   };
 };
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ createTeam, navigate }, dispatch);
+  bindActionCreators({ createTeam }, dispatch);
 
 AddTeam.propTypes = {
-  dispatch: PropTypes.func
+  createTeam: PropTypes.func,
+  navigate: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTeam);
