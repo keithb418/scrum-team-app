@@ -1,4 +1,7 @@
-import { CREATE_TEAM_SUCCESS, UPDATE_TEAMS, FETCH_TEAMS_SUCCESS } from "../actionTypes";
+import {
+  CREATE_TEAM_SUCCESS, UPDATE_TEAMS, FETCH_TEAMS_SUCCESS,
+  DELETE_TEAM_SUCCESS
+} from "../actionTypes";
 
 const teams = (state = [], action) => {
   switch (action.type) {
@@ -14,6 +17,10 @@ const teams = (state = [], action) => {
         ...state,
         result
       ];
+    }
+
+    case DELETE_TEAM_SUCCESS: {
+      return state.filter(team => team.id !== action.id );
     }
 
     case UPDATE_TEAMS: {
