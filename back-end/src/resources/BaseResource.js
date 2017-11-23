@@ -34,7 +34,7 @@ class BaseResource {
     addPost(getUniqueQuery = () => {}, errorMsg = 'Resources must be unique.') {
         this.router.post(`/${this.resourceType}`, (req, res) => {
             let resource = req.body;
-    
+
             MongoDataLayer.getOneByQuery(this.resourceType, getUniqueQuery(resource)).then(() => {
                 res.writeHead(500, {'Content-Type': 'text/plain'});
                 res.end(errorMsg);
@@ -66,11 +66,11 @@ class BaseResource {
                 });
             }
         };
-    
+
         this.router.put(`/${this.resourceType}`, (req, res) => {
             updateResource(req.body._id, req.body, req, res);
         });
-    
+
         // this.router.put(`/${this.resourceType}/:id`, (req, res) => {
         //     updateResource(req.params.id, req.body, req, res);
         // });
@@ -78,10 +78,10 @@ class BaseResource {
     addDelete() {
         this.router.delete(`/${this.resourceType}/:id`, (req, res) => {
             let id = req.params.id;
-    
+
             MongoDataLayer.getOneById(this.resourceType, req.params.id).then(() => {
                 MongoDataLayer.delete(this.resourceType, id).then(() => {
-                    res.send('resource deleted successfully');
+                    res.send({'id': id});
                 }).catch((err) => {
                     res.writeHead(500, {'Content-Type': 'text/plain'});
                     res.end(err);
@@ -95,3 +95,4 @@ class BaseResource {
 };
 
 module.exports = BaseResource;
+

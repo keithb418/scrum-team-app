@@ -53,12 +53,10 @@ const _deleteTeam = (id) => thunkCreator({
   promise: fetch(`http://localhost:3000/api/teams/${id}`, {
     method: 'DELETE',
     headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Accept': 'text/html',
+      'Content-Type': 'text/html'
     },
-    body: JSON.stringify({
-      ...id
-    })
+    body: JSON.stringify({id})
   })
   .then(response => response.json())
 });

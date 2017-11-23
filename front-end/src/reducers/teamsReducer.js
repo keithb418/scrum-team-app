@@ -20,7 +20,9 @@ const teams = (state = [], action) => {
     }
 
     case DELETE_TEAM_SUCCESS: {
-      return state.filter(team => team.id !== action.id );
+      const { result } = action;
+
+      return state.filter(team => team._id !== result.id );
     }
 
     case UPDATE_TEAMS: {
