@@ -1,4 +1,4 @@
-import { CHANGE_ROUTE } from '../actionTypes';
+import { CHANGE_ROUTE } from "../actionTypes";
 
 export const navigate = (route) => {
   return {

@@ -2,28 +2,53 @@ import React from "react";
 import { connect } from "react-redux";
 import { Form, FormGroup, FormControl, ControlLabel, Button, Checkbox } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
+import PropTypes from "prop-types";
+import { bindActionCreators } from "redux";
+
 import SelectRole from "./SelectRole";
 import SelectTeam from "./SelectTeam";
 import AddSkills from "./AddSkills";
 import CancelButton from "./CancelButton";
-import PropTypes from "prop-types";
-
-let teamMemberId = 100;
+import { createTeamMember } from "../../actions";
 
 class AddTeamMember extends React.Component {
   constructor (props) {
     super(props);
-
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onSkillsChange = this.onSkillsChange.bind(this);
-    this.onSubmitForm = this.onSubmitForm.bind(this);
-
     this.state = {
       title: "Add Team Member",
       name: "",
       email: "",
-      teamLead: false
+      team: "",
+      teamLead: false,
+      role: "",
+      skiils: []
     };
+    this.onInputChange = this.onInputChange.bind(this);
+    this.onSkillsChange = this.onSkillsChange.bind(this);
+    this.onSubmitForm = this.onSubmitForm.bind(this);
+  }
+
+  onInputChange (e) {
+    const target = e.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  onSkillsChange (skills) {
+    this.setState({
+      skills
+    });
+  }
+
+  onSubmitForm () {
+    const { name, email, team, teamLead, role, skills } = this.state;
+
+    this.props.createTeamMember({ name, email, team, teamLead, role, skills });
+    this.props.navigate("");
   }
 
   render () {
@@ -73,7 +98,7 @@ class AddTeamMember extends React.Component {
 
             <AddSkills id="add-skills" onChange={this.onSkillsChange} />
 
-            <Button type="submit" bsStyle="primary" onClick={this.onSubmitForm}>
+            <Button bsStyle="primary" onClick={this.onSubmitForm}>
               Add Team Member
             </Button>
             <Button type="reset" bsStyle="danger">Reset</Button>
@@ -83,55 +108,24 @@ class AddTeamMember extends React.Component {
       </div>
     );
   }
-
-  onInputChange (e) {
-    const target = e.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
-  }
-
-  onSkillsChange (skills) {
-    this.setState({
-      skills
-    });
-  }
-
-  onSubmitForm () {
-    this.props.dispatch({
-      type: "ADD_TEAM_MEMBER",
-      teamMember: {
-        "_id": `${teamMemberId++}teamMember`,
-        "name": this.state.name,
-        "email": this.state.email,
-        "team": this.state.team,
-        "teamHistory": ["ReactDojo", "AngularDojo"],
-        "role": this.state.role,
-        "skills": ["React", "Redux", "Angular"]
-      }
-    });
-
-    this.props.dispatch({
-      type: "CHANGE_ROUTE",
-      route: ""
-    });
-  }
 };
 
-AddTeamMember = connect(state => {
+const mapStateToProps = (state, props) => {
   return {
     teams: state.teams,
-    roles: state.roles
+    roles: state.roles,
+    error: state.error && state.erro.message
   };
-})(AddTeamMember);
+};
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ createTeamMember }, dispatch);
 
 AddTeamMember.propTypes = {
-  dispatch: PropTypes.func,
+  navigate: PropTypes.func,
+  createTeamMember: PropTypes.func,
   roles: PropTypes.array,
   teams: PropTypes.array
 };
 
-export default AddTeamMember;
+export default connect(mapStateToProps, mapDispatchToProps)(AddTeamMember);

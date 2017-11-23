@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+
 import TeamColumns from "../components/TeamColumns";
 
 const mapStateToProps = (state, ownProps) => {
