@@ -43,7 +43,8 @@ TeamMember.propTypes = {
   role: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,
-  teamLead: PropTypes.bool
+  teamLead: PropTypes.bool,
+  deleteTeamMember: PropTypes.func
 };
 
 export default TeamMember;
