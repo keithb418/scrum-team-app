@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import TeamColumns from "../components/TeamColumns";
-import { deleteTeam } from "../actions";
+import { deleteTeam, deleteTeamMember } from "../actions";
 
 const mapStateToProps = (state, ownProps) => {
   let teams = state.teams.map(item => ({ ...item }))
@@ -24,7 +24,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) =>
-bindActionCreators({ deleteTeam }, dispatch);
+bindActionCreators({ deleteTeam, deleteTeamMember }, dispatch);
 
 const TeamColumnsContainer = connect(mapStateToProps, mapDispatchToProps)(TeamColumns);
 
