@@ -2,8 +2,9 @@ import React from "react";
 import { Button, Row, Col } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
+import { deleteTeamMember } from "../actions/index";
 
-const TeamMember = ({ id, name, teamLead, role }) => {
+const TeamMember = ({ id, name, teamLead, role, deleteTeamMember }) => {
   let teamLeadText = teamLead ? <p>Team Lead</p> : "";
   let dragStart = (e) => {
     e.dataTransfer.setData("tmId", id);
@@ -31,6 +32,7 @@ const TeamMember = ({ id, name, teamLead, role }) => {
           {teamLeadText}
           <p>{role}</p>
           <FontAwesome name="edit" />
+          <FontAwesome name="times-circle" onClick={() => deleteTeamMember(id)} />
         </Col>
       </Row>
     </button>

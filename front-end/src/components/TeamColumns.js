@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import TeamColumn from "./TeamColumn";
 import AddTeamColumn from "./AddTeamColumn";
 
-const TeamColumns = ({ teams, navigate, deleteTeam }) => {
+const TeamColumns = ({ teams, navigate, deleteTeam, deleteTeamMember }) => {
 
   const teamColumns = teams.map((team) =>
     <TeamColumn
@@ -14,7 +14,8 @@ const TeamColumns = ({ teams, navigate, deleteTeam }) => {
       project={team.project}
       teamMembers={team.teamMembers}
       navigate={navigate}
-      deleteTeam={deleteTeam} />
+      deleteTeam={deleteTeam}
+      deleteTeamMember={deleteTeamMember} />
   );
 
   return (

@@ -4,7 +4,7 @@ import TeamMember from "./TeamMember";
 import TeamHeader from "./TeamHeader";
 import PropTypes from "prop-types";
 
-let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dispatch, navigate, deleteTeam }) => {
+let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dispatch, navigate, deleteTeam, deleteTeamMember }) => {
 
   teamMembers.sort((a, b) => {
     if (b.teamLead) {
@@ -24,7 +24,8 @@ let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dis
       id={teamMember._id}
       name={teamMember.name}
       teamLead={teamMember.teamLead}
-      role={teamMember.role} />
+      role={teamMember.role}
+      deleteTeamMember={deleteTeamMember}/>
   );
 
   let allowDrop = (e) => {
