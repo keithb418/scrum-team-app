@@ -23,7 +23,7 @@ const teamMembers = (state = [], action) => {
       case CHANGE_TEAM: {
         let newState = [...state];
         let teamMember = newState.find((item) => {
-          item._id === action.teamMemberId;
+          return item._id === action.teamMemberId;
         });
 
         teamMember.team = action.team;

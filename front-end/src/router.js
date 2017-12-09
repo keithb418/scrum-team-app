@@ -1,8 +1,9 @@
 import React from "react";
 import TeamColumnsContainer from "./containers/TeamColumnsContainer";
 import AddTeamMember from "./components/forms/AddTeamMember";
-import {xhr} from "./xhr";
-import {CHANGE_ROUTE, UPDATE_TEAMS} from "./actionTypes";
+import EditTeamMember from "./components/forms/EditTeamMember";
+import { xhr } from "./xhr";
+import { CHANGE_ROUTE, UPDATE_TEAMS } from "./actionTypes";
 import AddTeam from "./components/forms/AddTeam";
 
 class Router extends React.Component {
@@ -23,7 +24,7 @@ class Router extends React.Component {
 		this.fetchTeams();
 	}
 
-	fetchTeams() {
+	fetchTeams () {
 		xhr("/api/teams", "GET")
 		.then(response => {
 			this.props.dispatch({
@@ -43,27 +44,27 @@ class Router extends React.Component {
 			history.pushState(null, "", this.props.route);
 		}
 
-	  	switch (this.props.route) {
-		  	case "":
-
-          return (
-            <TeamColumnsContainer />
-          );
-		  	case "add-team-member":
-          return (
-            <AddTeamMember />
-          );
-		  	case "add-team":
-			  	return (
-            <AddTeam />
-          );
-
+    switch (this.props.route) {
+      case "":
+        return (
+          <TeamColumnsContainer />
+        );
+      case "add-team-member":
+        return (
+          <AddTeamMember />
+        );
+      case "add-team":
+        return (
+          <AddTeam />
+        );
 		}
 
 		if (this.props.route.indexOf("edit-team-member-") > -1) {
-			return;
-				// TO DO: create edit team member component
+      let teamMemberId = this.props.route.replace("edit-team-member-", "");
 
+			return (
+        <EditTeamMember teamMemberId={teamMemberId} />
+      );
 		}
 
 		else if (this.props.route.indexOf("edit-team-") > -1) {

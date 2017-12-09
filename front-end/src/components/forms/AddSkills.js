@@ -10,7 +10,7 @@ export default class AddSkills extends React.Component {
     this.onRemove = this.onRemove.bind(this);
     this.getInput = this.getInput.bind(this);
     this.resetInput = this.resetInput.bind(this);
-    this.state = { skills: [] };
+    this.state = { skills: this.props.skills || [] };
   }
 
   onAdd () {

@@ -64,7 +64,7 @@ export const createTeamMember = (teamMember) => (dispatch) =>
       console.log('Could not create a team member:', err.message)
     );
 
-export const updateTeamMember = (teamMember) => () =>
+export const updateTeamMember = (teamMember) => (dispatch) =>
   _updateTeamMember(teamMember)(dispatch)
     .catch(err =>
       console.log('Could not update a team member:', err.message)

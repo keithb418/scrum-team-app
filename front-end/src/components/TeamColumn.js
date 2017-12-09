@@ -25,7 +25,8 @@ let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dis
       name={teamMember.name}
       teamLead={teamMember.teamLead}
       role={teamMember.role}
-      deleteTeamMember={deleteTeamMember}/>
+      deleteTeamMember={deleteTeamMember}
+      navigate={navigate} />
   );
 
   let allowDrop = (e) => {

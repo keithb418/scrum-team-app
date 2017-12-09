@@ -4,7 +4,7 @@ import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
 import { deleteTeamMember } from "../actions/index";
 
-const TeamMember = ({ id, name, teamLead, role, deleteTeamMember }) => {
+const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) => {
   let teamLeadText = teamLead ? <p>Team Lead</p> : "";
   let dragStart = (e) => {
     e.dataTransfer.setData("tmId", id);
@@ -18,6 +18,9 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember }) => {
       draggable="true"
       onDragStart={(e) => {
         e.dataTransfer.setData("tmId", id);
+      }}
+      onClick={() => {
+        navigate(`edit-team-member-${id}`);
       }}>
       <Row>
         <Col

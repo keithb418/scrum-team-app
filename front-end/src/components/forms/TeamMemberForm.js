@@ -12,18 +12,19 @@ class TeamMemberForm extends React.Component {
   constructor (props, title, onSubmitAction) {
     super(props);
     this.state = {
-      name: "",
-      email: "",
-      team: "",
-      teamLead: false,
-      role: "",
-      skiils: []
+      name: props.name || "",
+      email: props.email || "",
+      team: props.team || "",
+      teamLead: props.teamLead || false,
+      role: props.role || "",
+      skills: props.skills || []
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.onSkillsChange = this.onSkillsChange.bind(this);
     this.onSubmitForm = this.onSubmitForm.bind(this);
     this.onSubmitAction = onSubmitAction;
     this.title = title;
+    this.id = props.id;
   }
 
   onInputChange (e) {
@@ -45,7 +46,7 @@ class TeamMemberForm extends React.Component {
   onSubmitForm () {
     const { name, email, team, teamLead, role, skills } = this.state;
 
-    this.onSubmitAction({ name, email, team, teamLead, role, skills });
+    this.onSubmitAction({ name, email, team, teamLead, role, skills, _id: this.id });
     this.props.navigate("");
   }
 
@@ -81,20 +82,21 @@ class TeamMemberForm extends React.Component {
               <Checkbox
                 name="teamLead"
                 value={this.state.teamLead}
+                checked={this.state.teamLead ? "checked" : ""}
                 onChange={this.onInputChange}
                 inline>Team Lead
               </Checkbox>
             </FormGroup>
 
-            <SelectTeam teams={this.props.teams} onSelect={(e) => {
+            <SelectTeam teams={this.props.teams} selected={this.state.team} onSelect={(e) => {
               this.onInputChange(e);
             }} />
 
-            <SelectRole roles={this.props.roles} onSelect={(e) => {
+            <SelectRole roles={this.props.roles} selected={this.state.role} onSelect={(e) => {
               this.onInputChange(e);
             }} />
 
-            <AddSkills id="add-skills" onChange={this.onSkillsChange} />
+            <AddSkills id="add-skills" onChange={this.onSkillsChange} skills={this.state.skills} />
 
             <Button bsStyle="primary" onClick={this.onSubmitForm}>
               {this.title}
