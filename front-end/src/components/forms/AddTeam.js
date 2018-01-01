@@ -8,14 +8,15 @@ import CancelButton from "./CancelButton";
 import { createTeam } from "../../actions";
 
 class AddTeam extends React.Component {
-  constructor (props) {
+  constructor (props, title, onSubmitAction) {
     super(props);
     this.state = {
-      name: "",
-      title: "Add a New Team"
+      name: props.name || "",
+      title: title || "Add a New Team"
     };
     this.onInputChange = this.onInputChange.bind(this);
-    this.handleCreateTeam = this.handleCreateTeam.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.onSubmitAction = onSubmitAction || this.props.createItem;
   }
 
   onInputChange (evt) {
@@ -28,14 +29,20 @@ class AddTeam extends React.Component {
     });
   }
 
-  handleCreateTeam () {
+  handleSubmit () {
     const { name } = this.state;
-
-    this.props.createTeam({ name });
+    if (this.state.title === "Edit Team") {
+      let id = this.props.id;
+      this.onSubmitAction(id, { name });
+    }
+    else
+      this.onSubmitAction({ name });
     this.props.navigate("");
   }
 
   render () {
+
+    let buttonText = (this.state.title === "Edit Team") ? "Edit Team" : "Add Team";
     return (
       <div className="row">
         <div className="col-md-8">
@@ -50,7 +57,7 @@ class AddTeam extends React.Component {
                 onChange={this.onInputChange}
               />
             </FormGroup>
-            <Button onClick={this.handleCreateTeam}>Add Team</Button>
+            <Button onClick={this.handleSubmit}>{buttonText}</Button>
             <CancelButton />
           </Form>
         </div>
@@ -59,18 +66,18 @@ class AddTeam extends React.Component {
   };
 };
 
-const mapStateToProps = (state, props) => {
-  return {
-    error: state.error && state.erro.message
-  };
-};
+// const mapStateToProps = (state, props) => {
+//   return {
+//     error: state.error && state.error.message
+//   };
+// };
 
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ createTeam }, dispatch);
+// const mapDispatchToProps = (dispatch) =>
+//   bindActionCreators({ createTeam }, dispatch);
 
-AddTeam.propTypes = {
-  createTeam: PropTypes.func,
-  navigate: PropTypes.func
-};
+// AddTeam.propTypes = {
+//   createTeam: PropTypes.func,
+//   navigate: PropTypes.func
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddTeam);
+export default AddTeam;

@@ -11,6 +11,7 @@ let TeamHeader = ({ teamName, projectName, navigate, deleteTeam, id }) => {
           <FontAwesome name="user-plus" />
         </Button>
         <h2 className="col-xs-10 panel-title">{teamName} { projectName ? `/ ${projectName}`: "" }</h2>
+        <Button onClick={() => navigate(`edit-team-${id}`)}><FontAwesome name="edit" /></Button>
         <Button onClick={() => deleteTeam(id)}>X</Button>
     </div>
   );

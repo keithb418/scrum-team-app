@@ -67,13 +67,13 @@ class BaseResource {
             }
         };
 
-        this.router.put(`/${this.resourceType}`, (req, res) => {
-            updateResource(req.body._id, req.body, req, res);
-        });
-
-        // this.router.put(`/${this.resourceType}/:id`, (req, res) => {
-        //     updateResource(req.params.id, req.body, req, res);
+        // this.router.put(`/${this.resourceType}`, (req, res) => {
+        //     updateResource(req.body._id, req.body, req, res);
         // });
+
+        this.router.put(`/${this.resourceType}/:id`, (req, res) => {
+            updateResource(req.params.id, req.body, req, res);
+        });
     }
     addDelete() {
         this.router.delete(`/${this.resourceType}/:id`, (req, res) => {
