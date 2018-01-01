@@ -8,6 +8,8 @@ import style from "./scss/index.scss";
 import configureStore from "./store";
 import { fetchTeams, fetchTeamMembers, fetchRoles } from "./actions";
 
+import { handleResize } from "./handleResize";
+
 const store = configureStore(
   /*
     chrome redux dev tools
@@ -17,11 +19,13 @@ const store = configureStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+handleResize();
+
 store.dispatch(fetchTeams());
 store.dispatch(fetchTeamMembers());
 store.dispatch(fetchRoles());
 
 ReactDOM.render(
-    <App store={store}/>,
+  <App store={store}/>,
   document.getElementById("root")
 );

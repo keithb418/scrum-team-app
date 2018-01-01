@@ -10,7 +10,7 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) =>
     e.dataTransfer.setData("tmId", id);
   };
 
-  let className = `team-member btn ${teamLead ? "btn-info" : "btn-default" }`;
+  let className = `team-member btn btn-default ${teamLead ? "team-lead" : "" }`;
 
   return (
     <button
@@ -22,6 +22,10 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) =>
       onClick={() => {
         navigate(`edit-team-member-${id}`);
       }}>
+      <div className="team-member-header">
+        <p>{name}</p>
+        <FontAwesome name="times" className="delete-team-member-btn" tabIndex="1" onClick={() => deleteTeamMember(id)} />
+      </div>
       <Row>
         <Col
           xs={4}
@@ -31,11 +35,9 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) =>
         <Col
           xs={8}
           className="details">
-          <p>{name}</p>
           {teamLeadText}
           <p>{role}</p>
-          <FontAwesome name="edit" />
-          <FontAwesome name="times-circle" onClick={() => deleteTeamMember(id)} />
+          <p>(select to edit)</p>
         </Col>
       </Row>
     </button>

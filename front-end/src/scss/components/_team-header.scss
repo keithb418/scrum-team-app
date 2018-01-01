@@ -2,12 +2,22 @@
   @include flex;
 
   align-items: center;
+  background-color: $light;
   padding: $padding;
 
   button {
     background: transparent;
     border: 0 none;
     font-size: 1.5em;
+
+    &.add-team-member-btn {
+      padding: 6px;
+      width: 42px;
+    }
+  }
+
+  h2 {
+    width: calc(100% - (84px));
   }
 
   .row {

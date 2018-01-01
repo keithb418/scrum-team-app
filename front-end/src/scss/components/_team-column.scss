@@ -1,4 +1,6 @@
 .team-column {
+  @include pop-out-shadow;
+
   margin-right: $padding;
   width: $team-width;
 }
