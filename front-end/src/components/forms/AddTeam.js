@@ -38,8 +38,10 @@ class AddTeam extends React.Component {
   render () {
     return (
       <div className="row">
-        <div className="col-md-8">
-          <h3>{this.state.title}</h3>
+        <div className="form-section panel">
+          <div className="panel-heading">
+            <h3 className="panel-title">{this.state.title}</h3>
+          </div>
           <Form>
             <FormGroup controlId="team">
               <FormControl
@@ -50,7 +52,7 @@ class AddTeam extends React.Component {
                 onChange={this.onInputChange}
               />
             </FormGroup>
-            <Button onClick={this.handleCreateTeam}>Add Team</Button>
+            <Button bsStyle="primary" onClick={this.handleCreateTeam}>Add Team</Button>
             <CancelButton />
           </Form>
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { FormGroup, FormControl, InputGroup } from "react-bootstrap";
+import { FormGroup, FormControl, InputGroup, ControlLabel } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
 
@@ -41,8 +41,9 @@ export default class AddSkills extends React.Component {
   render () {
     let skillsToAdd = this.state.skills;
     return (
-      <div>
+      <div className="add-skills">
         <FormGroup controlId={this.props.id} style={{ width: "200px" }}>
+          <ControlLabel>Skills</ControlLabel>
           <InputGroup>
             <FormControl type="text" placeholder="Add Skills" />
             <InputGroup.Addon>
@@ -53,7 +54,7 @@ export default class AddSkills extends React.Component {
 
         {skillsToAdd.map((skill, index) => {
           return (
-            <div style={{ display: "inline-block", marginRight: "15px" }} key={index}>{skill}
+            <div style={{ display: "inline-block", marginRight: "15px" }} className="skill" key={index}>{skill}
               <FontAwesome name="minus-circle" style={{ cursor: "pointer" }} onClick={this.onRemove} />
             </div>
           );

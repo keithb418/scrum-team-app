@@ -1,7 +1,6 @@
 .team-columns {
   @include flex;
   
-  background-color: $background;
   flex-wrap: nowrap;
   height: calc(100% - 80px);
   overflow-x: auto;

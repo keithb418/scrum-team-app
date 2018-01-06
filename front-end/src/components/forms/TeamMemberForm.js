@@ -53,8 +53,10 @@ class TeamMemberForm extends React.Component {
   render () {
     return(
       <div className="row">
-        <div className="col-md-8">
-          <h3>{this.title}</h3>
+        <div className="form-section panel">
+          <div className="panel-heading">
+            <h3 className="panel-title">{this.title}</h3>
+          </div>
           <Form>
             <ControlLabel>Name</ControlLabel>
             <FormGroup controlId="name">
@@ -101,7 +103,7 @@ class TeamMemberForm extends React.Component {
             <Button bsStyle="primary" onClick={this.onSubmitForm}>
               {this.title}
             </Button>
-            <Button type="reset" bsStyle="danger">Reset</Button>
+            <Button type="reset">Reset</Button>
             <CancelButton />
           </Form>
         </div>

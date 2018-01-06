@@ -1,0 +1,51 @@
+.form-section {
+  @include pop-out-shadow;
+
+  background-color: #fff;
+  border: 0 none;
+  margin: 10px auto 0 auto;
+  max-width: 600px;
+
+  .panel-heading {
+    background-color: $light;
+  }
+
+  form {
+    padding: $padding;
+
+    button {
+      @include pop-out-shadow;
+
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0px;
+      }
+
+      &.btn-primary {
+        background-color: $mid;
+        border-color: $mid-border;
+        color: #fff;
+
+        &:hover, &:active {
+          background-color: $mid-border;
+        }
+      }
+    }
+  }
+}
+
+.add-skills {
+  margin-bottom: 15px;
+
+  .form-group {
+    margin-bottom: 5px;
+  }
+
+  .skill {
+    span.fa {
+      color: $mid;
+      margin-left: 5px;
+    }
+  }
+}
