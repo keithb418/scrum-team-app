@@ -13,7 +13,7 @@ export const fetchTeams = () => thunkCreator({
     FETCH_TEAMS_FAILURE
   ],
 
-  promise: fetch('http://localhost:3000/api/teams')
+  promise: fetch('/api/teams')
              .then(response => response.json())
 });
 
@@ -24,7 +24,7 @@ const _createTeam = (name) => thunkCreator({
     CREATE_TEAM_FAILURE
   ],
 
-  promise: fetch('http://localhost:3000/api/teams', {
+  promise: fetch('/api/teams', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -50,7 +50,7 @@ const _deleteTeam = (id) => thunkCreator({
     DELETE_TEAM_FAILURE
   ],
 
-  promise: fetch(`http://localhost:3000/api/teams/${id}`, {
+  promise: fetch(`/api/teams/${id}`, {
     method: 'DELETE',
     headers: {
       'Accept': 'text/html',

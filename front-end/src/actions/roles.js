@@ -11,6 +11,6 @@ export const fetchRoles = () => thunkCreator({
     FETCH_ROLES_FAILURE
   ],
 
-  promise: fetch('http://localhost:3000/api/roles')
+  promise: fetch('/api/roles')
              .then(response => response.json())
 });
