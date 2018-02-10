@@ -1,14 +1,14 @@
 [
   {
     "_id": { "$oid": "59316b89008c586bc2214318" },
-    "name": "ReactDojo"
+    "name": "Patiots"
   },
   {
     "_id": { "$oid": "59316b89008c586bc2214317" },
-    "name": "AngularDojo"
+    "name": "Vikings"
   },
   {
     "_id": { "$oid": "59316b89008c586bc2214316" },
-    "name": "BackboneDojo"
+    "name": "Eagles"
   }
 ]

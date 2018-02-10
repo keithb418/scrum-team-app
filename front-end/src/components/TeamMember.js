@@ -18,9 +18,6 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) =>
       draggable="true"
       onDragStart={(e) => {
         e.dataTransfer.setData("tmId", id);
-      }}
-      onClick={() => {
-        navigate(`edit-team-member-${id}`);
       }}>
       <div className="team-member-header">
         <p>{name}</p>
@@ -37,7 +34,8 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) =>
           className="details">
           {teamLeadText}
           <p>{role}</p>
-          <p>(select to edit)</p>
+          <FontAwesome name="pencil" className="delete-team-member-btn" tabIndex="1" onClick={() => navigate(`edit-team-member-${id}`)} />
+
         </Col>
       </Row>
     </button>
