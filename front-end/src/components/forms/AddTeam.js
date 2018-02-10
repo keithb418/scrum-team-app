@@ -63,7 +63,7 @@ class AddTeam extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    error: state.error && state.erro.message
+    error: state.error && state.error.message
   };
 };
 

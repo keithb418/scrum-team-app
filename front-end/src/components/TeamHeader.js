@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 let TeamHeader = ({ teamName, projectName, navigate, deleteTeam, id }) => {
   return (
     <div className="team-header panel-heading">
-        <Button className="add-team-member-btn" onClick={() => navigate("add-team-member")}>
+        <Button className="add-team-member-btn" onClick={() => navigate(`add-team-member-${id}`)}>
           <FontAwesome name="user-plus" />
         </Button>
         <h2 className="panel-title">{teamName} { projectName ? `/ ${projectName}`: "" }</h2>

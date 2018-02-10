@@ -12,7 +12,12 @@ class AddTeamMember extends TeamMemberForm {
 }
 
 const mapStateToProps = (state, props) => {
+  let team = state.teams.find((item) => {
+    return item._id === props.teamId;
+  });
+
   return {
+    team: team._id,
     teams: state.teams,
     roles: state.roles,
     error: state.error && state.error.message

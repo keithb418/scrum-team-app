@@ -42,7 +42,7 @@ class TeamMemberForm extends React.Component {
       skills
     });
   }
-  
+
   onSubmitForm () {
     const { name, email, team, teamLead, role, skills } = this.state;
 
@@ -90,7 +90,7 @@ class TeamMemberForm extends React.Component {
               </Checkbox>
             </FormGroup>
 
-            <SelectTeam teams={this.props.teams} selected={this.state.team} onSelect={(e) => {
+            <SelectTeam name="team" teams={this.props.teams} selected={this.state.team} onSelect={(e) => {
               this.onInputChange(e);
             }} />
 

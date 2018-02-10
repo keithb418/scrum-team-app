@@ -14,6 +14,9 @@ const Router = ({ route, navigate }) => {
   } else if (route.indexOf("edit-team-") > -1) {
     id = route.replace("edit-team-", "");
     route = "edit-team";
+  } else if (route.indexOf("add-team-member-") > -1) {
+    id = route.replace("add-team-member-", "");
+    route = "add-team-member";
   }
 
   switch (route) {
@@ -21,10 +24,10 @@ const Router = ({ route, navigate }) => {
       return <TeamColumnsContainer navigate={navigate} />;
 
     case "add-team":
-      return <AddTeam navigate={navigate}/>;
+      return <AddTeam navigate={navigate} />;
 
     case "add-team-member":
-      return <AddTeamMember navigate={navigate} />;
+      return <AddTeamMember navigate={navigate} teamId={id}/>;
 
     case "edit-team-member":
       return <EditTeamMember navigate={navigate} teamMemberId={id} />;
