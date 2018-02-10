@@ -3,7 +3,7 @@
     "_id": { "$oid": "59316b89008c586bc2214318" },
     "name": "Member One",
     "email": "member.one@example.com",
-    "team": { "$oid": "59316b89008c586bc2214318" },
+    "team": { "$oid": "59316b89008c586bc221431a" },
     "teamLead": true,
     "teamHistory": ["ReactDojo", "AngularDojo"],
     "role": "Front-End Developer",
@@ -13,7 +13,7 @@
     "_id": { "$oid": "59316b89008c586bc2214317" },
     "name": "Member Two",
     "email": "member.two@example.com",
-    "team": { "$oid": "59316b89008c586bc2214318" },
+    "team": { "$oid": "59316b89008c586bc221431c" },
     "teamHistory": ["ReactDojo"],
     "role": "Back-End Developer",
     "skills": ["Java 8", "Spring", "Spring Boot", "Spring Security", "REST", "Docker"]
@@ -22,18 +22,9 @@
     "_id": { "$oid": "59316b89008c586bc2214316" },
     "name": "Member Three",
     "email": "member.three@example.com",
-    "team": { "$oid": "59316b89008c586bc2214317" },
+    "team": { "$oid": "59316b89008c586bc221431b" },
     "teamHistory": ["ReactDojo", "AngularDojo", "BackboneDojo"],
     "role": "Front-End Developer",
     "skills": ["HTML5", "CSS3", "ES7", "ReactJS", "BackboneJS"]
-  },
-  {
-    "_id": { "$oid": "59316b89008c586bc2214315" },
-    "name": "Member Four",
-    "email": "member.four@example.com",
-    "team": "none",
-    "teamHistory": [],
-    "role": "Business Analyst",
-    "skills": ["Documentation", "Requirements Analysis"]
   }
 ]
