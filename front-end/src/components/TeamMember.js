@@ -21,7 +21,8 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) =>
       }}>
       <div className="team-member-header">
         <p>{name}</p>
-        <FontAwesome name="times" className="delete-team-member-btn" tabIndex="1" onClick={() => deleteTeamMember(id)} />
+        <FontAwesome name="edit" className="edit-team-member-btn" tabIndex="1" onClick={() => navigate(`edit-team-member-${id}`)} />
+        <FontAwesome name="trash" className="delete-team-member-btn" tabIndex="1" onClick={() => deleteTeamMember(id)} />
       </div>
       <Row>
         <Col
@@ -34,8 +35,6 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) =>
           className="details">
           {teamLeadText}
           <p>{role}</p>
-          <FontAwesome name="pencil" className="delete-team-member-btn" tabIndex="1" onClick={() => navigate(`edit-team-member-${id}`)} />
-
         </Col>
       </Row>
     </button>

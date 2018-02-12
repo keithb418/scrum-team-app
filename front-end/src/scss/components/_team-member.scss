@@ -1,5 +1,12 @@
 .team-member {
-  @include pop-out-shadow;
+  //@include pop-out-shadow;
+  border-radius: 0px;
+  border-left:3px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  background: $white;
+
 
   margin-bottom: $padding;
   padding: 0;
@@ -11,21 +18,31 @@
 
   &:hover {
     .team-member-header {
-      border-color: $border-hover;
+      //border-color: $border-hover;
     }
   }
 
   &.team-lead {
     .team-member-header {
-      background-color: $mid-light;
-      border-color: $mid;
-      color: #fff;
+      border-bottom: 1px solid #E6E6E6;
+      //background-color: $mid-light;
+      //border-color: $mid;
+      //color: #fff;
+      //border-left:5px solid;
+      //border-color: #009999
+
     }
+    border-left:3px solid #009999;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-radius: 0px;
+    //border-color:;
 
     &:hover {
       .team-member-header {
-        background-color: $mid;
-        border-color: $mid-border;
+        //background-color: $mid;
+        //border-color: $mid-border;
       }
     }
   }
@@ -33,13 +50,15 @@
   .team-member-header {
     @include flex;
 
+
     align-items: center;
-    background-color: $light;
-    border-bottom: 1px solid;
-    border-color: $border;
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
-    padding: 6px 12px;
+    //background-color: $light;
+    border-bottom: 1px solid #ccc;
+    //border-color: $border;
+    //border-top-left-radius: inherit;
+    //border-top-right-radius: inherit;
+    padding: 3px 6px;
+
 
     p {
       margin: 0;
@@ -49,12 +68,16 @@
 
     .delete-team-member-btn {
       background: transparent;
-      border: 0 none;
-      font-size: 1.5em;
-      height: 30px;
-      line-height: 30px;
-      text-align: center;
-      width: 30px;
+      width: 15px;
+      color: $grey;
+      margin: 3px;
+    }
+
+    .edit-team-member-btn {
+      background: transparent;
+      width: 15px;
+      color: $grey;
+      //border-right:1px solid #333;
     }
   }
 
@@ -67,18 +90,27 @@
   }
 
   .user-img {
-    font-size: 4em;
-    padding: 0;
-    text-align: left;
+    //@include flex;
+
+    //flex-direction: column;
+    font-size: 3em;
+    margin:0;
+    padding:0;
+    padding-right: 0;
+    //text-align: right;
+    //border: 1px solid #111;
   }
 
   .details {
-    @include flex;
+    //@include flex;
 
-    flex-direction: column;
-    justify-content: center;
-    padding: 5px 0;
-    text-align: right;
+    //flex-direction: column;
+    //justify-content: center;
+    padding: 0;
+    text-align: left;
+    //border: 1px solid #111;
+    font-size:0.85em;
+    margin-left: 20px;
 
     p {
       margin: 0;
