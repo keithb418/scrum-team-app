@@ -2,6 +2,7 @@ import React from "react";
 
 import TeamColumnsContainer from "../containers/TeamColumnsContainer";
 import AddTeam from "./forms/AddTeam";
+import EditTeam from "./forms/EditTeam";
 import AddTeamMember from "./forms/AddTeamMember";
 import EditTeamMember from "./forms/EditTeamMember";
 
@@ -25,6 +26,9 @@ const Router = ({ route, navigate }) => {
 
     case "add-team":
       return <AddTeam navigate={navigate} />;
+
+    case "edit-team":
+      return <EditTeam navigate={navigate} teamId={id} />;
 
     case "add-team-member":
       return <AddTeamMember navigate={navigate} teamId={id}/>;
