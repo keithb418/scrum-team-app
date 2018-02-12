@@ -1,5 +1,5 @@
 import {
-  CREATE_TEAM_SUCCESS, UPDATE_TEAMS, FETCH_TEAMS_SUCCESS,
+  CREATE_TEAM_SUCCESS, UPDATE_TEAM_SUCCESS, FETCH_TEAMS_SUCCESS,
   DELETE_TEAM_SUCCESS
 } from "../actionTypes";
 
@@ -25,8 +25,14 @@ const teams = (state = [], action) => {
       return state.filter(team => team._id !== result.id );
     }
 
-    case UPDATE_TEAMS: {
-      return action.teams;
+    case UPDATE_TEAM_SUCCESS: {
+      return state.map(team => {
+        if (team._id === action.result._id) {
+            return action.result;
+        }
+
+        return team;
+      });
     }
 
     default: {
