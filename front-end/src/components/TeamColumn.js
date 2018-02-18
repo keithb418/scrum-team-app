@@ -4,7 +4,7 @@ import TeamMember from "./TeamMember";
 import TeamHeader from "./TeamHeader";
 import PropTypes from "prop-types";
 
-let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dispatch, navigate, deleteTeam, deleteTeamMember }) => {
+let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dispatch, deleteTeam, deleteTeamMember }) => {
 
   teamMembers.sort((a, b) => {
     if (b.teamLead) {
@@ -25,8 +25,7 @@ let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dis
       name={teamMember.name}
       teamLead={teamMember.teamLead}
       role={teamMember.role}
-      deleteTeamMember={deleteTeamMember}
-      navigate={navigate} />
+      deleteTeamMember={deleteTeamMember} />
   );
 
   let allowDrop = (e) => {
@@ -46,7 +45,6 @@ let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dis
   return (
     <div className="panel panel-default team-column" onDragOver={allowDrop} onDrop={drop}>
       <TeamHeader
-        navigate={navigate}
         deleteTeam={deleteTeam}
         id={id}
         teamName={teamName}
@@ -65,7 +63,6 @@ TeamColumn.propTypes = {
   id: PropTypes.string,
   teamMembers: PropTypes.array,
   teamName: PropTypes.string,
-  navigate: PropTypes.func
 };
 
 export default TeamColumn;

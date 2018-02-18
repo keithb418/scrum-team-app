@@ -9,6 +9,7 @@ import configureStore from "./store";
 import { fetchTeams, fetchTeamMembers, fetchRoles } from "./actions";
 
 import { handleResize } from "./handleResize";
+import { BrowserRouter } from "react-router-dom";
 
 const store = configureStore(
   /*
@@ -26,6 +27,8 @@ store.dispatch(fetchTeamMembers());
 store.dispatch(fetchRoles());
 
 ReactDOM.render(
-  <App store={store}/>,
+  <BrowserRouter>
+    <App store={store}/>
+  </BrowserRouter>,
   document.getElementById("root")
 );

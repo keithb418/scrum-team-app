@@ -1,7 +1,7 @@
-import { createStore } from 'redux'
-import reducers from '../reducers'
+import { createStore } from "redux";
+import reducers from "../reducers";
 
-import middleware from './middleware'
+import middleware from "./middleware";
 
 export default function configureStore (initialState) {
   const route = window.location.pathname.replace(/\//g, "");
@@ -9,7 +9,6 @@ export default function configureStore (initialState) {
   return createStore(
     reducers,
     initialState,
-    middleware,
-    route
+    middleware
   );
 }

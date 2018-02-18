@@ -13,7 +13,7 @@ class EditTeam extends TeamForm {
 
 const mapStateToProps = (state, props) => {
   let team = state.teams.find((item) => {
-    return item._id === props.teamId;
+    return item._id === props.match.params.id;
   });
 
   return {
