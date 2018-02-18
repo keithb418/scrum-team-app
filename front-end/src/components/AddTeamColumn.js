@@ -6,16 +6,18 @@ import FontAwesome from "react-fontawesome";
 class AddTeamColumn extends React.Component {
   render () {
     return (
+      <div>
         <Link to="/team/add">
-        <Button className="add-team-button">
-          <span className="content">
-            <FontAwesome
-              name="plus-circle"
-            />
-            Add Team Column
-          </span>
-        </Button>
-      </Link>
+          <Button className="add-team-button">
+            <span className="content">
+              <FontAwesome
+                name="plus-circle"
+              />
+              Add Team Column
+            </span>
+          </Button>
+        </Link>
+      </div>
     );
   }
 }
