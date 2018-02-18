@@ -47,7 +47,7 @@ class TeamMemberForm extends React.Component {
     const { name, email, team, teamLead, role, skills } = this.state;
 
     this.onSubmitAction({ name, email, team, teamLead, role, skills, _id: this.id });
-    this.props.navigate("");
+    this.props.history.push("/");
   }
 
   render () {
@@ -113,7 +113,6 @@ class TeamMemberForm extends React.Component {
 };
 
 TeamMemberForm.propTypes = {
-  navigate: PropTypes.func,
   createTeamMember: PropTypes.func,
   roles: PropTypes.array,
   teams: PropTypes.array,

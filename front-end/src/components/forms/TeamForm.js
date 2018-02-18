@@ -1,6 +1,8 @@
 import React from "react";
 import { Form, FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 
 import CancelButton from "./CancelButton";
 
@@ -31,14 +33,14 @@ class TeamForm extends React.Component {
     if (this.state.title === "Edit Team") {
       let _id = this.props.teamId;
       this.onSubmitAction(_id, name);
-    }
-    else
+      this.props.history.push("/");
+    } else {
       this.onSubmitAction({ name });
-    this.props.navigate("");
+      this.props.history.push("/");
+    }
   }
 
   render () {
-
     let buttonText = (this.state.title === "Edit Team") ? "Edit Team" : "Add Team";
     return (
       <div className="row">
@@ -66,7 +68,7 @@ class TeamForm extends React.Component {
 };
 
 TeamForm.propTypes = {
-  navigate: PropTypes.func
+  handleSubmit: PropTypes.func
 };
 
 export default TeamForm;

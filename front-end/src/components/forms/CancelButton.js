@@ -1,23 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
-import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-let CancelButton = ({ dispatch }) => {
-  return (
-    <Button onClick={() => {
-      dispatch({
-        type: "CHANGE_ROUTE",
-        route: ""
-      });
-    }}>Cancel</Button>
-  );
-};
-
-CancelButton = connect()(CancelButton);
-
-CancelButton.propTypes = {
-  dispatch: PropTypes.func,
-};
+class CancelButton extends React.Component {
+  render () {
+    return (
+      <Link to="/">
+        <Button>Cancel</Button>
+      </Link>
+    );
+  }
+}
 
 export default CancelButton;

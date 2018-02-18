@@ -3,6 +3,7 @@ import { Button, Row, Col } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
 import { deleteTeamMember } from "../actions/index";
+import { Link } from "react-router-dom";
 
 const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) => {
   let teamLeadText = teamLead ? <p>Team Lead</p> : "";
@@ -21,7 +22,9 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) =>
       }}>
       <div className="team-member-header">
         <p>{name}</p>
-        <FontAwesome name="edit" className="edit-team-member-btn" tabIndex="1" onClick={() => navigate(`edit-team-member-${id}`)} />
+        <Link to={`/member/${id}/edit`}>
+          <FontAwesome name="edit" className="edit-team-member-btn" tabIndex="1" />
+        </Link>
         <FontAwesome name="trash" className="delete-team-member-btn" tabIndex="1" onClick={() => deleteTeamMember(id)} />
       </div>
       <Row>
