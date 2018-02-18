@@ -7,3 +7,5 @@ package-lock.json
 .eslintrc
 .eslintrc.json
 data
+/seeds
+seed.json
