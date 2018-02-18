@@ -4,6 +4,7 @@ import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
 import { deleteTeamMember } from "../actions/index";
 import { Link } from "react-router-dom";
+import { truncateString } from "../util/stringHelpers";
 
 const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) => {
   let teamLeadText = teamLead ? <p>Team Lead</p> : "";
@@ -21,27 +22,9 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) =>
         e.dataTransfer.setData("tmId", id);
       }}>
       <div className="team-member-header">
-        <p>{name}</p>
-        <Link to={`/member/${id}/edit`}>
-          <FontAwesome name="edit" className="edit-team-member-btn" tabIndex="1" />
-        </Link>
+        <p>{truncateString(name, 23)}</p>
         <FontAwesome name="trash" className="delete-team-member-btn" tabIndex="1" onClick={() => deleteTeamMember(id)} />
       </div>
-<<<<<<< HEAD
-      <Row>
-        <Col
-          xs={4}
-          className="user-img">
-          <FontAwesome name="user-circle" />
-        </Col>
-        <Col
-          xs={8}
-          className="details">
-          {teamLeadText}
-          <p>{role}</p>
-        </Col>
-      </Row>
-=======
       <Link to={`/member/${id}`}>
         <Row>
           <Col
@@ -57,7 +40,6 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) =>
           </Col>
         </Row>
       </Link>
->>>>>>> development
     </button>
   );
 };

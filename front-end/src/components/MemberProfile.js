@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { capitalizeFirstLetter } from "../util/stringHelpers";
 
 class MemberProfile extends React.Component {
   render () {
@@ -19,9 +20,9 @@ class MemberProfile extends React.Component {
           {Object.keys(member).map(key => {
             const info = member[key];
             if (key === "name" || key ==="email" || key === "role") {
-              return <li key={key}>{key.toUpperCase()} : {info}</li>;
+              return <li key={key}>{capitalizeFirstLetter(key)}: {info}</li>;
             } else if (key === "teamLead") {
-              return <li key={key}>TEAM LEAD : { info ? "Yes" : "No" }</li>;
+              return <li key={key}>Team Lead: { info ? "Yes" : "No" }</li>;
             } else {
               return null;
             }
