@@ -27,6 +27,7 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) =>
         </Link>
         <FontAwesome name="trash" className="delete-team-member-btn" tabIndex="1" onClick={() => deleteTeamMember(id)} />
       </div>
+<<<<<<< HEAD
       <Row>
         <Col
           xs={4}
@@ -40,6 +41,23 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) =>
           <p>{role}</p>
         </Col>
       </Row>
+=======
+      <Link to={`/member/${id}`}>
+        <Row>
+          <Col
+            xs={4}
+            className="user-img">
+              <FontAwesome name="user-circle" />
+          </Col>
+          <Col
+            xs={8}
+            className="details">
+            {teamLeadText}
+            <p>{role}</p>
+          </Col>
+        </Row>
+      </Link>
+>>>>>>> development
     </button>
   );
 };
