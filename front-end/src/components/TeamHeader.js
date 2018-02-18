@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 let TeamHeader = ({ teamName, projectName, deleteTeam, id }) => {
   return (
     <div className="team-header panel-heading">
-      <Link to={`member/${id}/add`}>
+      <Link to={`team/${id}/member/add`}>
         <Button className="add-team-member-btn">
           <FontAwesome name="user-plus" />
         </Button>
