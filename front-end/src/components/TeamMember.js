@@ -28,7 +28,9 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) =>
         <Col
           xs={4}
           className="user-img">
-          <FontAwesome name="user-circle" />
+          <Link to={`/member/${id}`}>
+            <FontAwesome name="user-circle" />
+          </Link>
         </Col>
         <Col
           xs={8}

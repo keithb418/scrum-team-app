@@ -9,6 +9,8 @@ import AddTeam from "./forms/AddTeam";
 import EditTeam from "./forms/EditTeam";
 import AddTeamMember from "./forms/AddTeamMember";
 import EditTeamMember from "./forms/EditTeamMember";
+import TeamMember from "./TeamMember";
+import TeamMemberProfile from "./TeamMemberProfile";
 import Header from "./Header";
 
 import { history } from "../store/middleware";
@@ -25,6 +27,7 @@ const App = ({ store }) => (
           <Route exact path="/team/:id/edit" component={EditTeam} />
           <Route exact path="/team/:id/member/add" component={AddTeamMember} />
           <Route exact path="/member/:id/edit" component={EditTeamMember} />
+          <Route exact path="/member/:id" component={TeamMemberProfile} />
         </Switch>
       </div>
     </ConnectedRouter>
