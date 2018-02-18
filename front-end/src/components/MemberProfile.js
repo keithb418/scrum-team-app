@@ -1,15 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
+import FontAwesome from "react-fontawesome";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class MemberProfile extends React.Component {
   render () {
     const { member, team } = this.props;
+    const id = this.props.member._id;
 
     return (
       <div>
         <h2>Profile</h2>
+        <h3>Team {team.name}</h3>
+        <FontAwesome name="user-circle"/>
         <ul>
           {Object.keys(member).map(key => {
             const info = member[key];
@@ -29,12 +34,20 @@ class MemberProfile extends React.Component {
             return <li key={index}>{skill}</li>;
           })}
         </ul>
+        <Link to={`/member/${id}/edit`}>
+          <Button>Edit</Button>
+        </Link>
         <Link to="/">
           <Button>Back to Dashboard</Button>
         </Link>
       </div>
     );
   }
+};
+
+MemberProfile.propTypes = {
+  member: PropTypes.object,
+  team: PropTypes.object
 };
 
 export default MemberProfile;
