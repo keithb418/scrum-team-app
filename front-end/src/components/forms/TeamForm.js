@@ -33,6 +33,7 @@ class TeamForm extends React.Component {
     if (this.state.title === "Edit Team") {
       let _id = this.props.teamId;
       this.onSubmitAction(_id, name);
+      this.props.history.push("/");
     } else {
       this.onSubmitAction({ name });
       this.props.history.push("/");
