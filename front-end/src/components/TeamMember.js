@@ -22,26 +22,26 @@ const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) =>
       }}>
       <div className="team-member-header">
         <p>{name}</p>
+        <Link to={`/member/${id}/edit`}>
+          <FontAwesome name="edit" className="edit-team-member-btn" tabIndex="1" />
+        </Link>
         <FontAwesome name="trash" className="delete-team-member-btn" tabIndex="1" onClick={() => deleteTeamMember(id)} />
       </div>
-      <Row>
-        <Col
-          xs={4}
-          className="user-img">
-          <Link to={`/member/${id}`}>
-            <FontAwesome name="user-circle" />
-          </Link>
-        </Col>
-        <Col
-          xs={8}
-          className="details">
-          {teamLeadText}
-          <p>{role}</p>
-          <Link to={`/member/${id}/edit`}>
-            <FontAwesome name="edit" className="edit-team-member-btn" tabIndex="1" />
-          </Link>
-        </Col>
-      </Row>
+      <Link to={`/member/${id}`}>
+        <Row>
+          <Col
+            xs={4}
+            className="user-img">
+              <FontAwesome name="user-circle" />
+          </Col>
+          <Col
+            xs={8}
+            className="details">
+            {teamLeadText}
+            <p>{role}</p>
+          </Col>
+        </Row>
+      </Link>
     </button>
   );
 };
