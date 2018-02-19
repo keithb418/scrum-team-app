@@ -24,8 +24,8 @@ const App = ({ store }) => (
         <Switch>
           <Route exact path="/" component={TeamsColumnsContainer} />
           <Route exact path="/team/add" component={AddTeam} />
-          <Route exact path="/:team/:id/edit" component={EditTeam} />
-          <Route exact path="/:team/:id/member/add" component={AddTeamMember} />
+          <Route exact path="/team/:id/edit" component={EditTeam} />
+          <Route exact path="/team/:id/member/add" component={AddTeamMember} />
           <Route exact path="/member/:id/edit" component={EditTeamMember} />
           <Route exact path="/member/:id" component={MemberProfileContainer} />
         </Switch>

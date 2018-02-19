@@ -4,18 +4,18 @@ import { connect } from "react-redux";
 import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { truncateString, addHyphen } from "../util/stringHelpers";
+import { truncateString } from "../util/stringHelpers";
 
 let TeamHeader = ({ teamName, projectName, deleteTeam, id }) => {
   return (
     <div className="team-header panel-heading">
-      <Link to={`${addHyphen(teamName).toLowerCase()}/${id}/member/add`}>
+      <Link to={`team/${id}/member/add`}>
         <Button className="add-team-member-btn">
           <FontAwesome name="user-plus" />
         </Button>
       </Link>
         <h2 className="col-xs-10 panel-title">{truncateString(teamName, 16)} { projectName ? `/ ${projectName}`: "" }</h2>
-      <Link to={`${addHyphen(teamName).toLowerCase()}/${id}/edit`}>
+      <Link to={`team/${id}/edit`}>
         <Button>
           <FontAwesome name="edit" />
         </Button>
