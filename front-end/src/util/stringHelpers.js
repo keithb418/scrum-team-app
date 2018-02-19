@@ -9,3 +9,8 @@ export function truncateString (str, length) {
     return str;
   }
 }
+
+export function addHyphen (str) {
+  str = str.replace(/\s+/g, '-')
+  return str
+}
