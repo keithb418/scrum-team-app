@@ -1,19 +1,26 @@
 .form-section {
-  @include pop-out-shadow;
+  h3 {
+    font-size:1.2em;
+    margin: 10px 0 0;
+    border-bottom: 1px;
+    border-color: $dark-grey;
+  }
+  //@include pop-out-shadow;
 
   background-color: #fff;
-  border: 0 none;
-  margin: 10px auto 0 auto;
-  max-width: 600px;
+  margin: 60px auto 0 auto;
 
   .panel-heading {
-    background-color: $light;
+    // border: 1px solid red;
+    //background-color: $light;
   }
 
   form {
-    padding: $padding;
+    //padding: $padding;
+    //border: 1px solid green;
 
     button {
+      border-color: $dark-grey;
       @include pop-out-shadow;
 
       margin-right: 10px;
@@ -23,8 +30,8 @@
       }
 
       &.btn-primary {
-        background-color: $mid;
-        border-color: $mid-border;
+        //background-color: $mid;
+        //border-color: $mid-border;
         color: #fff;
 
         &:hover, &:active {
@@ -33,6 +40,18 @@
       }
     }
   }
+}
+
+.left-spacer {
+  margin: 0 0 0 10px;
+}
+
+.right-spacer {
+  margin: 0 10px 0 0;
+}
+
+.add-skills-icon {
+  font-size: 1.75em;
 }
 
 .add-skills {

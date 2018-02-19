@@ -44,10 +44,11 @@ class TeamForm extends React.Component {
     let buttonText = (this.state.title === "Edit Team") ? "Edit Team" : "Add Team";
     return (
       <div className="row">
-        <div className="form-section panel">
+        <div className="form-section col-md-6 offset-md-3 col-xs-12">
           <div className="panel-heading">
             <h3 className="panel-title">{this.state.title}</h3>
           </div>
+          <hr />
           <Form>
             <FormGroup controlId="team">
               <FormControl
@@ -58,7 +59,7 @@ class TeamForm extends React.Component {
                 onChange={this.onInputChange}
               />
             </FormGroup>
-            <Button onClick={this.handleSubmit}>{buttonText}</Button>
+            <Button bsStyle="primary" onClick={this.handleSubmit}>{buttonText}</Button>
             <CancelButton />
           </Form>
         </div>

@@ -53,10 +53,11 @@ class TeamMemberForm extends React.Component {
   render () {
     return(
       <div className="row">
-        <div className="form-section panel">
+        <div className="form-section col-md-6 offset-md-3 col-xs-12">
           <div className="panel-heading">
             <h3 className="panel-title">{this.title}</h3>
           </div>
+          <hr />
           <Form>
             <ControlLabel>Name</ControlLabel>
             <FormGroup controlId="name">
@@ -81,12 +82,13 @@ class TeamMemberForm extends React.Component {
             </FormGroup>
 
             <FormGroup controlId="teamLead">
+              <span className="right-spacer">Team Lead</span>
               <Checkbox
                 name="teamLead"
                 value={this.state.teamLead}
                 checked={this.state.teamLead ? "checked" : ""}
                 onChange={this.onInputChange}
-                inline>Team Lead
+                inline>
               </Checkbox>
             </FormGroup>
 
