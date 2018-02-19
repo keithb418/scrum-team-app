@@ -101,7 +101,7 @@ class TeamMemberForm extends React.Component {
             }} />
 
             <AddSkills id="add-skills" onChange={this.onSkillsChange} skills={this.state.skills} />
-
+            <p>Please enter one skill at a time</p>
             <Button bsStyle="primary" onClick={this.onSubmitForm}>
               {this.title}
             </Button>
