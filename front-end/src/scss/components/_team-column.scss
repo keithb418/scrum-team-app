@@ -5,10 +5,10 @@
   width: $team-width;
   background: $light-grey;
   border: 1px solid $border;
-  overflow: auto;
-  position: relative;
+  // overflow: auto;
+  //position: relative;
 }
 
 .team-body {
-  padding: 50px 4px 0;
+  padding: $padding;
 }
