@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { truncateString } from "../util/stringHelpers";
 
 let TeamHeader = ({ teamName, projectName, deleteTeam, id }) => {
   return (
@@ -13,7 +14,7 @@ let TeamHeader = ({ teamName, projectName, deleteTeam, id }) => {
           <FontAwesome name="user-plus" />
         </Button>
       </Link>
-        <h2 className="col-xs-10 panel-title">{teamName} { projectName ? `/ ${projectName}`: "" }</h2>
+        <h2 className="col-xs-10 panel-title">{truncateString(teamName, 16)} { projectName ? `/ ${projectName}`: "" }</h2>
       <Link to={`team/${id}/edit`}>
         <Button>
           <FontAwesome name="edit" />

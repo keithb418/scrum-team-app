@@ -2,22 +2,26 @@
   @include flex;
 
   align-items: center;
-  background-color: $light;
-  padding: $padding;
+  background-color: $white;
+  padding: 10px 0 0;
+  //position: fixed;
+  //width: 273px;
 
   button {
     background: transparent;
     border: 0 none;
-    font-size: 1.5em;
+    //font-size: 1em;
 
     &.add-team-member-btn {
       padding: 6px;
       width: 42px;
+      //border: 1px solid #333;
     }
   }
 
   h2 {
     width: calc(100% - (84px));
+    font-size: 1em;
   }
 
   .row {
@@ -30,5 +34,19 @@
     &:last-child {
       padding-right: 0;
     }
+  }
+
+  .delete-team-btn {
+    background: transparent;
+    width: 15px;
+    color: $grey;
+    margin: 3px;
+  }
+
+  .edit-team-btn {
+    background: transparent;
+    width: 15px;
+    //border-right:1px solid #333;
+    color: $grey;
   }
 }

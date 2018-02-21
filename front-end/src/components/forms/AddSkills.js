@@ -47,7 +47,7 @@ export default class AddSkills extends React.Component {
           <InputGroup>
             <FormControl type="text" placeholder="Add Skills" />
             <InputGroup.Addon>
-              <FontAwesome name="plus-circle" style={{ cursor: "pointer" }} onClick={this.onAdd} />
+              <FontAwesome name="plus-circle" className="left-spacer add-skills-icon" style={{ cursor: "pointer" }} onClick={this.onAdd} />
             </InputGroup.Addon>
           </InputGroup>
         </FormGroup>

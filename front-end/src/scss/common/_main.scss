@@ -6,10 +6,11 @@
 
 html, body {
   overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
 }
 
 .root {
-  background-color: $background;
+  background-color: $white;
 }
 
 .root > div {
