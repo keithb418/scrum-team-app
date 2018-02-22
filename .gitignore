@@ -7,5 +7,17 @@ package-lock.json
 .eslintrc
 .eslintrc.json
 data
+<<<<<<< HEAD
 /seeds
 seed.json
+=======
+
+*.swp
+*.log
+npm-debug.log*
+.eslintcache
+.npm
+
+# testing
+/coverage
+>>>>>>> development

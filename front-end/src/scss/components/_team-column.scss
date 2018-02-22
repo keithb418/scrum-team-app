@@ -1,0 +1,14 @@
+.team-column {
+  @include pop-out-shadow;
+
+  margin-right: $padding;
+  width: $team-width;
+  background: $light-grey;
+  border: 1px solid $border;
+  // overflow: auto;
+  //position: relative;
+}
+
+.team-body {
+  padding: $padding;
+}
