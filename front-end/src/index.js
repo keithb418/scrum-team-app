@@ -24,7 +24,6 @@ handleResize();
 
 store.dispatch(fetchTeams());
 store.dispatch(fetchTeamMembers());
-store.dispatch(fetchRoles());
 
 ReactDOM.render(
   <BrowserRouter>

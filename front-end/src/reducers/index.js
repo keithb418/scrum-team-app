@@ -11,7 +11,6 @@ const reducers = combineReducers({
   roles,
   loading,
   router: routerReducer
-
 });
 
 export default reducers;
