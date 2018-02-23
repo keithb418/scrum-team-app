@@ -6,7 +6,7 @@ import { deleteTeamMember } from "../actions/index";
 import { Link } from "react-router-dom";
 import { truncateString } from "../util/stringHelpers";
 
-const TeamMember = ({ id, name, teamLead, role, deleteTeamMember, navigate }) => {
+const TeamMember = ({ id, name, teamLead, role, deleteTeamMember }) => {
   let teamLeadText = teamLead ? <p>Team Lead</p> : "";
   let dragStart = (e) => {
     e.dataTransfer.setData("tmId", id);

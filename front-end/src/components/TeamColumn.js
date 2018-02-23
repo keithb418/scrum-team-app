@@ -4,7 +4,7 @@ import TeamMember from "./TeamMember";
 import TeamHeader from "./TeamHeader";
 import PropTypes from "prop-types";
 
-let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dispatch, deleteTeam, deleteTeamMember }) => {
+let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dispatch, deleteTeam, deleteTeamMember, changeTeam }) => {
 
   teamMembers.sort((a, b) => {
     if (b.teamLead) {
@@ -34,12 +34,10 @@ let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dis
 
   let drop = (e) => {
     e.preventDefault();
+    const _id = e.dataTransfer.getData("tmId");
+    const team = id;
 
-    dispatch({
-      type: "CHANGE_TEAM",
-      teamMemberId: e.dataTransfer.getData("tmId"),
-      team: id
-    });
+    changeTeam(_id, team);
   };
 
   return (
