@@ -1,6 +1,6 @@
 import {
-  CREATE_TEAM_MEMBER_SUCCESS, CHANGE_TEAM, FETCH_TEAM_MEMBERS_SUCCESS,
-  DELETE_TEAM_MEMBER_SUCCESS, UPDATE_TEAM_MEMBER_SUCCESS
+  CREATE_TEAM_MEMBER_SUCCESS, FETCH_TEAM_MEMBERS_SUCCESS, DELETE_TEAM_MEMBER_SUCCESS,
+  UPDATE_TEAM_MEMBER_SUCCESS, CHANGE_TEAM_SUCCESS
 } from "../actionTypes";
 
 const teamMembers = (state = [], action) => {
@@ -20,13 +20,13 @@ const teamMembers = (state = [], action) => {
         return state.filter(teamMember => teamMember._id !== result.id );
       }
 
-      case CHANGE_TEAM: {
+      case CHANGE_TEAM_SUCCESS: {
         let newState = [...state];
         let teamMember = newState.find((item) => {
-          return item._id === action.teamMemberId;
+          return item._id === action.result._id;
         });
 
-        teamMember.team = action.team;
+        teamMember.team = action.result.team;
 
         return newState;
       }
@@ -38,7 +38,7 @@ const teamMembers = (state = [], action) => {
 
       case UPDATE_TEAM_MEMBER_SUCCESS: {
         const { result } = action;
-        
+
         let newState = state.filter((item) => {
           return item._id !== result._id;
         });
