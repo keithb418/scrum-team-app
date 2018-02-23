@@ -2,7 +2,8 @@ import {
   FETCH_TEAM_MEMBERS_REQUEST, FETCH_TEAM_MEMBERS_SUCCESS, FETCH_TEAM_MEMBERS_FAILURE,
   CREATE_TEAM_MEMBER_REQUEST, CREATE_TEAM_MEMBER_SUCCESS, CREATE_TEAM_MEMBER_FAILURE,
   DELETE_TEAM_MEMBER_REQUEST, DELETE_TEAM_MEMBER_SUCCESS, DELETE_TEAM_MEMBER_FAILURE,
-  UPDATE_TEAM_MEMBER_REQUEST, UPDATE_TEAM_MEMBER_SUCCESS, UPDATE_TEAM_MEMBER_FAILURE
+  UPDATE_TEAM_MEMBER_REQUEST, UPDATE_TEAM_MEMBER_SUCCESS, UPDATE_TEAM_MEMBER_FAILURE,
+  CHANGE_TEAM_REQUEST, CHANGE_TEAM_SUCCESS, CHANGE_TEAM_FAILURE
 } from '../actionTypes'
 
 import { thunkCreator } from './utils'
@@ -93,3 +94,33 @@ export const deleteTeamMember = (id) => (dispatch) =>
     .catch(err =>
       console.log('Could not delete team member:', err.message)
     );
+
+
+
+// change team
+const _changeTeam = (_id, team) => thunkCreator({
+  types: [
+    CHANGE_TEAM_REQUEST,
+    CHANGE_TEAM_SUCCESS,
+    CHANGE_TEAM_FAILURE
+  ],
+
+  promise: fetch('/api/teamMembers/', {
+    method: 'PUT',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      _id,
+      team
+    })
+  })
+  .then(response => response.json())
+});
+
+export const changeTeam = (_id, team) => (dispatch) =>
+_changeTeam(_id, team)(dispatch)
+  .catch(err =>
+    console.log('Could not update a team:', err.message)
+  );
