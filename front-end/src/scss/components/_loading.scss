@@ -1,0 +1,18 @@
+.loading {
+  @include flex;
+  @include pop-out-shadow;
+
+  background-color: #fff;
+  border: 1px solid $border;
+  border-radius: 4px;
+  height: 70px;
+  left: calc(50% - 30px);
+  position: absolute;
+  top: calc(50% - 30px);
+  width: 70px;
+  z-index: 10;
+
+  span.fa {
+    margin: auto;
+  }
+}

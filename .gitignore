@@ -9,3 +9,12 @@ package-lock.json
 data
 /seeds
 seed.json
+
+*.swp
+*.log
+npm-debug.log*
+.eslintcache
+.npm
+
+# testing
+/coverage

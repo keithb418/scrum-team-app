@@ -1,0 +1,17 @@
+.add-team-button {
+  border: 3px dashed #ccc;
+  height: 100px;
+  width: $team-width;
+
+  .content {
+    @include flex;
+
+    align-items: center;
+    justify-content: center;
+
+    .fa {
+      font-size: 1em;
+      margin-right: $padding;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.team-columns {
+  @include flex;
+  
+  flex-wrap: nowrap;
+  height: calc(100% - 80px);
+  overflow-x: auto;
+  padding: $padding;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  & > * {
+    flex: 0 0 auto;
+  }
+
+  @import "team-column";
+  @import "team-header";
+  @import "add-team-button";
+}
