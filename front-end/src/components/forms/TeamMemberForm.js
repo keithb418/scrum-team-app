@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, FormGroup, FormControl, ControlLabel, Button, Checkbox } from "react-bootstrap";
+import { Form, FormGroup, FormControl, ControlLabel, Button, Checkbox, Radio } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
 
@@ -16,6 +16,7 @@ class TeamMemberForm extends React.Component {
       email: props.email || "",
       team: props.team || "",
       teamLead: props.teamLead || false,
+      experience: props.experience || "",
       role: props.role || "",
       skills: props.skills || []
     };
@@ -44,9 +45,9 @@ class TeamMemberForm extends React.Component {
   }
 
   onSubmitForm () {
-    const { name, email, team, teamLead, role, skills } = this.state;
+    const { name, email, team, teamLead, role, skills, experience } = this.state;
 
-    this.onSubmitAction({ name, email, team, teamLead, role, skills, _id: this.id });
+    this.onSubmitAction({ name, email, team, teamLead, role, skills, experience, _id: this.id });
     this.props.history.push("/");
   }
 
@@ -90,6 +91,46 @@ class TeamMemberForm extends React.Component {
                 onChange={this.onInputChange}
                 inline>
               </Checkbox>
+            </FormGroup>
+
+            <ControlLabel>Experience</ControlLabel>
+            <FormGroup controlId="experience">
+              <Radio
+                className="right-spacer"
+                name="experience"
+                value="Senior Level"
+                checked={this.state.experience === "Senior Level"}
+                onChange={this.onInputChange}
+                inline>
+                <span className="left-spacer">Senior Level</span>
+              </Radio>
+              <Radio
+                className="right-spacer"
+                name="experience"
+                value="Mid Level"
+                checked={this.state.experience === "Mid Level"}
+                onChange={this.onInputChange}
+                inline>
+                <span className="left-spacer">Mid Level</span>
+              </Radio>
+              <Radio
+                className="right-spacer"
+                name="experience"
+                value="Junior Level"
+                checked={this.state.experience === "Junior Level"}
+                onChange={this.onInputChange}
+                inline>
+                <span className="left-spacer">Junior Level</span>
+              </Radio>
+              <Radio
+                className="right-spacer"
+                name="experience"
+                value="Level not applicable"
+                checked={this.state.experience === "Level not applicable"}
+                onChange={this.onInputChange}
+                inline>
+                <span className="left-spacer">Level not applicable</span>
+              </Radio>
             </FormGroup>
 
             <SelectTeam name="team" teams={this.props.teams} selected={this.state.team} onSelect={(e) => {
