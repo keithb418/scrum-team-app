@@ -12,12 +12,12 @@ const SelectTeam = ({ teams = [], selected = "", onSelect }) => {
       	componentClass="select"
       	placeholder="Select Team"
       	onChange={onSelect} >
-    
+
         <option>Select Team...</option>
 
         {teams.map(team =>
-          <option 
-            value={team._id} 
+          <option
+            value={team._id}
             key={team._id}>{team.name}</option>
         )}
 

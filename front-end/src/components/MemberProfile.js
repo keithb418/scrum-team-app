@@ -29,7 +29,7 @@ class MemberProfile extends React.Component {
               <ul className="member-info">
                 {Object.keys(member).map(key => {
                   const info = member[key];
-                  if (key === "name" || key ==="email" || key === "role") {
+                  if (key === "name" || key ==="email" || key === "role" || key === "experience") {
                     return <li key={key}>{info}</li>;
                   } else if (key === "teamLead") {
                     return <li key={key}>Team Lead: { info ? "Yes" : "No" }</li>;

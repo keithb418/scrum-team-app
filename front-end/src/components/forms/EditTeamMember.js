@@ -22,6 +22,7 @@ const mapStateToProps = (state, props) => {
     email: teamMember.email,
     team: teamMember.team,
     teamLead: teamMember.teamLead,
+    experience: teamMember.experience,
     role: teamMember.role,
     skills: teamMember.skills,
     teams: state.teams,
