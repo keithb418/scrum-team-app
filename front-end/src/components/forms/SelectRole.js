@@ -13,7 +13,7 @@ const SelectRole = ({ roles = [], selected = "", onSelect }) => {
         placeholder="Select Role"
         onChange={ onSelect }>
 
-        <option>Select Role...</option>
+        <option>Select Role</option>
 
         {roles.map(role =>
           <option

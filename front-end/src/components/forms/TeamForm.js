@@ -67,9 +67,7 @@ class TeamForm extends React.Component {
           </div>
           <hr />
           <Form>
-            <FormGroup
-              controlId="team"
-              validationState={this.getValidationState()}>
+            <FormGroup controlId="team">
               <FormControl
                 type="text"
                 name="name"

@@ -49,8 +49,9 @@ class TeamMemberForm extends React.Component {
   getValidationState () {
     const nameLength = this.state.name.length;
     const emailValid = isEmailValid(this.state.email);
+    const teamSelect = this.state.team;
 
-    if (nameLength > 0 && emailValid) {
+    if (nameLength > 0 && emailValid && teamSelect !== "Select Team") {
       return "success";
     } else {
       return "error";
@@ -81,9 +82,7 @@ class TeamMemberForm extends React.Component {
           <hr />
           <Form>
             <ControlLabel>Name<sup><i className="fa fa-asterisk required"></i></sup></ControlLabel>
-            <FormGroup
-              controlId="name"
-              validationState={this.getValidationState()}>
+            <FormGroup controlId="name">
               <FormControl
                 type="text"
                 name="name"
@@ -95,9 +94,7 @@ class TeamMemberForm extends React.Component {
             </FormGroup>
 
             <ControlLabel>Email<sup><i className="fa fa-asterisk required"></i></sup></ControlLabel>
-            <FormGroup
-              controlId="email"
-              validationState={this.getValidationState()}>
+            <FormGroup controlId="email">
               <FormControl
                 type="email"
                 name="email"
