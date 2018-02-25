@@ -26,40 +26,64 @@ class TeamForm extends React.Component {
     this.setState({
       [name]: value
     });
-  }
+  };
+
+  getValidationState () {
+    const teamNameLength = this.state.name.length;
+    if (teamNameLength > 0 && teamNameLength <= 50) {
+      return "success";
+    } else {
+      return "error";
+    }
+  };
 
   handleSubmit () {
     const { name } = this.state;
-    if (this.state.title === "Edit Team") {
-      let _id = this.props.teamId;
-      this.onSubmitAction(_id, name);
-      this.props.history.push("/");
+    const validationState = this.getValidationState();
+
+    if (validationState === "error") {
+      return false;
     } else {
-      this.onSubmitAction({ name });
-      this.props.history.push("/");
+      if (this.state.title === "Edit Team") {
+        let _id = this.props.teamId;
+        this.onSubmitAction(_id, name);
+        this.props.history.push("/");
+      } else {
+        this.onSubmitAction({ name });
+        this.props.history.push("/");
+      }
     }
   }
 
   render () {
     let buttonText = (this.state.title === "Edit Team") ? "Edit Team" : "Add Team";
+    const isDisabled = this.getValidationState() === "error" ? this.state.isDisabled = true : this.state.isDisabled = false;
+
     return (
       <div className="row">
         <div className="form-section col-md-6 offset-md-3 col-xs-12">
           <div className="panel-heading">
-            <h3 className="panel-title">{this.state.title}</h3>
+            <h3 className="panel-title">{this.state.title}<sup><i className="fa fa-asterisk required"></i></sup></h3>
           </div>
           <hr />
           <Form>
-            <FormGroup controlId="team">
+            <FormGroup
+              controlId="team"
+              validationState={this.getValidationState()}>
               <FormControl
                 type="text"
                 name="name"
                 value={this.state.name}
                 placeholder="Enter team name"
-                onChange={this.onInputChange}
-              />
+                onChange={this.onInputChange} />
+              <FormControl.Feedback />
             </FormGroup>
-            <Button bsStyle="primary" onClick={this.handleSubmit}>{buttonText}</Button>
+            <Button
+              bsStyle="primary"
+              disabled={isDisabled}
+              onClick={this.handleSubmit}>
+              {buttonText}
+            </Button>
             <CancelButton />
           </Form>
         </div>

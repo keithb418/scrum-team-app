@@ -8,6 +8,8 @@ import SelectTeam from "./SelectTeam";
 import AddSkills from "./AddSkills";
 import CancelButton from "./CancelButton";
 
+import { isEmailValid } from "../../util/stringHelpers"
+
 class TeamMemberForm extends React.Component {
   constructor (props, title, onSubmitAction) {
     super(props);
@@ -44,14 +46,32 @@ class TeamMemberForm extends React.Component {
     });
   }
 
+  getValidationState () {
+    const nameLength = this.state.name.length;
+    const emailValid = isEmailValid(this.state.email);
+
+    if (nameLength > 0 && emailValid) {
+      return "success";
+    } else {
+      return "error";
+    }
+  }
+
   onSubmitForm () {
     const { name, email, team, teamLead, role, skills, experience } = this.state;
+    const validationState = this.getValidationState();
 
-    this.onSubmitAction({ name, email, team, teamLead, role, skills, experience, _id: this.id });
-    this.props.history.push("/");
+    if (validationState === "error") {
+      return false;
+    } else {
+      this.onSubmitAction({ name, email, team, teamLead, role, skills, experience, _id: this.id });
+      this.props.history.push("/");
+    }
   }
 
   render () {
+    const isDisabled = this.getValidationState() === "error" ? this.state.isDisabled = true : this.state.isDisabled = false;
+
     return(
       <div className="row">
         <div className="form-section col-md-6 offset-md-3 col-xs-12">
@@ -60,26 +80,30 @@ class TeamMemberForm extends React.Component {
           </div>
           <hr />
           <Form>
-            <ControlLabel>Name</ControlLabel>
-            <FormGroup controlId="name">
+            <ControlLabel>Name<sup><i className="fa fa-asterisk required"></i></sup></ControlLabel>
+            <FormGroup
+              controlId="name"
+              validationState={this.getValidationState()}>
               <FormControl
                 type="text"
                 name="name"
                 placeholder="Enter your name"
                 value={this.state.name}
                 onChange={this.onInputChange}
-              />
+                autoFocus
+                required />
             </FormGroup>
 
-            <ControlLabel>Email</ControlLabel>
-            <FormGroup controlId="email">
+            <ControlLabel>Email<sup><i className="fa fa-asterisk required"></i></sup></ControlLabel>
+            <FormGroup
+              controlId="email"
+              validationState={this.getValidationState()}>
               <FormControl
                 type="email"
                 name="email"
                 placeholder="Enter your email"
                 value={this.state.email}
-                onChange={this.onInputChange}
-              />
+                onChange={this.onInputChange} />
             </FormGroup>
 
             <FormGroup controlId="teamLead">
@@ -133,17 +157,29 @@ class TeamMemberForm extends React.Component {
               </Radio>
             </FormGroup>
 
-            <SelectTeam name="team" teams={this.props.teams} selected={this.state.team} onSelect={(e) => {
-              this.onInputChange(e);
-            }} />
+            <SelectTeam
+              name="team"
+              teams={this.props.teams}
+              selected={this.state.team}
+              onSelect={(e) => {
+              this.onInputChange(e); }} />
 
-            <SelectRole roles={this.props.roles} selected={this.state.role} onSelect={(e) => {
-              this.onInputChange(e);
-            }} />
+            <SelectRole
+              roles={this.props.roles}
+              selected={this.state.role}
+              onSelect={(e) => {
+              this.onInputChange(e);}} />
 
-            <AddSkills id="add-skills" onChange={this.onSkillsChange} skills={this.state.skills} />
+            <AddSkills
+              id="add-skills"
+              onChange={this.onSkillsChange}
+              skills={this.state.skills} />
+
             <p>Please enter one skill at a time</p>
-            <Button bsStyle="primary" onClick={this.onSubmitForm}>
+            <Button
+              bsStyle="primary"
+              disabled={isDisabled}
+              onClick={this.onSubmitForm}>
               {this.title}
             </Button>
             <Button type="reset">Reset</Button>
