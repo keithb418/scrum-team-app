@@ -37,17 +37,7 @@ let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dis
     const _id = e.dataTransfer.getData("tmId");
     const team = id;
 
-    // let teamMember = teamMembers.find((teamMemberId) => {
-    //   return teamMember._id === teamMemberId;
-    // });
-
     changeTeam(_id, team);
-
-    // dispatch({
-    //   type: "CHANGE_TEAM",
-    //   teamMemberId: e.dataTransfer.getData("tmId"),
-    //   team: id
-    // });
   };
 
   return (
