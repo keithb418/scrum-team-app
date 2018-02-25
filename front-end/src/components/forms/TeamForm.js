@@ -75,7 +75,8 @@ class TeamForm extends React.Component {
                 name="name"
                 value={this.state.name}
                 placeholder="Enter team name"
-                onChange={this.onInputChange} />
+                onChange={this.onInputChange}
+              />
               <FormControl.Feedback />
             </FormGroup>
             <Button
