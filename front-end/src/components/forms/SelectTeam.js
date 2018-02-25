@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const SelectTeam = ({ teams = [], selected = "", onSelect }) => {
   return (
     <FormGroup controlId="teamSelect">
-      <ControlLabel>Team</ControlLabel>
+      <ControlLabel>Team<sup><i className="fa fa-asterisk required"></i></sup></ControlLabel>
       <FormControl
         name="team"
         defaultValue={selected}
@@ -13,7 +13,7 @@ const SelectTeam = ({ teams = [], selected = "", onSelect }) => {
       	placeholder="Select Team"
       	onChange={onSelect} >
 
-        <option>Select Team...</option>
+        <option>Select Team</option>
 
         {teams.map(team =>
           <option
