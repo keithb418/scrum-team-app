@@ -1,76 +1,29 @@
 # Scrum Team App
 
-## Getting Started
+Scrum team app helps scrum masters manage development teams.
 
-On the first time, install the node modules:
+## Screen
+Supports the following desktop browsers: Chrome, Safari and IE11
 
-`npm install`
+![Dash board](https://s3-us-west-1.amazonaws.com/asc2683/scrum-team/scrum-team-dashboard-v1.png)
 
-When developing, use the following command:
+## URL
+https://scrum-team.herokuapp.com
 
-`mongod --dbpath=./data/db --smallfiles`
-This will start mongo on port=27017. Make sure you have data/db directory created in the root level.
+## Getting started
 
-`npm start`
 
-This will start a server on localhost:3000
+1. Clone repo and use master branch
 
-This command will continuously run and compile your code as you work, so you don't have to keep restarting your server.
+2. Install dependencies `$ npm install`
 
-For production, use the following commands:
-```bash
-npm run build
-node server.js
-```
+3. Start mongo `$ mongod --dbpath=./data/db --smallfiles`. This will start mongo on `port=27017`. Make sure you have data/db directory created at the root level.
 
-**npm run build** compiles the code into the dist directory
-**node server.js** start a server on the production port
+4. Start express server ```npm start```. This will start a server on localhost:3000
 
-## SCSS files
+## API
 
-The SCSS compiler is set up in such a way that you don't have to use relative paths to import modules. So for instance, you can do something like
-
-```
-@import 'components/_button.scss' //For a file under the scss folder
-@import 'package-name/file-name' //For a stylesheet from a node module
-```
-
-## Test
-
-Run `npm test` to run tests with Jest
-
-## Seed Mongo Data
-
-```
-$ npm install -g node-mongo-seeds
-
-To seed your mongodb with mock data from /seeds folder
-$ seed
-```
-
-## API Server
-
-Information about the API server and how to use it.
-
-The following resource types are available:
-
-| Resource Type   | Usage          |
-|-----------------|----------------|
-| teamsResource | Team resource |
-| teamMembersResource | Team members resource |
-| rolesResource | Roles resource |
-
-### API Endpoints
-
-The following endpoints are available:
-
-| Endpoints       | Usage          | Params         |
-|-----------------|----------------|----------------|
-| `GET /api/${this.resourceType}` | Returns all resource objects based on the specified reasource type from the database. For exmaple, ``/api/teamsResource/`` will retrieve all the teams from the database | &nbsp; |
-| `GET /api/${this.resourceType}/:id` | Returns a single resource object based on the specified resource type | &nbsp; |
-| `POST /api/${this.resourceType}` | Creates a new post to the specified resource type | &nbsp; |
-| `PUT /api/${this.resourceType}/:id` | Updates a single resource object based on the specified resource type | &nbsp; |
-| `DELETE /api/${this.resourceType}/:id` | Delete a single resource object based on specified resource type | &nbsp; |
+Checkout README in the [development branch](https://github.com/keithb418/scrum-team-app/blob/development/README.md)
 
 ## Acknowledgements
 
