@@ -4,7 +4,11 @@ import TeamMember from "./TeamMember";
 import TeamHeader from "./TeamHeader";
 import PropTypes from "prop-types";
 
+<<<<<<< HEAD
 let TeamColumn = ({ id = "", teamName = "" , teamMembers = [], deleteTeam, deleteTeamMember, changeTeam }) => {
+=======
+let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dispatch, deleteTeam, deleteTeamMember, changeTeam }) => {
+>>>>>>> upstream/release/1.5
 
   teamMembers.sort((a, b) => {
     if (b.teamLead) {

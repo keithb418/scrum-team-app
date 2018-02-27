@@ -38,7 +38,7 @@ const teamMembers = (state = [], action) => {
 
       case UPDATE_TEAM_MEMBER_SUCCESS: {
         const { result } = action;
-        
+
         let newState = state.filter((item) => {
           return item._id !== result._id;
         });
