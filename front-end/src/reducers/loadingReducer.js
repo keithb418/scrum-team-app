@@ -1,5 +1,5 @@
 
-export default function loadingReducer (state = {}, action) {
+const loadingReducer = (state = {}, action) => {
   if (action.type.endsWith("_REQUEST")) {
     const requestName = action.type.replace("_REQUEST", "")
     const counter = state[requestName] || 0
@@ -21,3 +21,5 @@ export default function loadingReducer (state = {}, action) {
 
   return state
 }
+
+export default loadingReducer;
