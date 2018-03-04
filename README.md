@@ -84,7 +84,7 @@ $ npm test
 
 * [React](https://github.com/facebook/react) - React is a JavaScript library for building user interfaces
 * [Redux](https://github.com/reactjs/redux) - Redux is a predictable state container for JavaScript apps
-* [Express](https://maven.apache.org/) - Express is minimal and flexible Node.js web application framework
+* [Express](https://expressjs.com/) - Express is minimal and flexible Node.js web application framework
 * [MongoDB](https://www.mongodb.com/) - MongoDB is a NoSQL database
 * [Webpack](https://github.com/webpack/webpack) - Webpack is a module bundler
 
@@ -183,6 +183,10 @@ The following endpoints are available:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://github.com/keithb418/scrum-team-app/blob/development/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
