@@ -11,6 +11,7 @@ import AddTeamMember from "./forms/AddTeamMember";
 import EditTeamMember from "./forms/EditTeamMember";
 import TeamMember from "./TeamMember";
 import MemberProfileContainer from "../containers/MemberProfileContainer";
+import ErrorMessageContainer from "../containers/ErrorMessageContainer";
 import Header from "./Header";
 
 import { history } from "../store/middleware";
@@ -21,6 +22,7 @@ const App = ({ store }) => (
       <div>
         <Header />
         <LoadingContainer />
+        <ErrorMessageContainer />
         <Switch>
           <Route exact path="/" component={TeamsColumnsContainer} />
           <Route exact path="/team/add" component={AddTeam} />

@@ -14,7 +14,7 @@ const TeamColumns = ({ teams, deleteTeam, deleteTeamMember, changeTeam }) => {
       project={team.project}
       teamMembers={team.teamMembers}
       deleteTeam={deleteTeam}
-      deleteTeamMember={deleteTeamMember}
+      deleteTeamMember={deleteTeamMember} 
       changeTeam={changeTeam} />
   );
 

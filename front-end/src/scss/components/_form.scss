@@ -10,6 +10,12 @@
   background-color: #fff;
   margin: 60px auto 0 auto;
 
+  .required {
+    color: red;
+    font-size: 0.25em;
+    margin-left: 1px;
+  }
+
   .panel-heading {
     // border: 1px solid red;
     //background-color: $light;

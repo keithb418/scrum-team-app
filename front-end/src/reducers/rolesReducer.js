@@ -1,4 +1,4 @@
-import { FETCH_ROLES_SUCCESS } from "../actionTypes"
+import { FETCH_ROLES_SUCCESS } from "../actionTypes";
 import defaultRoles from "./defaultRoles";
 
 const roles = (state = defaultRoles.roles, action) => {

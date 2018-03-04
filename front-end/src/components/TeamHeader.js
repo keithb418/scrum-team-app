@@ -6,7 +6,10 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { truncateString } from "../util/stringHelpers";
 
-let TeamHeader = ({ teamName, projectName, deleteTeam, id }) => {
+let TeamHeader = ({ teamName, deleteTeam, id, teamMembers }) => {
+
+  const isDisabled = teamMembers.length > 0;
+
   return (
     <div className="team-header panel-heading">
       <Link to={`team/${id}/member/add`}>
@@ -14,13 +17,15 @@ let TeamHeader = ({ teamName, projectName, deleteTeam, id }) => {
           <FontAwesome name="user-plus" />
         </Button>
       </Link>
-        <h2 className="col-xs-10 panel-title">{truncateString(teamName, 16)} { projectName ? `/ ${projectName}`: "" }</h2>
+        <h2 className="col-xs-10 panel-title">{truncateString(teamName, 16)}</h2>
       <Link to={`team/${id}/edit`}>
         <Button>
           <FontAwesome name="edit" />
         </Button>
       </Link>
-      <Button onClick={() => deleteTeam(id)}>
+      <Button
+        disabled={isDisabled}
+        onClick={() => deleteTeam(id)}>
         <FontAwesome name="trash" />
       </Button>
     </div>
