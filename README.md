@@ -107,19 +107,11 @@ The following endpoints are available:
 
 | Endpoints       | Usage          |
 |-----------------|----------------|
-<<<<<<< HEAD
-| GET /api/${this.resourceType} | Returns all resource objects based on the specified reasource type from the database. For exmaple, ``/api/teams/`` will retrieve all the teams from the database |
-| GET /api/${this.resourceType}/:id | Returns a single resource object based on the specified resource type |
-| POST /api/${this.resourceType} | Creates a new post to the specified resource type |
-| PUT /api/${this.resourceType}/:id | Updates a single resource object based on the specified resource type |
-| DELETE /api/${this.resourceType}/:id | Delete a single resource object based on specified resource type |
-=======
 | `GET /api/${this.resourceType}` | Returns all resource objects based on the specified reasource type from the database. For exmaple, ``/api/teams/`` will retrieve all the teams from the database |
 | `GET /api/${this.resourceType}/:id` | Returns a single resource object based on the specified resource type |
 | `POST /api/${this.resourceType}` | Creates a new post to the specified resource type |
 | `PUT /api/${this.resourceType}/:id` | Updates a single resource object based on the specified resource type |
 | `DELETE /api/${this.resourceType}/:id` | Delete a single resource object based on specified resource type |
->>>>>>> upstream/release/1.5
 
 
 ### API Examples

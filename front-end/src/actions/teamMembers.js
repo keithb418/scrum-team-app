@@ -95,12 +95,9 @@ export const deleteTeamMember = (id) => (dispatch) =>
       console.log('Could not delete team member:', err.message)
     );
 
-<<<<<<< HEAD
 
 
 // change team
-=======
->>>>>>> upstream/release/1.5
 const _changeTeam = (_id, team) => thunkCreator({
   types: [
     CHANGE_TEAM_REQUEST,
@@ -123,14 +120,7 @@ const _changeTeam = (_id, team) => thunkCreator({
 });
 
 export const changeTeam = (_id, team) => (dispatch) =>
-<<<<<<< HEAD
 _changeTeam(_id, team)(dispatch)
   .catch(err =>
     console.log('Could not update a team:', err.message)
   );
-=======
-  _changeTeam(_id, team)(dispatch)
-    .catch(err =>
-      console.log('Could not update a team:', err.message)
-    );
->>>>>>> upstream/release/1.5
