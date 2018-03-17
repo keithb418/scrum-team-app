@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const expressStaticGzip = require("express-static-gzip");
 const webpack = require('webpack');
 const bodyParser = require('body-parser');
 const MongoDataLayer = require('./back-end/src/dataLayer/MongoDataLayer');
@@ -12,26 +13,26 @@ const app = express();
 MongoDataLayer.connect(() => {
   if (isDeveloping) {
     const config = require('./webpack.config.js');
-    const webpackMiddleware = require('webpack-dev-middleware');
-    const webpackHotMiddleware = require('webpack-hot-middleware');
     const compiler = webpack(config);
-    const middleware = webpackMiddleware(compiler, {
-      publicPath: config.output.publicPath,
-      contentBase: 'src',
-      stats: {
-        colors: true,
-        hash: false,
-        timings: true,
-        chunks: false,
-        chunkModules: false,
-        modules: false
-      }
-    });
+    const webpackMiddleware = require('webpack-dev-middleware')(
+      compiler, 
+      config.devServer
+    );
+    const webpackHotMiddleware = require('webpack-hot-middleware')(
+      compiler, 
+      config.devServer
+    );
 
-    app.use(middleware);
-    app.use(webpackHotMiddleware(compiler));
+    app.use(webpackMiddleware);
+    app.use(webpackHotMiddleware);
   }
   else {
+    const expressStaticGzip = require("express-static-gzip");
+    app.use(
+      expressStaticGzip("dist", {
+        enableBrotli: true
+      })
+    );
     app.all('*', function(req, res, next) {
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");

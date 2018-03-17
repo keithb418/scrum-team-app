@@ -1,52 +1,42 @@
-'use strict';
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin")
+const compressionPlugin = require("compression-webpack-plugin");
+const BrotliPlugin = require("brotli-webpack-plugin");
 
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-
+const VENDORS = [
+  'react', 'react-dom', 'redux', 'redux-thunk', 
+  'react-redux', 'react-bootstrap', 'react-fontawesome', 'axios'
+];
 module.exports = {
-  entry: [
-  'babel-polyfill', path.join(__dirname, './front-end/src/index.js')],
-
+  entry: {
+    vendor: VENDORS,
+    main: [
+      'babel-polyfill', 
+      path.join(__dirname, './front-end/src/index.js')
+    ],
+  },
+  mode: "production",
   output: {
+    filename: '[name]-bundle.js',
+    chunkFilename: "[name].js",
     path: path.join(__dirname, '/dist/'),
-    filename: '[name].js',
     publicPath: '/'
   },
-
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'front-end/index.tpl.html',
-      inject: 'body',
-      filename: 'index.html'
-    }),
-    new ExtractTextPlugin('[name].css'),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false,
-        screw_ie8: true
-      }
-    }),
-    new OptimizeCssAssetsPlugin({
-      assetNameRegExp: /\.css$/,
-      cssProcessorOptions: { discardComments: { removeAll: true } }
-    }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
-  ],
   module: {
-    rules: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-          "presets": [["es2015", { "modules": false }], "stage-0", "react"]
-        }
+    rules: [
+      {
+        test: /\.js?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
       },
-      { test: /\.svg$/, exclude: /node_modules/, loader: 'svg-loader' },
+      { 
+        test: /\.svg$/, 
+        loader: 'svg-loader' 
+      },
       {
         test: /\.(jpg|png|ico|svg)$/,
         loader: 'file-loader',
@@ -56,12 +46,10 @@ module.exports = {
       },
       {
         test: /\.json?$/,
-        exclude: /node_modules/,
         loader: 'json-loader'
       },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
         loader: ExtractTextPlugin.extract({
           fallback: "style-loader",
           use: "css-loader!sass-loader",
@@ -71,6 +59,29 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader'
-      }]
-  }
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'front-end/index.tpl.html',
+      inject: 'body',
+      filename: 'index.html'
+    }),
+    new ExtractTextPlugin('[name].css'),
+    new optimizeCssAssetsPlugin({
+      assetNameRegExp: /\.css$/g,
+      cssProcessor: require("cssnano"),
+      cssProcessorOptions: { discardComments: { removeAll: true } },
+      canPrint: true
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
+    new UglifyJSPlugin(),
+    new CompressionPlugin({
+      algorithm: "gzip"
+    }),
+    new BrotliPlugin()
+  ],
 };
