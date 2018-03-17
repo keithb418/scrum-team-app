@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const optimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const VENDORS = [
   'react', 'react-dom', 'redux', 'redux-thunk', 
@@ -12,16 +12,19 @@ module.exports = {
   entry: {
     vendor: VENDORS,
     main: [
-      "react-hot-loader/patch",
-      "webpack-hot-middleware/client?reload=true",
+      'react-hot-loader/patch',
+      'babel-runtime/regenerator',
+      "babel-register",
+      'webpack-hot-middleware/client?reload=true',
       './front-end/src/index.js'
     ]
   }, 
-  mode: "development",
+  mode: 'development',
   output: {
-    filename: '[name]-bundle.js',
-    path: path.join(__dirname, '/dist/'),
-    publicPath: "/"
+    path: path.join(__dirname, 'dist'),
+    chunkFilename: '[name].js',
+    filename: '[name]-bundle.js', 
+    publicPath: '/'
   },
   devServer: {
     contentBase: "dist",
@@ -31,37 +34,62 @@ module.exports = {
       colors: true
     }
   },
-  devtool: "source-map",
+  devtool: 'source-map',
   module: {
     rules: [{
-      test: /\.js?$/,
+      test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel-loader'
+      use: [
+        {
+          loader: "babel-loader"
+        }
+      ]
     },
-    { test: /\.svg$/, loader: 'svg-loader' },
+    { 
+      test: /\.svg$/, 
+      use: [
+        {   
+          loader: 'svg-loader' 
+        }
+      ]
+    },
     {
       test: /\.(jpg|png|ico|svg)$/,
-      loader: 'file-loader',
-      options: {
-        name: './img/[name].[ext]',
-      },
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: './img/[name].[ext]',
+          },
+        }
+      ]  
     },
     {
       test: /\.json?$/,
-     
-      loader: 'json-loader'
+      use: [
+        {
+          loader: 'json-loader'
+        }
+      ]  
     },
     {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract({
-        fallback: "style-loader",
-        use: "css-loader!sass-loader",
-        publicPath: "/"
+        fallback: 'style-loader',
+        use: 'css-loader!sass-loader',
+        publicPath: '/'
       })
     },
     {
       test: /\.css$/,
-      loader: 'style-loader!css-loader'
+      use: [
+        {
+          loader: 'css-loader'
+        },
+        { 
+          loader: 'style-loader'
+        }
+      ]     
     }]
   },
   plugins: [
@@ -70,15 +98,15 @@ module.exports = {
       inject: 'body',
       filename: 'index.html'
     }),
-    new optimizeCssAssetsPlugin({
+    new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
-      cssProcessor: require("cssnano"),
+      cssProcessor: require('cssnano'),
       cssProcessorOptions: { discardComments: { removeAll: true } },
       canPrint: true
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new ExtractTextPlugin("[name].css")
+    new ExtractTextPlugin('[name].css')
   ]
 };

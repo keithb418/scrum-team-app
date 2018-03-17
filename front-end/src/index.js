@@ -6,7 +6,9 @@ import App from "./components/App";
 import reducer from "./reducers";
 import style from "./scss/index.scss";
 import configureStore from "./store";
-import { fetchTeams, fetchTeamMembers, fetchRoles } from "./actions";
+import { fetchTeams } from "./actions/teams";
+import { fetchRoles } from "./actions/roles";
+import { fetchTeamMembers } from "./actions/teamMembers";
 
 import { handleResize } from "./handleResize";
 import { BrowserRouter } from "react-router-dom";
@@ -27,9 +29,11 @@ store.dispatch(fetchTeamMembers());
 
 function render(Component) {
   ReactDOM.render(
-    <BrowserRouter>
-      <Component store={store}/>
-    </BrowserRouter>,
+    <AppContainer>
+      <BrowserRouter>
+        <Component store={store}/>
+      </BrowserRouter>
+    </AppContainer>,
     document.getElementById("root")
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Row, Col } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
-import { deleteTeamMember } from "../actions/index";
+import { deleteTeamMember } from "../actions/teamMembers";
 import { Link } from "react-router-dom";
 import { truncateString } from "../util/stringHelpers";
 

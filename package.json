@@ -7,15 +7,20 @@
     "collectCoverage": true
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0",
     "body-parser": "^1.18.0",
     "brotli-webpack-plugin": "^0.5.0",
     "compression-webpack-plugin": "^1.1.11",
     "css-loader": "^0.28.7",
+    "cssnano": "^3.10.0",
     "express": "^4.15.4",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "express-static-gzip": "^0.3.2",
     "file-loader": "^1.1.11",
     "history": "^4.7.2",
     "html-webpack-plugin": "^3.0.6",
@@ -38,11 +43,13 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-jest": "^23.0.0-alpha.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.1.4",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "jest": "^22.4.2",
     "json-loader": "^0.5.7",
     "node-sass": "^4.8.2",
@@ -50,6 +57,7 @@
     "npm-run-all": "^4.1.1",
     "react-addons-shallow-compare": "^15.6.2",
     "react-hot-loader": "^4.0.0",
+    "webpack-cli": "^2.0.12",
     "webpack-dev-middleware": "^3.0.1",
     "webpack-hot-middleware": "^2.19.1"
   },
@@ -60,10 +68,9 @@
     "watch-css": "npm run build-css && node-sass ./src/scss --include-path ./src/scss --include-path ./node_modules src/ -o ./public/css --watch --recursive",
     "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/keithb418/scrum-team-app.git"
-  },
+  "repository": "git+https://github.com/keithb418/scrum-team-app.git",
   "homepage": "https://github.com/keithb418/scrum-team-app#readme",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "author": "Crucnhwrap78 <Hayesapples78@gmail.com>"
 }

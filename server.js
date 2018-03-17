@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
-const expressStaticGzip = require("express-static-gzip");
-const webpack = require('webpack');
+
 const bodyParser = require('body-parser');
 const MongoDataLayer = require('./back-end/src/dataLayer/MongoDataLayer');
 
@@ -12,6 +11,7 @@ const app = express();
 
 MongoDataLayer.connect(() => {
   if (isDeveloping) {
+    const webpack = require('webpack');
     const config = require('./webpack.config.js');
     const compiler = webpack(config);
     const webpackMiddleware = require('webpack-dev-middleware')(

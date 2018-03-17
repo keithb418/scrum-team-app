@@ -2,9 +2,11 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import TeamColumns from "../components/TeamColumns";
-import { deleteTeam, deleteTeamMember, changeTeam } from "../actions";
+import { deleteTeam, changeTeam } from "../actions/teams";
+import { deleteTeamMember } from "../actions/teamMembers";
 
-const mapStateToProps = (state, ownProps) => {
+
+const mapStateToProps = (state) => {
   let teams = state.teams.map(item => ({ ...item }))
   let teamMembers = state.teamMembers.map(item => ({ ...item }))
 

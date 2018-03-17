@@ -3,7 +3,7 @@ import { bindActionCreators } from "redux";
 
 import TeamForm from "./TeamForm";
 
-import { updateTeam } from "../../actions";
+import { updateTeam } from "../../actions/teams";
 
 class EditTeam extends TeamForm {
   constructor (props) {

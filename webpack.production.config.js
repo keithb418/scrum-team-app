@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin")
-const compressionPlugin = require("compression-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 const BrotliPlugin = require("brotli-webpack-plugin");
 
 const VENDORS = [
@@ -22,7 +22,7 @@ module.exports = {
   mode: "production",
   output: {
     filename: '[name]-bundle.js',
-    chunkFilename: "[name].js",
+    chunkFilename: '[name].js',
     path: path.join(__dirname, '/dist/'),
     publicPath: '/'
   },
@@ -69,7 +69,7 @@ module.exports = {
       filename: 'index.html'
     }),
     new ExtractTextPlugin('[name].css'),
-    new optimizeCssAssetsPlugin({
+    new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
       cssProcessor: require("cssnano"),
       cssProcessorOptions: { discardComments: { removeAll: true } },
