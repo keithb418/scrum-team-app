@@ -4,7 +4,9 @@
 
 Always branch off of development branch.
 
-Branch naming convention:
+![Branching](https://s3-us-west-1.amazonaws.com/asc2683/scrum-team/branching-release-2.png)
+
+### Branch name
 
 feat/[descrption], i.e., feat/log-out
 
