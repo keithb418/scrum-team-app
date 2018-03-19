@@ -4,18 +4,14 @@
   align-items: center;
   background-color: $white;
   padding: 10px 0 0;
-  //position: fixed;
-  //width: 273px;
 
   button {
     background: transparent;
     border: 0 none;
-    //font-size: 1em;
 
     &.add-team-member-btn {
       padding: 6px;
       width: 42px;
-      //border: 1px solid #333;
     }
   }
 
@@ -46,7 +42,6 @@
   .edit-team-btn {
     background: transparent;
     width: 15px;
-    //border-right:1px solid #333;
     color: $grey;
   }
 }
