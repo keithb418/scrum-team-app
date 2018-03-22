@@ -1,53 +1,69 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Button } from "react-bootstrap";
+import { Button, Row, Col, Panel } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { capitalizeFirstLetter } from "../util/stringHelpers";
+import { capitalizeFirstLetter } from "../utils/stringHelpers";
 
-class MemberProfile extends React.Component {
+const Profile = ({ member }) => {
+  return (
+    <Col md={6}>
+      <h3>Profile</h3>
+      <ul className="member-info">
+        {Object.keys(member).map(key => {
+          const info = member[key];
+          if (key === "name" || key ==="email" || key === "role") {
+            return <li key={key}>{info}</li>;
+          } else if (key === "teamLead") {
+            return <li key={key}>Team Lead: { info ? "Yes" : "No" }</li>;
+          } else {
+            return null;
+          }
+        })}
+      </ul>
+    </Col>
+  )
+}
+
+
+const Skills = ({ member }) => {
+  return (
+    <Col md={6}>
+      <h3>Skills</h3>
+      <ul className="member-info inline">
+        { member.skills.map(function (skill, index) {
+          return <li key={index}>{skill}</li>;
+        })}
+      </ul>
+    </Col>
+  )
+}
+
+
+class MemberProfile extends Component {
   render () {
     const { member, team } = this.props;
-    const id = this.props.member._id;
+    const id = member._id;
 
     return (
-      <div className="row">
-        <div className="profile-section col-md-6 offset-md-3 col-xs-12">
-          <div className="panel-heading">
+      <Row>
+        <Col className="profile-section" md={6} mdOffset={3} xs={12}>
+          <Panel.Heading>
             <h3 className="panel-title">{team.name}</h3>
-          </div>
+          </Panel.Heading>
           <hr />
           <div className="member-profile-subheading">
             <FontAwesome name="user-circle" className="member-img" />
             <p>{member.name}</p>
           </div>
           <hr />
-          <div className="row">
-            <div className="col-md-6">
-            <h3>Profile</h3>
-              <ul className="member-info">
-                {Object.keys(member).map(key => {
-                  const info = member[key];
-                  if (key === "name" || key ==="email" || key === "role") {
-                    return <li key={key}>{info}</li>;
-                  } else if (key === "teamLead") {
-                    return <li key={key}>Team Lead: { info ? "Yes" : "No" }</li>;
-                  } else {
-                    return null;
-                  }
-                })}
-              </ul>
-            </div>
-            <div className="col-md-6">
-            <h3>Skills</h3>
-              <ul className="member-info inline">
-                { member.skills.map(function (skill, index) {
-                  return <li key={index}>{skill}</li>;
-                })}
-              </ul>
-            </div>
-          </div>
+          <Row>
+            <Profile 
+              member={member}/>
+            <Skills 
+              member={member}/>
+          </Row>
           <hr />
           <Link to={`/member/${id}/edit`}>
             <Button bsStyle="primary">Edit</Button>
@@ -55,8 +71,8 @@ class MemberProfile extends React.Component {
           <Link to="/">
             <Button>Back to Dashboard</Button>
           </Link>
-        </div>
-      </div>
+        </Col>
+      </Row>
     );
   }
 };

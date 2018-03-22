@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { ConnectedRouter } from "react-router-redux";
 
 import LoadingContainer from "../containers/LoadingContainer";
-import TeamsColumnsContainer from "../containers/TeamColumnsContainer";
+import TeamsColumns from "../components/TeamColumns";
 import AddTeam from "./forms/AddTeam";
 import EditTeam from "./forms/EditTeam";
 import AddTeamMember from "./forms/AddTeamMember";
@@ -22,7 +22,7 @@ const App = ({ store }) => (
         <Header />
         <LoadingContainer />
         <Switch>
-          <Route exact path="/" component={TeamsColumnsContainer} />
+          <Route exact path="/" component={TeamsColumns} />
           <Route exact path="/team/add" component={AddTeam} />
           <Route exact path="/team/:id/edit" component={EditTeam} />
           <Route exact path="/team/:id/member/add" component={AddTeamMember} />

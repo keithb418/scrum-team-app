@@ -6,9 +6,7 @@ import App from "./components/App";
 import reducer from "./reducers";
 import style from "./scss/index.scss";
 import configureStore from "./store";
-import { fetchTeams } from "./actions/teams";
-import { fetchRoles } from "./actions/roles";
-import { fetchTeamMembers } from "./actions/teamMembers";
+
 
 import { handleResize } from "./handleResize";
 import { BrowserRouter } from "react-router-dom";
@@ -24,8 +22,6 @@ const store = configureStore(
 
 handleResize();
 
-store.dispatch(fetchTeams());
-store.dispatch(fetchTeamMembers());
 
 function render(Component) {
   ReactDOM.render(

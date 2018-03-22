@@ -1,12 +1,11 @@
-import { FETCH_ROLES_SUCCESS } from "../actionTypes"
+import * as types from '../actionTypes'
 import defaultRoles from "./defaultRoles";
 
 const roles = (state = defaultRoles.roles, action) => {
   switch (action.type) {
-    case FETCH_ROLES_SUCCESS: {
-      const { roles } = action.result;
+    case types.FETCH_ROLES: 
+    const { roles: { roles } } = action
       return roles;
-    }
 
     default: {
       return state;

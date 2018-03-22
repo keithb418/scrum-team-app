@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { truncateString } from "../util/stringHelpers";
+import { truncateString } from "../utils/stringHelpers";
 
 let TeamHeader = ({ teamName, projectName, deleteTeam, id }) => {
   return (

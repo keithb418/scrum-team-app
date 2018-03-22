@@ -38,7 +38,8 @@
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.3",
-    "webpack": "^4.1.1"
+    "webpack": "^4.1.1",
+    "webpack-mild-compile": "^3.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -57,12 +58,14 @@
     "npm-run-all": "^4.1.1",
     "react-addons-shallow-compare": "^15.6.2",
     "react-hot-loader": "^4.0.0",
+    "uuid": "^3.2.1",
     "webpack-cli": "^2.0.12",
     "webpack-dev-middleware": "^3.0.1",
     "webpack-hot-middleware": "^2.19.1"
   },
   "scripts": {
-    "start": "nodemon server.js --exec babel-node",
+    "client": "node main.js",
+    "start": "nodemon server --exec babel-node",
     "build": "rm -rf dist && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "build-css": "node-sass ./src/scss --include-path ./src/scss --include-path ./node_modules src/ -o ./public/css",
     "watch-css": "npm run build-css && node-sass ./src/scss --include-path ./src/scss --include-path ./node_modules src/ -o ./public/css --watch --recursive",
@@ -70,7 +73,5 @@
   },
   "repository": "git+https://github.com/keithb418/scrum-team-app.git",
   "homepage": "https://github.com/keithb418/scrum-team-app#readme",
-  "license": "Apache-2.0",
-  "main": "index.js",
-  "author": "Crucnhwrap78 <Hayesapples78@gmail.com>"
+  "license": "Apache-2.0"
 }

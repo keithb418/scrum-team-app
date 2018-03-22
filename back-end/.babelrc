@@ -1,6 +1,19 @@
 {
     "presets": [
+      [
         "env",
-        "react"
+        {
+          "targets": {
+            "browsers": ["last 2 versions"]
+          }
+        }
+      ],
+      "react"
+    ],
+    "plugins": [ 
+      "transform-class-properties",
+      "transform-object-rest-spread",
+      "transform-runtime",
+      "react-hot-loader/babel"  
     ]
 }

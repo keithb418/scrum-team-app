@@ -12,11 +12,10 @@ module.exports = {
   entry: {
     vendor: VENDORS,
     main: [
-      'react-hot-loader/patch',
-      'babel-runtime/regenerator',
-      "babel-register",
-      'webpack-hot-middleware/client?reload=true',
-      './front-end/src/index.js'
+      "react-hot-loader/patch",
+      "babel-runtime/regenerator",
+      "webpack-hot-middleware/client?reload=true",
+      "./front-end/src/index.js"
     ]
   }, 
   mode: 'development',

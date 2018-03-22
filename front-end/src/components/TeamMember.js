@@ -4,7 +4,7 @@ import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
 import { deleteTeamMember } from "../actions/teamMembers";
 import { Link } from "react-router-dom";
-import { truncateString } from "../util/stringHelpers";
+import { truncateString } from "../utils/stringHelpers";
 
 const TeamMember = ({ id, name, teamLead, role, deleteTeamMember }) => {
   let teamLeadText = teamLead ? <p>Team Lead</p> : "";

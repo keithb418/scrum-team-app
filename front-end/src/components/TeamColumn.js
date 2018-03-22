@@ -28,11 +28,11 @@ let TeamColumn = ({ id = "", teamName = "" , project = "", teamMembers = [], dis
       deleteTeamMember={deleteTeamMember} />
   );
 
-  let allowDrop = (e) => {
+  const allowDrop = (e) => {
     e.preventDefault();
   };
 
-  let drop = (e) => {
+  const drop = (e) => {
     e.preventDefault();
     const _id = e.dataTransfer.getData("tmId");
     const team = id;

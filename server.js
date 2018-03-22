@@ -14,6 +14,7 @@ MongoDataLayer.connect(() => {
     const webpack = require('webpack');
     const config = require('./webpack.config.js');
     const compiler = webpack(config);
+    require('webpack-mild-compile')(compiler);
     const webpackMiddleware = require('webpack-dev-middleware')(
       compiler, 
       config.devServer

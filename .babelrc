@@ -10,10 +10,10 @@
     ],
     "react"
   ],
-  "plugins": [
-    "transform-runtime",
+  "plugins": [ 
     "transform-class-properties",
     "transform-object-rest-spread",
-    "react-hot-loader/babel"
+    "transform-runtime",
+    "react-hot-loader/babel"  
   ]
 }

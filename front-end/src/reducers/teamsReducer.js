@@ -1,16 +1,13 @@
-import {
-  CREATE_TEAM_SUCCESS, UPDATE_TEAM_SUCCESS, FETCH_TEAMS_SUCCESS,
-  DELETE_TEAM_SUCCESS
-} from "../actionTypes";
+import * as types from '../actionTypes';
 
 const teams = (state = [], action) => {
   switch (action.type) {
-    case FETCH_TEAMS_SUCCESS: {
-      const { teams } = action.result;
+    case types.FETCH_TEAMS: 
+      const { teams: { teams } } = action;
       return teams;
-    }
+    
 
-    case CREATE_TEAM_SUCCESS: {
+    case types.CREATE_TEAM: {
       const { result } = action;
 
       return [
@@ -19,13 +16,13 @@ const teams = (state = [], action) => {
       ];
     }
 
-    case DELETE_TEAM_SUCCESS: {
+    case types.DELETE_TEAM: {
       const { result } = action;
 
       return state.filter(team => team._id !== result.id );
     }
 
-    case UPDATE_TEAM_SUCCESS: {
+    case types.UPDATE_TEAM: {
       return state.map(team => {
         if (team._id === action.result._id) {
             return action.result;
