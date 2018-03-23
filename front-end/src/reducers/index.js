@@ -3,15 +3,15 @@ import teams from "./teamsReducer";
 import teamMembers from "./teamMembersReducer";
 import roles from "./rolesReducer";
 import loading from "./loadingReducer";
-import { routerReducer } from "react-router-redux";
+import error from "./errorReducer";
+
 
 const reducers = combineReducers({
   teams,
   teamMembers,
   roles,
   loading,
-  router: routerReducer
-
+  error,
 });
 
 export default reducers;

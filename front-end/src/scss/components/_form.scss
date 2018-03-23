@@ -5,20 +5,17 @@
     border-bottom: 1px;
     border-color: $dark-grey;
   }
-  //@include pop-out-shadow;
 
   background-color: #fff;
   margin: 60px auto 0 auto;
 
-  .panel-heading {
-    // border: 1px solid red;
-    //background-color: $light;
+  .required {
+    color: red;
+    font-size: 0.25em;
+    margin-left: 1px;
   }
 
   form {
-    //padding: $padding;
-    //border: 1px solid green;
-
     button {
       border-color: $dark-grey;
       @include pop-out-shadow;
@@ -30,8 +27,6 @@
       }
 
       &.btn-primary {
-        //background-color: $mid;
-        //border-color: $mid-border;
         color: #fff;
 
         &:hover, &:active {

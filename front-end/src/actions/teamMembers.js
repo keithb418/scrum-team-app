@@ -51,11 +51,14 @@ export const createTeamMember = (teamMember) => dispatch => ({
 //   .then(response => response.json())
 // });
 
-// export const deleteTeamMember = (id) => (dispatch) =>
-//   _deleteTeamMember(id)(dispatch)
-//     .catch(err =>
-//       console.log('Could not delete team member:', err.message)
-//     );
+export const deleteTeamMember = (id) => (dispatch) => {
+    API.deleteTeamMemebers(id)
+    .then(res => res.data)
+    .catch(err =>
+      console.log('Could not delete team member:', err.message)
+    );
+    dispatch({ type: types.DELETE_TEAM_MEMBERS, id })
+}
 
 // const _changeTeam = (_id, team) => thunkCreator({
 //   types: [
@@ -63,6 +66,7 @@ export const createTeamMember = (teamMember) => dispatch => ({
 //     CHANGE_TEAM_SUCCESS,
 //     CHANGE_TEAM_FAILURE
 //   ],
+
 
 //   promise: fetch('/api/teamMembers/', {
 //     method: 'PUT',
@@ -83,5 +87,6 @@ export const changeTeam = (_id, team) => (dispatch) => {
     API.updateTeamMemebers(teamChangeInfo)
     .then(res => res.data)
     .catch(err => console.error('There was an error updating Team Members: ', err))
-    dispatch({ types: types.CHANGE_TEAM, result: teamChangeInfo });
+    dispatch({ type: types.CHANGE_TEAM, result: teamChangeInfo });
 }
+

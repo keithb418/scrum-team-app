@@ -14,6 +14,10 @@ class API {
         }))
     }
 
+    getTeamMemeber(id) {
+        return this._api.get(`teamMembers/${id}`)
+    }
+
     getRoles() {
         return this._api.get('roles');
     }

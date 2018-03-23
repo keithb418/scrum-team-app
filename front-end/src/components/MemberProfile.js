@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Button, Row, Col, Panel } from "react-bootstrap";
+import { fetchInitialData } from '../actions/shared'
 import FontAwesome from "react-fontawesome";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -13,7 +14,7 @@ const Profile = ({ member }) => {
       <ul className="member-info">
         {Object.keys(member).map(key => {
           const info = member[key];
-          if (key === "name" || key ==="email" || key === "role") {
+          if (key === "name" || key ==="email" || key === "role" || key === "experience") {
             return <li key={key}>{info}</li>;
           } else if (key === "teamLead") {
             return <li key={key}>Team Lead: { info ? "Yes" : "No" }</li>;
@@ -42,10 +43,16 @@ const Skills = ({ member }) => {
 
 
 class MemberProfile extends Component {
+  constructor(props) {
+    super(props)
+  }
+ 
+  componentDidMount() {
+    this.props.dispatch(fetchInitialData())
+  }
   render () {
     const { member, team } = this.props;
     const id = member._id;
-
     return (
       <Row>
         <Col className="profile-section" md={6} mdOffset={3} xs={12}>
@@ -82,4 +89,21 @@ MemberProfile.propTypes = {
   team: PropTypes.object
 };
 
-export default MemberProfile;
+const mapStateToProps = ({teamMembers, teams}, props) => {
+  const member = teamMembers.find(member => {
+    return member._id === props.match.params.id;
+  });
+
+  const team = teams.find(team => {
+    return team._id === member.team;
+  });
+
+  return {
+    member,
+    team,
+  };
+
+};
+
+
+export default connect(mapStateToProps)(MemberProfile);

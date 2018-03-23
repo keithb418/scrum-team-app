@@ -1,6 +1,6 @@
 import * as types from '../actionTypes';
 
-const teams = (state = [], action) => {
+export default (state = [], action) => {
   switch (action.type) {
     case types.FETCH_TEAMS: 
       const { teams: { teams } } = action;
@@ -38,4 +38,3 @@ const teams = (state = [], action) => {
   }
 };
 
-export default teams;

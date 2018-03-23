@@ -2,6 +2,7 @@ import * as types from '../actionTypes'
 import API from '../utils/api';
 import uuid from 'uuid';
 
+
 export const fetchTeams = (teams) => ({
     type: types.FETCH_TEAMS,
     teams
