@@ -1,29 +1,43 @@
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-
 import TeamForm from "./TeamForm";
+import Loading from "../Loading";
+import { updateTeam, handleFetchTeam } from "../../actions/teams";
+import { handleFetchTeamMember } from "../../actions/teamMembers";
 
-import { updateTeam } from "../../actions/teams";
+class EditTeam extends Component {
+  componentDidMount() {
+    this.props.fetchTeam(this.props.match.params.id)
+  }
 
-class EditTeam extends TeamForm {
-  constructor (props) {
-    super(props, "Edit Team", props.updateTeam);
+  onSubmit = (team) => {
+    const _id = this.props.team._id;
+    this.props.editTeam({
+      _id,
+      ...team
+    });
+    this.props.history.push('/');
+  }
+
+  render() {
+    return this.props.isFetching ?
+      <Loading /> :
+      <TeamForm
+        title="Edit Team"
+        team={this.props.team}
+        onSubmit={this.onSubmit}
+      />
   }
 }
 
-const mapStateToProps = (state, props) => {
-  let team = state.teams.find((item) => {
-    return item._id === props.match.params.id;
-  });
+const mapStateToProps = ({ teams: { team }, fetch: { isFetching } }) => ({
+    team,
+    isFetching
+});
 
-  return {
-    teamId: team._id,
-    name: team.name,
-    error: state.error && state.error.message
-  };
-};
-
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ updateTeam }, dispatch);
+const mapDispatchToProps = (dispatch) => ({
+  fetchTeam: (id) => dispatch(handleFetchTeam(id)),
+  editTeam: (team) => dispatch(updateTeam(team))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditTeam);

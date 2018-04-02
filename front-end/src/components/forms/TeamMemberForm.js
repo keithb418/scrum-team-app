@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Form, FormGroup, FormControl, ControlLabel, Button, Checkbox, Radio } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
@@ -10,27 +10,21 @@ import CancelButton from "./CancelButton";
 
 import { isEmailValid } from "../../utils/stringHelpers"
 
-class TeamMemberForm extends React.Component {
+class TeamMemberForm extends Component {
   constructor (props, title, onSubmitAction) {
     super(props);
     this.state = {
-      name: props.name || "",
-      email: props.email || "",
-      team: props.team || "",
-      teamLead: props.teamLead || false,
-      experience: props.experience || "",
-      role: props.role || "",
-      skills: props.skills || []
+      name: props.teamMember ? props.teamMember.name : "",
+      email: props.teamMember ? props.teamMember.email : "",
+      team: props.teamMember ? props.teamMember.team : "",
+      teamLead: props.teamMember ? props.teamMember.teamLead : false,
+      experience: props.teamMember ? props.teamMember.experience : "",
+      role: props.teamMember ? props.teamMember.role : "",
+      skills: props.teamMember ? props.teamMember.skills : []
     };
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onSkillsChange = this.onSkillsChange.bind(this);
-    this.onSubmitForm = this.onSubmitForm.bind(this);
-    this.onSubmitAction = onSubmitAction;
-    this.title = title;
-    this.id = props.id;
   }
 
-  onInputChange (e) {
+  onInputChange = (e) => {
     const target = e.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
@@ -40,13 +34,13 @@ class TeamMemberForm extends React.Component {
     });
   }
 
-  onSkillsChange (skills) {
+  onSkillsChange = (skills) => {
     this.setState({
       skills
     });
   }
 
-  getValidationState () {
+  getValidationState = () => {
     const nameLength = this.state.name.length;
     const emailValid = isEmailValid(this.state.email);
     const teamSelect = this.state.team;
@@ -58,15 +52,23 @@ class TeamMemberForm extends React.Component {
     }
   }
 
-  onSubmitForm () {
+  handleSubmit = (e) => {
+    e.preventDefault();
     const { name, email, team, teamLead, role, skills, experience } = this.state;
     const validationState = this.getValidationState();
 
     if (validationState === "error") {
       return false;
     } else {
-      this.onSubmitAction({ name, email, team, teamLead, role, skills, experience, _id: this.id });
-      this.props.history.push("/");
+      this.props.onSubmit({ 
+        name, 
+        email, 
+        team, 
+        teamLead, 
+        role, 
+        skills, 
+        experience
+      });
     }
   }
 
@@ -80,7 +82,7 @@ class TeamMemberForm extends React.Component {
             <h3 className="panel-title">{this.title}</h3>
           </div>
           <hr />
-          <Form>
+          <Form onSubmit={this.handleSubmit}>
             <ControlLabel>Name<sup><i className="fa fa-asterisk required"></i></sup></ControlLabel>
             <FormGroup controlId="name">
               <FormControl
@@ -174,10 +176,11 @@ class TeamMemberForm extends React.Component {
 
             <p>Please enter one skill at a time</p>
             <Button
+              type="submit"
               bsStyle="primary"
               disabled={isDisabled}
-              onClick={this.onSubmitForm}>
-              {this.title}
+            >
+              {this.props.title}
             </Button>
             <Button type="reset">Reset</Button>
             <CancelButton />

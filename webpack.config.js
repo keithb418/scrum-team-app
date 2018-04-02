@@ -12,7 +12,6 @@ module.exports = {
   entry: {
     vendor: VENDORS,
     main: [
-      "react-hot-loader/patch",
       "babel-runtime/regenerator",
       "webpack-hot-middleware/client?reload=true",
       "./front-end/src/index.js"
@@ -102,6 +101,12 @@ module.exports = {
       cssProcessor: require('cssnano'),
       cssProcessorOptions: { discardComments: { removeAll: true } },
       canPrint: true
+    }),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production"),
+        WEBPACK: true
+      }
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),

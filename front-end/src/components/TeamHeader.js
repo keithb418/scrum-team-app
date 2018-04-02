@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { truncateString } from "../utils/stringHelpers";
 
-let TeamHeader = ({ teamName, deleteTeam, id, teamMembers }) => {
+let TeamHeader = ({ teamName, onDelete, id, teamMembers }) => {
 
   const isDisabled = teamMembers.length > 0;
 
@@ -25,7 +25,7 @@ let TeamHeader = ({ teamName, deleteTeam, id, teamMembers }) => {
       </Link>
       <Button
         disabled={isDisabled}
-        onClick={() => deleteTeam(id)}>
+        onClick={onDelete}>
         <FontAwesome name="trash" />
       </Button>
     </div>

@@ -1,37 +1,48 @@
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-
 import TeamMemberForm from "./TeamMemberForm";
+import { fetchProfileData } from '../../actions/shared';
+import { hanldeUpdateTeamMember } from "../../actions/teamMembers";
+import TeamMember from "../TeamMember";
+import Loading from "../Loading";
 
-import { updateTeamMember } from "../../actions/teamMembers";
-
-class EditTeamMember extends TeamMemberForm {
+class EditTeamMember extends Component {
   constructor (props) {
-    super(props, "Edit Team Member", props.updateTeamMember);
+    super(props);
+  }
+
+  onSubmit = (teamMember) => {
+    const _id = this.props.teamMember._id;
+    this.props.editTeamMember({
+      _id,
+      ...teamMember
+    });
+    this.props.history.push('/');
+  }
+  
+  render() {
+    return this.props.isFetching ?
+      <Loading /> :
+      <TeamMemberForm
+        title="Edit Team"
+        teams={this.props.teams}
+        roles={this.props.roles}
+        teamMember={this.props.teamMember}
+        onSubmit={this.onSubmit}
+      />
   }
 }
 
-const mapStateToProps = (state, props) => {
-  let teamMember = state.teamMembers.find((item) => {
-    return item._id === props.match.params.id;
-  });
+const mapStateToProps = ({ teamMembers: { teamMember }, teams: { teams }, roles, fetch: { isFetching } }) => ({
+  teamMember,
+  teams,
+  roles,
+  isFetching
+})
 
-  return {
-    id: teamMember._id,
-    name: teamMember.name,
-    email: teamMember.email,
-    team: teamMember.team,
-    teamLead: teamMember.teamLead,
-    experience: teamMember.experience,
-    role: teamMember.role,
-    skills: teamMember.skills,
-    teams: state.teams,
-    roles: state.roles,
-    error: state.error && state.error.message
-  };
-};
-
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ updateTeamMember }, dispatch);
+const mapDispatchToProps = (dispatch) => ({
+  fetchProfileData: (id) => dispatch(fetchProfileData(id)),
+  editTeamMember: (teamMember) => dispatch(hanldeUpdateTeamMember(teamMember))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditTeamMember);

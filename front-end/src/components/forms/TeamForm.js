@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Form, FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
@@ -6,29 +6,26 @@ import { withRouter } from "react-router";
 
 import CancelButton from "./CancelButton";
 
-class TeamForm extends React.Component {
-  constructor (props, title, onSubmitAction) {
+class TeamForm extends Component {
+  constructor (props) {
     super(props);
     this.state = {
-      name: props.name || "",
-      title: title || "Add a New Team"
+      name: props.team ? props.team.name : "",
+      title: props.title || "Add a New Team"
     };
-    this.onInputChange = this.onInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.onSubmitAction = onSubmitAction || this.props.createItem;
   }
 
-  onInputChange (evt) {
+  onInputChange = (evt) => {
     const target = evt.target;
     const value = target.value;
     const name = target.name;
 
-    this.setState({
+    this.setState(() => ({
       [name]: value
-    });
+    }));
   };
 
-  getValidationState () {
+  getValidationState = () => {
     const teamNameLength = this.state.name.length;
     if (teamNameLength > 0 && teamNameLength <= 50) {
       return "success";
@@ -37,26 +34,20 @@ class TeamForm extends React.Component {
     }
   };
 
-  handleSubmit () {
+  handleSubmit = (e) => {
+    e.preventDefault();
     const { name } = this.state;
     const validationState = this.getValidationState();
 
     if (validationState === "error") {
       return false;
     } else {
-      if (this.state.title === "Edit Team") {
         let _id = this.props.teamId;
-        this.onSubmitAction(_id, name);
-        this.props.history.push("/");
-      } else {
-        this.onSubmitAction({ name });
-        this.props.history.push("/");
-      }
-    }
+        this.props.onSubmit({ name });   
+      } 
   }
 
   render () {
-    let buttonText = (this.state.title === "Edit Team") ? "Edit Team" : "Add Team";
     const isDisabled = this.getValidationState() === "error" ? this.state.isDisabled = true : this.state.isDisabled = false;
 
     return (
@@ -66,7 +57,7 @@ class TeamForm extends React.Component {
             <h3 className="panel-title">{this.state.title}<sup><i className="fa fa-asterisk required"></i></sup></h3>
           </div>
           <hr />
-          <Form>
+          <Form onSubmit={this.handleSubmit}>
             <FormGroup controlId="team">
               <FormControl
                 type="text"
@@ -78,10 +69,10 @@ class TeamForm extends React.Component {
               <FormControl.Feedback />
             </FormGroup>
             <Button
+              type="submit"
               bsStyle="primary"
-              disabled={isDisabled}
-              onClick={this.handleSubmit}>
-              {buttonText}
+              disabled={isDisabled}>
+              {this.props.title}
             </Button>
             <CancelButton />
           </Form>

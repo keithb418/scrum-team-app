@@ -1,25 +1,40 @@
-
 import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { fetchInitialData } from '../actions/shared';
 import TeamColumn from "./TeamColumn";
 import AddTeamColumn from "./AddTeamColumn";
+import Loading from "./Loading";
 
-const TeamColumns = ({ teams }) => { 
-  return (
-    <div className="team-columns">
-      {teams.map(team =>
-        <TeamColumn
-          key={team._id}
-          id={team._id}
-          teamName={team.name}
-          project={team.project}
-          teamMembers={team.teamMembers}
-        />
-      )}
-      <AddTeamColumn />
-    </div>
-  )
+class TeamColumns extends Component { 
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchInitialData())
+  }
+
+  render() {
+    const { teams } = this.props
+    return (
+      this.props.isFetching === true ?
+      <Loading /> :
+      <div className="team-columns">
+        {teams.map(team =>
+          <TeamColumn
+            key={team._id}
+            id={team._id}
+            teamName={team.name}
+            project={team.project}
+            teamMembers={team.teamMembers}
+          />
+        )}
+        <AddTeamColumn />
+      </div>
+    )
+  }
 }
 
 
@@ -27,7 +42,7 @@ TeamColumns.propTypes = {
   teams: PropTypes.array
 };
 
-const mapStateToProps = ({teams, teamMembers}) => {
+const mapStateToProps = ({teams: { teams }, teamMembers:{ teamMembers }, fetch: { isFetching }}) => {
   let teamsList = teams.map(item => ({ ...item }))
   let teamMembersList = teamMembers.map(item => ({ ...item }))
 
@@ -53,6 +68,7 @@ const mapStateToProps = ({teams, teamMembers}) => {
 
   return {
     teams: teamsList,
+    isFetching
   };
 }
 

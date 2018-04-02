@@ -1,23 +1,31 @@
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-
 import TeamForm from "./TeamForm";
-
 import { createTeam } from "../../actions/teams";
 
-class AddTeam extends TeamForm {
+class AddTeam extends Component {
   constructor (props) {
-    super(props, "Add Team", props.createTeam);
+    super(props);
+  }
+
+  onSubmit = team => {
+    this.props.onSubmit(team);
+    this.props.history.push('/');
+  }
+
+  render() {
+    return (
+      <TeamForm
+        title="Add Team"
+        onSubmit={this.onSubmit} 
+      />
+    )
   }
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    error: state.error && state.error.message
-  };
-};
 
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ createTeam }, dispatch);
+const mapDispatchToProps = (dispatch) => ({
+  onSubmit: (team) => dispatch(createTeam(team))
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddTeam);
+export default connect(undefined, mapDispatchToProps)(AddTeam);

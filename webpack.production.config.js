@@ -8,22 +8,35 @@ const CompressionPlugin = require("compression-webpack-plugin");
 const BrotliPlugin = require("brotli-webpack-plugin");
 
 const VENDORS = [
-  'react', 'react-dom', 'redux', 'redux-thunk', 
+  'react', 'react-dom', 'redux', 'redux-thunk', 'lodash', 'uuid',
   'react-redux', 'react-bootstrap', 'react-fontawesome', 'axios'
 ];
 module.exports = {
   entry: {
-    vendor: VENDORS,
     main: [
       'babel-polyfill', 
       path.join(__dirname, './front-end/src/index.js')
     ],
   },
+  optimization: {
+    occurrenceOrder: true,
+		splitChunks: {
+			cacheGroups: {
+				vendor: {
+					test: /node_modules/,
+					chunks: "initial",
+					name: "vendor",
+					priority: 10,
+					enforce: true
+				}
+			}
+		}
+	},
   mode: "production",
   output: {
+    path: path.join(__dirname, 'dist'),
     filename: '[name]-bundle.js',
-    chunkFilename: '[name].js',
-    path: path.join(__dirname, '/dist/'),
+    chunkFilename: '[name].js', 
     publicPath: '/'
   },
   module: {
