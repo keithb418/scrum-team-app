@@ -19,7 +19,6 @@ module.exports = {
     ],
   },
   optimization: {
-    occurrenceOrder: true,
 		splitChunks: {
 			cacheGroups: {
 				vendor: {
