@@ -20,7 +20,8 @@ class TeamMemberForm extends Component {
       teamLead: props.teamMember ? props.teamMember.teamLead : false,
       experience: props.teamMember ? props.teamMember.experience : "",
       role: props.teamMember ? props.teamMember.role : "",
-      skills: props.teamMember ? props.teamMember.skills : []
+      skills: props.teamMember ? props.teamMember.skills : [],
+      title
     };
   }
 
@@ -79,7 +80,7 @@ class TeamMemberForm extends Component {
       <div className="row">
         <div className="form-section col-md-6 offset-md-3 col-xs-12">
           <div className="panel-heading">
-            <h3 className="panel-title">{this.title}</h3>
+            <h3 className="panel-title">{this.props.title}</h3>
           </div>
           <hr />
           <Form onSubmit={this.handleSubmit}>
