@@ -18,7 +18,7 @@ class StateLoader {
     saveState (state) {
         try {
             let serializedState = JSON.stringify(state);
-            localStorage.setItem("scrum:state", serializedState);
+            localStorage.setItem("scrum", serializedState);
 
         }
         catch (err) {

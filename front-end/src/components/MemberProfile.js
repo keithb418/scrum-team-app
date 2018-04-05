@@ -16,11 +16,8 @@ import Skills from "./Skills";
 
 
 class MemberProfile extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      isOpen: false
-    };
+  constructor () {
+    super();
   }
  
   componentDidMount () {

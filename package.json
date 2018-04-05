@@ -69,7 +69,7 @@
     "start": "nodemon server --exec babel-node",
     "build": "webpack -p --config ./webpack.production.config.js --progress --profile --colors",
     "build-css": "node-sass ./src/scss --include-path ./src/scss --include-path ./node_modules src/ -o ./public/css",
-    "prod": "NODE_ENV=production node server.js",
+    "prod": "NODE_ENV=production node main.js",
     "watch-css": "npm run build-css && node-sass ./src/scss --include-path ./src/scss --include-path ./node_modules src/ -o ./public/css --watch --recursive",
     "test": "jest"
   },
