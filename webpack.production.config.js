@@ -28,7 +28,7 @@ module.exports = {
 					priority: 10,
 					enforce: true
 				}
-			}
+			} 
 		}
 	},
   mode: "production",
