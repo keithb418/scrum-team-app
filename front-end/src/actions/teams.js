@@ -23,7 +23,7 @@ export const handleFetchTeam = id => dispatch => {
     });
 }
 
-export const createTeam = team => dispatch =>{
+export const handleCreateTeam = team => dispatch =>{
     dispatch({type: types.CREATE_TEAM, team: { _id: uuid(), ...team }});
     API.createTeams(team)
     .then(res => res.data)
@@ -32,16 +32,16 @@ export const createTeam = team => dispatch =>{
     );
 }
 
-export const deleteTeam = id => dispatch => {
+export const handleDeleteTeam = id => dispatch => {
     dispatch({type: types.DELETE_TEAM, id})
     API.deleteTeam(id)
     .then(res => res.data)
     .catch(err => console.log('Could not delete team:', err.message));
 }
     
-export const updateTeam = (team) => dispatch => {
-  dispatch({type: types.UPDATE_TEAM, team })
-  API.updateTeams(team)
-  .then(res => res.data)
-  .catch( err => console.log('could not update team', err));
+export const handleUpdateTeam = (team) => dispatch => {
+    dispatch({type: types.UPDATE_TEAM, team })
+    API.updateTeams(team)
+    .then(res => res.data)
+    .catch( err => console.log('could not update team', err));
 }

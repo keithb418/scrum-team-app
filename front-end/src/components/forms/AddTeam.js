@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import TeamForm from "./TeamForm";
-import { createTeam } from "../../actions/teams";
+import { handleCreateTeam } from "../../actions/teams";
 
 class AddTeam extends Component {
   constructor (props) {
@@ -25,7 +25,7 @@ class AddTeam extends Component {
 
 
 const mapDispatchToProps = (dispatch) => ({
-  onSubmit: (team) => dispatch(createTeam(team))
+  onSubmit: (team) => dispatch(handleCreateTeam(team))
 })
 
 export default connect(undefined, mapDispatchToProps)(AddTeam);

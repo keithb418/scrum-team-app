@@ -5,7 +5,7 @@ class API {
         this._api = axios.create({ baseURL: "/api" });
     }
 
-    getTeamMemeber (id) {
+    getTeamMember (id) {
         return this._api.get(`teamMembers/${id}`);
     }
 
@@ -13,7 +13,7 @@ class API {
         return this._api.get("roles");
     }
 
-    getTeamMemebers () {
+    getTeamMembers () {
         return this._api.get("teamMembers");
     }
 
@@ -41,7 +41,7 @@ class API {
         return this._api.put("teams", team);
     }
 
-    deleteTeamMemebers (id) {
+    deleteTeamMembers (id) {
         return this._api.delete(`teamMembers/${id}`);
     }
 

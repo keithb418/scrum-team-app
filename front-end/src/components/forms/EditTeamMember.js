@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import TeamMemberForm from "./TeamMemberForm";
 import { fetchProfileData } from '../../actions/shared';
-import { hanldeUpdateTeamMember } from "../../actions/teamMembers";
+import { handleUpdateTeamMember } from "../../actions/teamMembers";
 import TeamMember from "../TeamMember";
 import Loading from "../Loading";
 

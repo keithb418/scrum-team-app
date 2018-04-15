@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import TeamForm from "./TeamForm";
 import Loading from "../Loading";
-import { updateTeam, handleFetchTeam } from "../../actions/teams";
+import { handleUpdateTeam, handleFetchTeam } from "../../actions/teams";
 import { handleFetchTeamMember } from "../../actions/teamMembers";
 
 class EditTeam extends Component {
@@ -37,7 +37,7 @@ const mapStateToProps = ({ teams: { team }, fetch: { isFetching } }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchTeam: (id) => dispatch(handleFetchTeam(id)),
-  editTeam: (team) => dispatch(updateTeam(team))
+  editTeam: (team) => dispatch(handleUpdateTeam(team))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditTeam);

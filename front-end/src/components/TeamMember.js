@@ -3,7 +3,7 @@ import { Button, Row, Col } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
-import { deleteTeamMember } from "../actions/teamMembers";
+import { handleDeleteTeamMember } from "../actions/teamMembers";
 import { Link } from "react-router-dom";
 import { truncateString } from "../utils/stringHelpers";
 
@@ -17,7 +17,7 @@ class TeamMember extends Component {
   };
 
   removeTeamMember = () => {
-    this.props.dispatch(deleteTeamMember(this.props.id));
+    this.props.dispatch(handleDeleteTeamMember(this.props.id));
   }
   
   render() {

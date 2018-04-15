@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { changeTeam } from "../actions/teamMembers";
-import { deleteTeam } from "../actions/teams";
+import { handleChangeTeam } from "../actions/teamMembers";
+import { handleDeleteTeam } from "../actions/teams";
 import TeamMember from "./TeamMember";
 import TeamHeader from "./TeamHeader";
 import PropTypes from "prop-types";
@@ -67,8 +67,8 @@ TeamColumn.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  changeTeam: (_id, team) => dispatch(changeTeam(_id, team)),
-  deleteTeam: (id) => dispatch(deleteTeam(id))
+  changeTeam: (_id, team) => dispatch(handleChangeTeam(_id, team)),
+  deleteTeam: (id) => dispatch(handleDeleteTeam(id))
 })
 
 export default connect(undefined, mapDispatchToProps)(TeamColumn);

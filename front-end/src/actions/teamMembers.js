@@ -31,7 +31,7 @@ export const fetchTeamMember = teamMember => ({
 })
 
 
-export const createTeamMember = (teamMember) => (dispatch) => {
+export const handleCreateTeamMember = (teamMember) => (dispatch) => {
   dispatch(addTeamMember(teamMember))
 	API.createTeamMember(teamMember)
 	.then(res => res.data)
@@ -40,7 +40,7 @@ export const createTeamMember = (teamMember) => (dispatch) => {
 	)
 }
 
-export const hanldeUpdateTeamMember = (teamMember) => (dispatch) => {
+export const handleUpdateTeamMember = (teamMember) => (dispatch) => {
 	dispatch({ type: types.UPDATE_TEAM_MEMBER, teamMember});
 	API.updateTeamMembers(teamMember)
 	.then(res => res.data)
@@ -49,16 +49,16 @@ export const hanldeUpdateTeamMember = (teamMember) => (dispatch) => {
 	);	 
 }
 
-export const deleteTeamMember = (id) => (dispatch) => {
+export const handleDeleteTeamMember = (id) => (dispatch) => {
 	dispatch({ type: types.DELETE_TEAM_MEMBER, id })
-	API.deleteTeamMemebers(id)
+	API.deleteTeamMembers(id)
 	.then(res => res.data)
 	.catch(err =>
 	  console.log('Could not delete team member:', err.message)
 	);
 }
 
-export const changeTeam = (_id, team) => (dispatch) => {
+export const handleChangeTeam = (_id, team) => (dispatch) => {
 	let teamChangeInfo = { _id, team };
 	dispatch({ type: types.CHANGE_TEAM, result: teamChangeInfo });
 	API.updateTeamMembers(teamChangeInfo)
