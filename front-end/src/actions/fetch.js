@@ -11,5 +11,5 @@ export const fetchDataSuccess = () => ({
 
 export const fetchDataError = () => ({
     type: types.FETCH_DATA_ERROR,
-    error: "An error has occur"
+    error: "An error has occured"
 });

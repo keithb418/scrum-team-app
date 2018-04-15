@@ -18,7 +18,7 @@ export const addTeamMember = teamMember => dispatch => ({
 
 export const handleFetchTeamMember = id => dispatch => {
 	dispatch(fetchData())
-	API.getTeamMemeber(id)
+	API.getTeamMember(id)
 	.then(res => {
 		dispatch(fetchTeamMember(res.data))
 		dispatch(fetchDataSuccess());
