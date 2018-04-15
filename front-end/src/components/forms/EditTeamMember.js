@@ -42,7 +42,7 @@ const mapStateToProps = ({ teamMembers: { teamMember }, teams: { teams }, roles,
 
 const mapDispatchToProps = (dispatch) => ({
   fetchProfileData: (id) => dispatch(fetchProfileData(id)),
-  editTeamMember: (teamMember) => dispatch(hanldeUpdateTeamMember(teamMember))
+  editTeamMember: (teamMember) => dispatch(handleUpdateTeamMember(teamMember))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditTeamMember);
