@@ -36,7 +36,7 @@ Install dependencies
 $ npm install
 ```
 
-<dt>If you working off the refactored branch then delete you node_modules install dependencies again/dt>
+<dt>If you working off the refactored branch then delete you node_modules install dependencies again </dt>
 ```
 $ npm install
 ```   
