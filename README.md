@@ -31,7 +31,7 @@ $ git checkout development
 ```
 
 Install dependencies 
-###Note. If you're working off the refactored branch then delete your node_modules and install dependencies again
+### Note. If you're working off the refactored branch then delete your node_modules and install dependencies again
 
 ```
 $ npm install
