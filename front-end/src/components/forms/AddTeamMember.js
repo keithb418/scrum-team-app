@@ -1,30 +1,38 @@
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-
 import TeamMemberForm from "./TeamMemberForm";
+import { handleCreateTeamMember } from "../../actions/teamMembers";
+import TeamMember from "../TeamMember";
 
-import { createTeamMember } from "../../actions";
-
-class AddTeamMember extends TeamMemberForm {
+class AddTeamMember extends Component {
   constructor (props) {
-    super(props, "Add Team Member", props.createTeamMember);
+    super(props);
+  }
+
+  onSubmit = (teamMember) => {
+    this.props.onSubmit(teamMember);
+    this.props.history.push('/');
+  }
+
+  render() {
+    return (
+      <TeamMemberForm
+        title="Add Team Member"
+        teams={this.props.teams}
+        roles={this.props.roles}
+        onSubmit={this.onSubmit}
+      />
+    )
   }
 }
 
-const mapStateToProps = (state, props) => {
-  let team = state.teams.find((item) => {
-    return item._id === props.match.params.id;
-  });
+const mapStateToProps = ({teams: { teams }, roles}) => ({
+  teams,
+  roles
+})
 
-  return {
-    team: team._id,
-    teams: state.teams,
-    roles: state.roles,
-    error: state.error && state.error.message
-  };
-};
-
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ createTeamMember }, dispatch);
+const mapDispatchToProps = (dispatch) => ({
+  onSubmit: (teamMember) => dispatch(handleCreateTeamMember(teamMember))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTeamMember);

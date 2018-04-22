@@ -1,33 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore } from "redux";
-
+import _ from "lodash";
+import { Provider } from "react-redux";
+import { createStore, compose } from "redux";
 import App from "./components/App";
-import reducer from "./reducers";
 import style from "./scss/index.scss";
-import configureStore from "./store";
-import { fetchTeams, fetchTeamMembers, fetchRoles } from "./actions";
-
+import reducers from "./reducers/index";
+import middleware from "./middleware/index";
 import { handleResize } from "./handleResize";
-import { BrowserRouter } from "react-router-dom";
+import StateLoader from "./utils/stateLoader";
 
-const store = configureStore(
-  /*
-    chrome redux dev tools
-    download and install chrome plugin
-    https://github.com/zalmoxisus/redux-devtools-extension
-  */
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const store = createStore(
+  reducers,
+  StateLoader.loadState(),
+  compose(
+    middleware,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 );
+
+store.subscribe(_.throttle(() => {
+  StateLoader.saveState(store.getState());
+}, 1000));
 
 handleResize();
 
-store.dispatch(fetchTeams());
-store.dispatch(fetchTeamMembers());
-
-ReactDOM.render(
-  <BrowserRouter>
-    <App store={store}/>
-  </BrowserRouter>,
+ReactDOM.render( 
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("root")
 );

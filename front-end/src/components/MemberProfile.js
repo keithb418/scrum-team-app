@@ -1,69 +1,93 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Button } from "react-bootstrap";
+import { Button, Row, Col, Panel } from "react-bootstrap";
+import { fetchProfileData } from "../actions/shared";
 import FontAwesome from "react-fontawesome";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { capitalizeFirstLetter } from "../util/stringHelpers";
+import { capitalizeFirstLetter } from "../utils/stringHelpers";
+import Loading from "./Loading";
+import Profile from "./Profile";
+import Skills from "./Skills";
 
-class MemberProfile extends React.Component {
+
+
+
+
+
+class MemberProfile extends Component {
+  constructor () {
+    super();
+  }
+ 
+  componentDidMount () {
+    this.props.fetchProfileData(this.props.match.params.id);
+  }
+ 
   render () {
-    const { member, team } = this.props;
-    const id = this.props.member._id;
-
-    return (
-      <div className="row">
-        <div className="profile-section col-md-6 offset-md-3 col-xs-12">
-          <div className="panel-heading">
-            <h3 className="panel-title">{team.name}</h3>
-          </div>
-          <hr />
-          <div className="member-profile-subheading">
-            <FontAwesome name="user-circle" className="member-img" />
-            <p>{member.name}</p>
-          </div>
-          <hr />
-          <div className="row">
-            <div className="col-md-6">
-            <h3>Profile</h3>
-              <ul className="member-info">
-                {Object.keys(member).map(key => {
-                  const info = member[key];
-                  if (key === "name" || key ==="email" || key === "role" || key === "experience") {
-                    return <li key={key}>{info}</li>;
-                  } else if (key === "teamLead") {
-                    return <li key={key}>Team Lead: { info ? "Yes" : "No" }</li>;
-                  } else {
-                    return null;
-                  }
-                })}
-              </ul>
+    const { teamMember, team } = this.props;
+    return !teamMember ?
+        <Loading /> :
+        <Row>
+          <Col className="profile-section" md={6} mdOffset={3} xs={12}>
+            <Panel.Heading>
+              <h3 className="panel-title">{team.name}</h3>
+            </Panel.Heading>
+            <hr />
+            <div className="member-profile-subheading">
+              <FontAwesome name="user-circle" className="member-img" />
+              <p>{teamMember.name}</p>
             </div>
-            <div className="col-md-6">
-            <h3>Skills</h3>
-              <ul className="member-info inline">
-                { member.skills.map(function (skill, index) {
-                  return <li key={index}>{skill}</li>;
-                })}
-              </ul>
-            </div>
-          </div>
-          <hr />
-          <Link to={`/member/${id}/edit`}>
-            <Button bsStyle="primary">Edit</Button>
-          </Link>
-          <Link to="/">
-            <Button>Back to Dashboard</Button>
-          </Link>
-        </div>
-      </div>
-    );
+            <hr />
+            <Row>
+              <Profile 
+                member={teamMember}/>
+              <Skills 
+                member={teamMember}/>
+            </Row>
+            <hr />
+            <Link to={`/member/${teamMember._id}/edit`}>
+              <Button bsStyle="primary">Edit</Button>
+            </Link>
+            <Link to="/">
+              <Button>Back to Dashboard</Button>
+            </Link>
+          </Col>
+        </Row>;
   }
 };
 
+MemberProfile.defaultProps = {
+  team: {
+    name: ""
+  },
+  isFetching: true
+};
+
 MemberProfile.propTypes = {
-  member: PropTypes.object,
+  teamMember: PropTypes.object,
   team: PropTypes.object
 };
 
-export default MemberProfile;
+const mapStateToProps = ({ teamMembers: { teamMember }, teams: { teams } }) => {
+  if(teamMember) {
+    const team = teams.find(team => {
+      return team._id === teamMember.team;
+    });
+    return {
+      team,
+      teamMember
+    };
+  } else {
+    return {
+      teamMember
+    };
+  }  
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchProfileData: (id) => dispatch(fetchProfileData(id))
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MemberProfile);

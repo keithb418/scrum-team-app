@@ -1,19 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 import { FormGroup, FormControl, InputGroup, ControlLabel } from "react-bootstrap";
 import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
 
-export default class AddSkills extends React.Component {
+export default class AddSkills extends Component {
   constructor (props) {
     super(props);
-    this.onAdd = this.onAdd.bind(this);
-    this.onRemove = this.onRemove.bind(this);
-    this.getInput = this.getInput.bind(this);
-    this.resetInput = this.resetInput.bind(this);
     this.state = { skills: this.props.skills || [] };
   }
 
-  onAdd () {
+  onAdd = () => {
     let skillToAdd = this.getInput();
     let newSkills = this.state.skills;
     newSkills.push(skillToAdd);
@@ -22,7 +18,7 @@ export default class AddSkills extends React.Component {
     this.setState({ skills: newSkills });
   }
 
-  onRemove (e) {
+  onRemove = (e) => {
     let skillToRemove = e.target.parentNode.innerText;
     let newSkills = this.state.skills;
     newSkills.splice(newSkills.indexOf(skillToRemove), 1);
@@ -30,11 +26,11 @@ export default class AddSkills extends React.Component {
     this.setState({ skills: newSkills });
   }
 
-  getInput () {
+  getInput = () => {
     return document.getElementById(this.props.id).value;
   }
 
-  resetInput () {
+  resetInput = () => {
     document.getElementById(this.props.id).value = "";
   }
 

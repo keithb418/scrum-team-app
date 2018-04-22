@@ -1,60 +1,63 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
+import { handleChangeTeam } from "../actions/teamMembers";
+import { handleDeleteTeam } from "../actions/teams";
 import TeamMember from "./TeamMember";
 import TeamHeader from "./TeamHeader";
 import PropTypes from "prop-types";
 
-let TeamColumn = ({ id = "", teamName = "" , teamMembers = [], deleteTeam, deleteTeamMember, changeTeam }) => {
+class TeamColumn extends Component {
+  constructor(props) {
+    super(props)
+  }
 
-  teamMembers.sort((a, b) => {
-    if (b.teamLead) {
-      return 1;
-    }
-
-    if (a.teamLead) {
-      return -1;
-    }
-
-    return 0;
-  });
-
-  const teamMemberComponents = teamMembers.map((teamMember) =>
-    <TeamMember
-      key={teamMember._id}
-      id={teamMember._id}
-      name={teamMember.name}
-      teamLead={teamMember.teamLead}
-      role={teamMember.role}
-      deleteTeamMember={deleteTeamMember} />
-  );
-
-  let allowDrop = (e) => {
+  allowDrop = (e) => {
     e.preventDefault();
   };
 
-  let drop = (e) => {
+  drop = (e) => {
     e.preventDefault();
     const _id = e.dataTransfer.getData("tmId");
-    const team = id;
-
-    changeTeam(_id, team);
+    const team = this.props.id;
+    this.props.changeTeam(_id, team);
   };
 
-  return (
-    <div className="panel panel-default team-column" onDragOver={allowDrop} onDrop={drop}>
-      <TeamHeader
-        teamMembers={teamMembers}
-        deleteTeam={deleteTeam}
-        id={id}
-        teamName={teamName} />
-      <div className="panel-body team-body" onDrop={drop} onDragOver={allowDrop} >
-        {teamMemberComponents}
-      </div>
-    </div>
-  );
-};
+  handleDelete = () => {
+    this.props.deleteTeam(this.props.id)
+  }
 
-TeamColumn = connect()(TeamColumn);
+  render() {
+    const { id, teamName, teamMembers, project } = this.props;
+    return (
+      <div className="panel panel-default team-column" onDragOver={this.allowDrop} onDrop={this.drop}>
+        <TeamHeader
+          onDelete={this.handleDelete}
+          teamMembers={teamMembers}
+          id={id}
+          teamName={teamName}
+          project={project} />
+        <div className="panel-body team-body" onDrop={this.drop} onDragOver={this.allowDrop} >
+          { teamMembers.map(teamMember =>
+            <TeamMember
+              key={teamMember._id}
+              id={teamMember._id}
+              name={teamMember.name}
+              teamLead={teamMember.teamLead}
+              role={teamMember.role}
+            />
+          )}
+        </div>
+      </div>
+    );
+  }  
+}
+
+TeamColumn.defaultProps = {
+  id: "",
+  teamName: "",
+  project: "",
+  teamMembers: []
+}
 
 TeamColumn.propTypes = {
   dispatch: PropTypes.func,
@@ -63,4 +66,9 @@ TeamColumn.propTypes = {
   teamName: PropTypes.string,
 };
 
-export default TeamColumn;
+const mapDispatchToProps = dispatch => ({
+  changeTeam: (_id, team) => dispatch(handleChangeTeam(_id, team)),
+  deleteTeam: (id) => dispatch(handleDeleteTeam(id))
+})
+
+export default connect(undefined, mapDispatchToProps)(TeamColumn);

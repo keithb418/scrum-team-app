@@ -1,6 +1,6 @@
 const path = require('path');
 const express = require('express');
-const webpack = require('webpack');
+
 const bodyParser = require('body-parser');
 const MongoDataLayer = require('./back-end/src/dataLayer/MongoDataLayer');
 
@@ -11,27 +11,29 @@ const app = express();
 
 MongoDataLayer.connect(() => {
   if (isDeveloping) {
+    const webpack = require('webpack');
     const config = require('./webpack.config.js');
-    const webpackMiddleware = require('webpack-dev-middleware');
-    const webpackHotMiddleware = require('webpack-hot-middleware');
     const compiler = webpack(config);
-    const middleware = webpackMiddleware(compiler, {
-      publicPath: config.output.publicPath,
-      contentBase: 'src',
-      stats: {
-        colors: true,
-        hash: false,
-        timings: true,
-        chunks: false,
-        chunkModules: false,
-        modules: false
-      }
-    });
+    require('webpack-mild-compile')(compiler);
+    const webpackMiddleware = require('webpack-dev-middleware')(
+      compiler, 
+      config.devServer
+    );
+    const webpackHotMiddleware = require('webpack-hot-middleware')(
+      compiler, 
+      config.devServer
+    );
 
-    app.use(middleware);
-    app.use(webpackHotMiddleware(compiler));
+    app.use(webpackMiddleware);
+    app.use(webpackHotMiddleware);
   }
   else {
+    const expressStaticGzip = require("express-static-gzip");
+    app.use(
+      expressStaticGzip("dist", {
+        enableBrotli: true
+      })
+    );
     app.all('*', function(req, res, next) {
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -52,6 +54,6 @@ MongoDataLayer.connect(() => {
   app.use('/public', express.static(path.join(__dirname, 'front-end/public')));
 
   app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
   });
 });

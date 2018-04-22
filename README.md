@@ -30,12 +30,15 @@ $ cd scrum-team-app
 $ git checkout development
 ```
 
-Install dependencies
+Install dependencies 
+##### Note. If you're working off the refactored branch then delete your node_modules and install dependencies again
 
 ```
 $ npm install
 ```
 
+
+    
 Start mongo
 
 ```

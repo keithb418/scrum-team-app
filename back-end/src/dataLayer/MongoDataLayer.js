@@ -1,21 +1,21 @@
 const {MongoClient, ObjectID} = require('mongodb');
 
 let mongoAddress = process.env.MONGO_ADDRESS || 'localhost';
-let url = `mongodb://${mongoAddress}:27017/scrumteamappdb`;
+let url = `mongodb://${mongoAddress}:27017`;
 
 let MongoDataLayer = () => {
     let db = null;
 
     return {
         connect: (callback) => {
-            MongoClient.connect(url, (err, database) => {
+            MongoClient.connect(url, (err, client) => {
                 if (err) {
                     return console.log(err);
                 }
 
                 console.log('Connected successfully to MongoDB');
 
-                db = database;
+                db = client.db('scrumteamappdb');
 
                 if (typeof callback === 'function') {
                     callback();

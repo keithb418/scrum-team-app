@@ -11,8 +11,8 @@ export function truncateString (str, length) {
 }
 
 export function addHyphen (str) {
-  str = str.replace(/\s+/g, '-')
-  return str
+  str = str.replace(/\s+/g, "-");
+  return str;
 }
 
 // source: http://emailregex.com/

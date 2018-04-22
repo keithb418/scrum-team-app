@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { truncateString } from "../util/stringHelpers";
+import { truncateString } from "../utils/stringHelpers";
 
-let TeamHeader = ({ teamName, deleteTeam, id, teamMembers }) => {
+let TeamHeader = ({ teamName, onDelete, id, teamMembers }) => {
 
   const isDisabled = teamMembers.length > 0;
 
@@ -25,14 +25,14 @@ let TeamHeader = ({ teamName, deleteTeam, id, teamMembers }) => {
       </Link>
       <Button
         disabled={isDisabled}
-        onClick={() => deleteTeam(id)}>
+        onClick={onDelete}>
         <FontAwesome name="trash" />
       </Button>
     </div>
   );
 };
 
-TeamHeader = connect()(TeamHeader);
+
 
 TeamHeader.propTypes = {
   teamName: PropTypes.string,
@@ -41,4 +41,4 @@ TeamHeader.propTypes = {
   id: PropTypes.string
 };
 
-export default TeamHeader;
+export default connect()(TeamHeader);
