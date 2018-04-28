@@ -4,7 +4,7 @@ import TeamMemberForm from "./TeamMemberForm";
 import { handleCreateTeamMember } from "../../actions/teamMembers";
 import TeamMember from "../TeamMember";
 
-class AddTeamMember extends Component {
+export class AddTeamMember extends Component {
   constructor (props) {
     super(props);
   }
@@ -26,9 +26,9 @@ class AddTeamMember extends Component {
   }
 }
 
-const mapStateToProps = ({teams: { teams }, roles}) => ({
-  teams,
-  roles
+const mapStateToProps = ({ teams: { teams }, roles } ) => ({
+    teams,
+    roles
 })
 
 const mapDispatchToProps = (dispatch) => ({

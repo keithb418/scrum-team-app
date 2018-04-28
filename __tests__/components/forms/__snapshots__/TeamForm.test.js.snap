@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render TeamForm correctly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="form-section col-md-6 offset-md-3 col-xs-12"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Test Team Form
+        <sup>
+          <i
+            className="fa fa-asterisk required"
+          />
+        </sup>
+      </h3>
+    </div>
+    <hr />
+    <Form
+      bsClass="form"
+      componentClass="form"
+      horizontal={false}
+      inline={false}
+      onSubmit={[Function]}
+    >
+      <FormGroup
+        bsClass="form-group"
+        controlId="team"
+      >
+        <FormControl
+          bsClass="form-control"
+          componentClass="input"
+          name="name"
+          onChange={[Function]}
+          placeholder="Enter team name"
+          type="text"
+          value="Team 1"
+        />
+        <FormControlFeedback
+          bsClass="form-control-feedback"
+          bsRole="feedback"
+        />
+      </FormGroup>
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="primary"
+        disabled={false}
+        type="submit"
+      >
+        Test Team Form
+      </Button>
+      <CancelButton />
+    </Form>
+  </div>
+</div>
+`;
+
+exports[`should render invalid TeamForm correctly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="form-section col-md-6 offset-md-3 col-xs-12"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Add a New Team
+        <sup>
+          <i
+            className="fa fa-asterisk required"
+          />
+        </sup>
+      </h3>
+    </div>
+    <hr />
+    <Form
+      bsClass="form"
+      componentClass="form"
+      horizontal={false}
+      inline={false}
+      onSubmit={[Function]}
+    >
+      <FormGroup
+        bsClass="form-group"
+        controlId="team"
+      >
+        <FormControl
+          bsClass="form-control"
+          componentClass="input"
+          name="name"
+          onChange={[Function]}
+          placeholder="Enter team name"
+          type="text"
+          value=""
+        />
+        <FormControlFeedback
+          bsClass="form-control-feedback"
+          bsRole="feedback"
+        />
+      </FormGroup>
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="primary"
+        disabled={true}
+        type="submit"
+      />
+      <CancelButton />
+    </Form>
+  </div>
+</div>
+`;

@@ -6,7 +6,7 @@ import TeamMember from "./TeamMember";
 import TeamHeader from "./TeamHeader";
 import PropTypes from "prop-types";
 
-class TeamColumn extends Component {
+export class TeamColumn extends Component {
   constructor(props) {
     super(props)
   }
@@ -31,11 +31,9 @@ class TeamColumn extends Component {
     return (
       <div className="panel panel-default team-column" onDragOver={this.allowDrop} onDrop={this.drop}>
         <TeamHeader
-          onDelete={this.handleDelete}
           teamMembers={teamMembers}
           id={id}
-          teamName={teamName}
-          project={project} />
+          teamName={teamName} />
         <div className="panel-body team-body" onDrop={this.drop} onDragOver={this.allowDrop} >
           { teamMembers.map(teamMember =>
             <TeamMember
@@ -43,8 +41,7 @@ class TeamColumn extends Component {
               id={teamMember._id}
               name={teamMember.name}
               teamLead={teamMember.teamLead}
-              role={teamMember.role}
-            />
+              role={teamMember.role} />
           )}
         </div>
       </div>
@@ -55,12 +52,10 @@ class TeamColumn extends Component {
 TeamColumn.defaultProps = {
   id: "",
   teamName: "",
-  project: "",
   teamMembers: []
 }
 
 TeamColumn.propTypes = {
-  dispatch: PropTypes.func,
   id: PropTypes.string,
   teamMembers: PropTypes.array,
   teamName: PropTypes.string,
@@ -68,7 +63,6 @@ TeamColumn.propTypes = {
 
 const mapDispatchToProps = dispatch => ({
   changeTeam: (_id, team) => dispatch(handleChangeTeam(_id, team)),
-  deleteTeam: (id) => dispatch(handleDeleteTeam(id))
 })
 
 export default connect(undefined, mapDispatchToProps)(TeamColumn);

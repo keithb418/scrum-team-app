@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the AddTeamColumn component correctly 1`] = `
+<div>
+  <Link
+    replace={false}
+    to="/team/add"
+  >
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="default"
+      className="add-team-button"
+      disabled={false}
+    >
+      <span
+        className="content"
+      >
+        <FontAwesome
+          name="plus-circle"
+        />
+        Add Team Column
+      </span>
+    </Button>
+  </Link>
+</div>
+`;

@@ -16,16 +16,16 @@ export const fetchTeam = team => ({
 
 export const handleFetchTeam = id => dispatch => {
     dispatch(fetchData());
-    API.getTeam(id)
+    return API.getTeam(id)
     .then(res => {
         dispatch(fetchTeam(res.data));
         dispatch(fetchDataSuccess());
-    });
+    })
 }
 
 export const handleCreateTeam = team => dispatch =>{
     dispatch({type: types.CREATE_TEAM, team: { _id: uuid(), ...team }});
-    API.createTeams(team)
+    return API.createTeams(team)
     .then(res => res.data)
     .catch(err =>
       console.log('Could not create a team:', err.message)
@@ -34,14 +34,14 @@ export const handleCreateTeam = team => dispatch =>{
 
 export const handleDeleteTeam = id => dispatch => {
     dispatch({type: types.DELETE_TEAM, id})
-    API.deleteTeam(id)
+    return API.deleteTeam(id)
     .then(res => res.data)
     .catch(err => console.log('Could not delete team:', err.message));
 }
     
 export const handleUpdateTeam = (team) => dispatch => {
     dispatch({type: types.UPDATE_TEAM, team })
-    API.updateTeams(team)
+    return API.updateTeams(team)
     .then(res => res.data)
     .catch( err => console.log('could not update team', err));
 }

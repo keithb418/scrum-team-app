@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the SelectRole component correctly 1`] = `
+<FormGroup
+  bsClass="form-group"
+  controlId="roleSelect"
+>
+  <ControlLabel
+    bsClass="control-label"
+    srOnly={false}
+  >
+    Role
+  </ControlLabel>
+  <FormControl
+    bsClass="form-control"
+    componentClass="select"
+    defaultValue=""
+    name="role"
+    onChange={[MockFunction]}
+    placeholder="Select Role"
+  >
+    <option>
+      Select Role
+    </option>
+    <option
+      key="1"
+      value="Front-End Developer"
+    >
+      Front-End Developer
+    </option>
+    <option
+      key="2"
+      value="Back-End Developer"
+    >
+      Back-End Developer
+    </option>
+    <option
+      key="3"
+      value="Full-Stack Developer"
+    >
+      Full-Stack Developer
+    </option>
+    <option
+      key="4"
+      value="Manual Tester"
+    >
+      Manual Tester
+    </option>
+    <option
+      key="5"
+      value="Automation Tester"
+    >
+      Automation Tester
+    </option>
+  </FormControl>
+</FormGroup>
+`;

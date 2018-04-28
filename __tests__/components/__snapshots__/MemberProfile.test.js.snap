@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the MemberProfile component correctly 1`] = `
+<Row
+  bsClass="row"
+  componentClass="div"
+>
+  <Col
+    bsClass="col"
+    className="profile-section"
+    componentClass="div"
+    md={6}
+    mdOffset={3}
+    xs={12}
+  >
+    <PanelHeading
+      bsClass="panel"
+      componentClass="div"
+    >
+      <h3
+        className="panel-title"
+      >
+        Team 2
+      </h3>
+    </PanelHeading>
+    <hr />
+    <div
+      className="member-profile-subheading"
+    >
+      <FontAwesome
+        className="member-img"
+        name="user-circle"
+      />
+      <p>
+        Dennis
+      </p>
+    </div>
+    <hr />
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Profile
+        member={
+          Object {
+            "_id": "2",
+            "email": "dtest@mail.com",
+            "experience": "3 years",
+            "name": "Dennis",
+            "role": "Fullstack Developer",
+            "skills": Array [
+              "react",
+            ],
+            "team": "2abc",
+            "teamLead": false,
+          }
+        }
+      />
+      <Skills
+        member={
+          Object {
+            "_id": "2",
+            "email": "dtest@mail.com",
+            "experience": "3 years",
+            "name": "Dennis",
+            "role": "Fullstack Developer",
+            "skills": Array [
+              "react",
+            ],
+            "team": "2abc",
+            "teamLead": false,
+          }
+        }
+      />
+    </Row>
+    <hr />
+    <Link
+      replace={false}
+      to="/member/2/edit"
+    >
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="primary"
+        disabled={false}
+      >
+        Edit
+      </Button>
+    </Link>
+    <Link
+      replace={false}
+      to="/"
+    >
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="default"
+        disabled={false}
+      >
+        Back to Dashboard
+      </Button>
+    </Link>
+  </Col>
+</Row>
+`;

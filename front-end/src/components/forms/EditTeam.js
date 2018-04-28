@@ -5,7 +5,7 @@ import Loading from "../Loading";
 import { handleUpdateTeam, handleFetchTeam } from "../../actions/teams";
 import { handleFetchTeamMember } from "../../actions/teamMembers";
 
-class EditTeam extends Component {
+export class EditTeam extends Component {
   componentDidMount() {
     this.props.fetchTeam(this.props.match.params.id)
   }

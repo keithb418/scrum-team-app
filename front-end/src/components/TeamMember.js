@@ -7,7 +7,7 @@ import { handleDeleteTeamMember } from "../actions/teamMembers";
 import { Link } from "react-router-dom";
 import { truncateString } from "../utils/stringHelpers";
 
-class TeamMember extends Component {
+export class TeamMember extends Component {
   constructor(props) {
     super(props)
   }
@@ -17,13 +17,13 @@ class TeamMember extends Component {
   };
 
   removeTeamMember = () => {
-    this.props.dispatch(handleDeleteTeamMember(this.props.id));
+    this.props.handleDeleteTeamMember(this.props.id);
   }
   
   render() {
     const teamLeadText = teamLead ? <p>Team Lead</p> : "";
     const className = `team-member btn btn-default ${teamLead ? "team-lead" : "" }`;
-    const { id, name, teamLead, role, deleteTeamMember } = this.props;
+    const { id, name, teamLead, role } = this.props;
     return (
       <button
         className={className}
@@ -53,12 +53,16 @@ class TeamMember extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => ({
+  handleDeleteTeamMember: (id) => dispatch(handleDeleteTeamMember(id))
+})
+
 TeamMember.propTypes = {
   role: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,
   teamLead: PropTypes.bool,
-  deleteTeamMember: PropTypes.func
+  handleDeleteTeamMember: PropTypes.func
 };
 
-export default connect()(TeamMember);
+export default connect(undefined, mapDispatchToProps)(TeamMember);

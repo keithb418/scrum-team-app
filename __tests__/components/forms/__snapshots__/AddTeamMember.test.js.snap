@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render AddTeamMember component correctly 1`] = `
+<TeamMemberForm
+  onSubmit={[Function]}
+  roles={
+    Array [
+      Object {
+        "_id": "1",
+        "name": "Front-End Developer",
+      },
+      Object {
+        "_id": "2",
+        "name": "Back-End Developer",
+      },
+      Object {
+        "_id": "3",
+        "name": "Full-Stack Developer",
+      },
+      Object {
+        "_id": "4",
+        "name": "Manual Tester",
+      },
+      Object {
+        "_id": "5",
+        "name": "Automation Tester",
+      },
+    ]
+  }
+  teams={
+    Array [
+      Object {
+        "_id": "1",
+        "name": "Team 1",
+      },
+      Object {
+        "_id": "2",
+        "name": "Team 2",
+      },
+    ]
+  }
+  title="Add Team Member"
+/>
+`;
