@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the TeamMember component correctly 1`] = `
+<button
+  className="team-member btn btn-default "
+  draggable="true"
+  onDragStart={[Function]}
+>
+  <div
+    className="team-member-header"
+  >
+    <p>
+      Dennis
+    </p>
+    <FontAwesome
+      className="delete-team-member-btn"
+      name="trash"
+      onClick={[Function]}
+      tabIndex="1"
+    />
+  </div>
+  <Link
+    replace={false}
+    to="/member/undefined"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="user-img"
+        componentClass="div"
+        xs={4}
+      >
+        <FontAwesome
+          name="user-circle"
+        />
+      </Col>
+      <Col
+        bsClass="col"
+        className="details"
+        componentClass="div"
+        xs={8}
+      >
+        <p>
+          Fullstack Developer
+        </p>
+      </Col>
+    </Row>
+  </Link>
+</button>
+`;

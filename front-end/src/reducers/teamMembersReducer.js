@@ -7,7 +7,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-      case types.CREATE_TEAM_MEMBERS: 
+      case types.CREATE_TEAM_MEMBER: 
         return {
           ...state,
           teamMembers: [

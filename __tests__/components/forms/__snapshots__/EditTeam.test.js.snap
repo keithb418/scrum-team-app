@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render EditTeam correctly 1`] = `
+<TeamForm
+  onSubmit={[Function]}
+  team={
+    Object {
+      "_id": "2",
+      "name": "Team 2",
+    }
+  }
+  title="Edit Team"
+/>
+`;

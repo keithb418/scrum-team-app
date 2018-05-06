@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render EditTeamMember correctly 1`] = `
+<TeamMemberForm
+  onSubmit={[Function]}
+  teamMember={
+    Object {
+      "_id": "2",
+      "email": "dtest@mail.com",
+      "experience": "3 years",
+      "name": "Dennis",
+      "role": "Fullstack Developer",
+      "skills": Array [
+        "react",
+      ],
+      "team": "2abc",
+      "teamLead": false,
+    }
+  }
+  title="Edit Team"
+/>
+`;

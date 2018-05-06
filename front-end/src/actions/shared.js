@@ -6,7 +6,7 @@ import { fetchData, fetchDataSuccess, fetchDataError } from "./fetch";
 
 export const fetchInitialData = () => dispatch => {
     dispatch(fetchData());
-    Promise.all([API.getRoles(), API.getTeams(), API.getTeamMembers()])
+    return Promise.all([API.getRoles(), API.getTeams(), API.getTeamMembers()])
     .then(([roles, teams, teamMembers]) => {
         dispatch(fetchRoles(roles.data));
         dispatch(fetchTeams(teams.data));
@@ -21,7 +21,7 @@ export const fetchInitialData = () => dispatch => {
 
 export const fetchProfileData = id => dispatch => {
    dispatch(fetchData());
-   Promise.all([API.getTeamMember(id), API.getTeams()])
+   return Promise.all([API.getTeamMember(id), API.getTeams()])
     .then(([teamMember, teams]) => {
         dispatch(fetchTeamMember(teamMember.data));
         dispatch(fetchTeams(teams.data));

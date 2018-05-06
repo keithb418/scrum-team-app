@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the SelectTeam component correctly 1`] = `
+<FormGroup
+  bsClass="form-group"
+  controlId="teamSelect"
+>
+  <ControlLabel
+    bsClass="control-label"
+    srOnly={false}
+  >
+    Team
+    <sup>
+      <i
+        className="fa fa-asterisk required"
+      />
+    </sup>
+  </ControlLabel>
+  <FormControl
+    bsClass="form-control"
+    componentClass="select"
+    defaultValue=""
+    name="team"
+    onChange={[MockFunction]}
+    placeholder="Select Team"
+  >
+    <option>
+      Select Team
+    </option>
+    <option
+      key="1"
+      value="1"
+    >
+      Team 1
+    </option>
+    <option
+      key="2"
+      value="2"
+    >
+      Team 2
+    </option>
+  </FormControl>
+</FormGroup>
+`;

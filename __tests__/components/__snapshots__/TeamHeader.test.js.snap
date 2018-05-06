@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the TeamHeader component correctly 1`] = `
+<div
+  className="team-header panel-heading"
+>
+  <Link
+    replace={false}
+    to="team/1/member/add"
+  >
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="default"
+      className="add-team-member-btn"
+      disabled={false}
+    >
+      <FontAwesome
+        name="user-plus"
+      />
+    </Button>
+  </Link>
+  <h2
+    className="col-xs-10 panel-title"
+  >
+    Team 1
+  </h2>
+  <Link
+    replace={false}
+    to="team/1/edit"
+  >
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="default"
+      disabled={false}
+    >
+      <FontAwesome
+        name="edit"
+      />
+    </Button>
+  </Link>
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    disabled={true}
+    onClick={[Function]}
+  >
+    <FontAwesome
+      name="trash"
+    />
+  </Button>
+</div>
+`;

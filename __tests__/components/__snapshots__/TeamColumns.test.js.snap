@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the TeamColumns component correctly 1`] = `
+<div
+  className="team-columns"
+>
+  <Connect(TeamColumn)
+    id="1"
+    key="1"
+    teamName="Team 1"
+  />
+  <Connect(TeamColumn)
+    id="2"
+    key="2"
+    teamName="Team 2"
+  />
+  <AddTeamColumn />
+</div>
+`;

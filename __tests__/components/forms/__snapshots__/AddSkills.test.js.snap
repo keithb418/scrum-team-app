@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render AddSkills component correctly 1`] = `
+<div
+  className="add-skills"
+>
+  <FormGroup
+    bsClass="form-group"
+    controlId="add-skills"
+    style={
+      Object {
+        "width": "200px",
+      }
+    }
+  >
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}
+    >
+      Skills
+    </ControlLabel>
+    <InputGroup
+      bsClass="input-group"
+    >
+      <FormControl
+        bsClass="form-control"
+        componentClass="input"
+        name="skill"
+        onChange={[Function]}
+        placeholder="Add Skills"
+        type="text"
+        value=""
+      />
+      <InputGroupAddon
+        bsClass="input-group-addon"
+      >
+        <FontAwesome
+          className="left-spacer add-skills-icon"
+          name="plus-circle"
+          onClick={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        />
+      </InputGroupAddon>
+    </InputGroup>
+  </FormGroup>
+  <div
+    className="skill"
+    key="0"
+    style={
+      Object {
+        "display": "inline-block",
+        "marginRight": "15px",
+      }
+    }
+  >
+    react
+    <FontAwesome
+      name="minus-circle"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    />
+  </div>
+  <div
+    className="skill"
+    key="1"
+    style={
+      Object {
+        "display": "inline-block",
+        "marginRight": "15px",
+      }
+    }
+  >
+    redux
+    <FontAwesome
+      name="minus-circle"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    />
+  </div>
+  <div
+    className="skill"
+    key="2"
+    style={
+      Object {
+        "display": "inline-block",
+        "marginRight": "15px",
+      }
+    }
+  >
+    es6
+    <FontAwesome
+      name="minus-circle"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    />
+  </div>
+  <div
+    className="skill"
+    key="3"
+    style={
+      Object {
+        "display": "inline-block",
+        "marginRight": "15px",
+      }
+    }
+  >
+    backbone
+    <FontAwesome
+      name="minus-circle"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    />
+  </div>
+</div>
+`;

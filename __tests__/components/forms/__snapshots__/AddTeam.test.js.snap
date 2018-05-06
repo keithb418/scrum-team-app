@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render AddTeam component correctly 1`] = `
+<TeamForm
+  onSubmit={[Function]}
+  title="Add Team"
+/>
+`;

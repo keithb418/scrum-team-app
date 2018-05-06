@@ -10,12 +10,7 @@ import Loading from "./Loading";
 import Profile from "./Profile";
 import Skills from "./Skills";
 
-
-
-
-
-
-class MemberProfile extends Component {
+export class MemberProfile extends Component {
   constructor () {
     super();
   }

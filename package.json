@@ -27,8 +27,10 @@
     "iltorb": "^2.2.0",
     "lodash": "^4.17.5",
     "mongodb": "^3.0.5",
+    "mongoose": "^5.0.17",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "prop-types": "^15.6.1",
+    "raf": "^3.4.0",
     "react": "^16.3.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.3.0",
@@ -36,6 +38,7 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
+    "redux-mock-store": "^1.5.1",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
@@ -71,7 +74,7 @@
     "build-css": "node-sass ./src/scss --include-path ./src/scss --include-path ./node_modules src/ -o ./public/css",
     "prod": "NODE_ENV=production node main.js",
     "watch-css": "npm run build-css && node-sass ./src/scss --include-path ./src/scss --include-path ./node_modules src/ -o ./public/css --watch --recursive",
-    "test": "jest"
+    "test": "jest --config=jest.config.json"
   },
   "repository": "git+https://github.com/keithb418/scrum-team-app.git",
   "homepage": "https://github.com/keithb418/scrum-team-app#readme",

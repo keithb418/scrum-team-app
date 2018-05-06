@@ -6,14 +6,13 @@ import TeamColumn from "./TeamColumn";
 import AddTeamColumn from "./AddTeamColumn";
 import Loading from "./Loading";
 
-class TeamColumns extends Component { 
+export class TeamColumns extends Component { 
   constructor(props) {
     super(props)
   }
 
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(fetchInitialData())
+    this.props.fetchInitialData();
   }
 
   render() {
@@ -27,7 +26,6 @@ class TeamColumns extends Component {
             key={team._id}
             id={team._id}
             teamName={team.name}
-            project={team.project}
             teamMembers={team.teamMembers}
           />
         )}
@@ -72,4 +70,8 @@ const mapStateToProps = ({teams: { teams }, teamMembers:{ teamMembers }, fetch: 
   };
 }
 
-export default connect(mapStateToProps)(TeamColumns);
+const mapDispatchToProps = (dispatch) => ({
+  fetchInitialData: () => dispatch(fetchInitialData())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TeamColumns);

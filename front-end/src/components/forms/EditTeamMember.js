@@ -6,9 +6,13 @@ import { handleUpdateTeamMember } from "../../actions/teamMembers";
 import TeamMember from "../TeamMember";
 import Loading from "../Loading";
 
-class EditTeamMember extends Component {
+export class EditTeamMember extends Component {
   constructor (props) {
     super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchProfileData(this.props.match.params.id)
   }
 
   onSubmit = (teamMember) => {
@@ -33,11 +37,10 @@ class EditTeamMember extends Component {
   }
 }
 
-const mapStateToProps = ({ teamMembers: { teamMember }, teams: { teams }, roles, fetch: { isFetching } }) => ({
+const mapStateToProps = ({ teamMembers: { teamMember }, teams: { teams }, roles }) => ({
   teamMember,
   teams,
   roles,
-  isFetching
 })
 
 const mapDispatchToProps = (dispatch) => ({

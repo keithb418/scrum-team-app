@@ -1,7 +1,7 @@
 import * as types from '../actionTypes'
 
 const initialState = {
-    isFetching: true,
+    isFetching: false,
     error: ''
 }
 export default (state = initialState, action) => {
