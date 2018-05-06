@@ -3,7 +3,7 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 const MongoDataLayer = require('./back-end/src/dataLayer/MongoDataLayer');
-
+const { mongoose } = require('./back-end/db/mongoose');
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 3000 : process.env.PORT;
 

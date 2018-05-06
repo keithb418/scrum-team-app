@@ -27,6 +27,7 @@
     "iltorb": "^2.2.0",
     "lodash": "^4.17.5",
     "mongodb": "^3.0.5",
+    "mongoose": "^5.0.17",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "prop-types": "^15.6.1",
     "raf": "^3.4.0",
