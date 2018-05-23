@@ -26,19 +26,19 @@ class API {
     }
 
     createTeamMember (teamMember) {
-        return this._api.post("teamMembers", teamMember);
+        return this._api.post("v1/teamMembers", teamMember);
     }
 
     createTeams (team) {
-        return this._api.post("teams", team);
+        return this._api.post("v1/teams", team);
     }
 
     updateTeamMembers (teamMember) {
-        return this._api.put("teamMembers", teamMember);
+        return this._api.put("v1/teamMembers", teamMember);
     }
 
     updateTeams (team) {
-        return this._api.put("teams", team);
+        return this._api.put("v1/teams", team);
     }
 
     deleteTeamMembers (id) {

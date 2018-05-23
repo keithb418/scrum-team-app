@@ -1,8 +1,5 @@
 var Roles = require('../models/roles.schema.js');
 
-exports.index = function(req, res){
-    res.send('NOT IMPLEMENTED: Site Home Page');
-}
 exports.getAll = function(req, res){
     Roles.find({}, (err, roles) => {    
         if(err){
@@ -18,7 +15,9 @@ exports.getOne = function(req, res){
             res.writeHead(404, {'Content-Type': 'text/plain'});
             res.end('Specified resource not found');
         }
-        res.json(roles);
+        if(roles[0]){
+            res.json(roles);
+        }
     });
 }
 exports.post = function(req, res){
@@ -43,12 +42,12 @@ exports.put = function(req, res){
         res.status(500).send("A resource id must be specified.");
     }
     Roles.findById(req.body._id, (err, role) => {
-        if(!err){
+        if(err){
             res.status(500).send("A resource does not exist with that id. Use a POST request to create it.");
         }
         role.set({ name: req.body.name });
         role.save(function (err, updatedRole) {
-            if (!err){
+            if (err){
                 res.status(500).send("Internal Server Error");
             }
             res.json(updatedRole);
