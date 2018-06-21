@@ -1,6 +1,6 @@
 import express from 'express'
 let router = express.Router();
-var mongoose = require('mongoose');
+var mongoose = require('./db/db.mongoose');
 import teamsResource from './resources/TeamsResource';
 import teamMembersResource from './resources/TeamMembersResource';
 import rolesResource from './resources/RolesResource';
@@ -17,11 +17,6 @@ router.get('', function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end('Hello World, I am the Back End server for the Scrum Team app.  I now change as you code!\n');
 });
-
-
-mongoose.connect('mongodb://localhost/scrumteamappdb');
-var connection = mongoose.connection;
-connection.on('error', console.error.bind(console, 'connection error:'));
 
 router.get("/v1/teams", teamsService.getAll);
 router.get("/v1/teams/:id", teamsService.getOne);
