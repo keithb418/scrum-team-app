@@ -14,8 +14,7 @@ const store = createStore(
   reducers,
   StateLoader.loadState(),
   compose(
-    middleware,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    middleware
   )
 );
 

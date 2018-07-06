@@ -6,47 +6,47 @@ class API {
     }
 
     getTeamMember (id) {
-        return this._api.get(`teamMembers/${id}`);
+        return this._api.get(`v1/teamMembers/${id}`);
     }
 
     getRoles () {
-        return this._api.get("roles");
+        return this._api.get("v1/roles");
     }
 
     getTeamMembers () {
-        return this._api.get("teamMembers");
+        return this._api.get("v1/teamMembers");
     }
 
     getTeam (id) {
-        return this._api.get(`teams/${id}`);
+        return this._api.get(`v1/teams/${id}`);
     }
 
     getTeams () {
-        return this._api.get("teams");
+        return this._api.get("v1/teams");
     }
 
     createTeamMember (teamMember) {
-        return this._api.post("teamMembers", teamMember);
+        return this._api.post("v1/teamMembers", teamMember);
     }
 
     createTeams (team) {
-        return this._api.post("teams", team);
+        return this._api.post("v1/teams", team);
     }
 
     updateTeamMembers (teamMember) {
-        return this._api.put("teamMembers", teamMember);
+        return this._api.put("v1/teamMembers", teamMember);
     }
 
     updateTeams (team) {
-        return this._api.put("teams", team);
+        return this._api.put("v1/teams", team);
     }
 
     deleteTeamMembers (id) {
-        return this._api.delete(`teamMembers/${id}`);
+        return this._api.delete(`v1/teamMembers/${id}`);
     }
 
     deleteTeam (id) {
-        return this._api.delete(`teams/${id}`);
+        return this._api.delete(`v1/teams/${id}`);
     }
 
 }
