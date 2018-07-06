@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import TeamForm from "./TeamForm";
 import { handleCreateTeam } from "../../actions/teams";
 
-class AddTeam extends Component {
+export class AddTeam extends Component {
   constructor (props) {
     super(props);
   }

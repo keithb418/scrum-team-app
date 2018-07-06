@@ -6,32 +6,35 @@ import PropTypes from "prop-types";
 export default class AddSkills extends Component {
   constructor (props) {
     super(props);
-    this.state = { skills: this.props.skills || [] };
+    this.state = { 
+      skills: this.props.skills || [],
+      skill: '' 
+    };
   }
 
-  onAdd = () => {
-    let skillToAdd = this.getInput();
-    let newSkills = this.state.skills;
-    newSkills.push(skillToAdd);
+  onAdd = () => { 
+    this.setState(({skills, skill}) => ({ skills: skills.concat(skill) }));
+    this.props.onChange(this.state.skills);
     this.resetInput();
-    this.props.onChange(newSkills);
-    this.setState({ skills: newSkills });
   }
 
   onRemove = (e) => {
     let skillToRemove = e.target.parentNode.innerText;
-    let newSkills = this.state.skills;
-    newSkills.splice(newSkills.indexOf(skillToRemove), 1);
-    this.props.onChange(newSkills);
-    this.setState({ skills: newSkills });
+    this.setState(({skills}) => ({ skills: skills.filter(skill => skill != skillToRemove) }));
+    this.props.onChange(this.state.skills);
   }
 
-  getInput = () => {
-    return document.getElementById(this.props.id).value;
+  getInput = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
+
+    this.setState({
+      [name]: value
+    });
   }
 
   resetInput = () => {
-    document.getElementById(this.props.id).value = "";
+    this.setState(() => ({ skill: '' }));
   }
 
   render () {
@@ -41,7 +44,7 @@ export default class AddSkills extends Component {
         <FormGroup controlId={this.props.id} style={{ width: "200px" }}>
           <ControlLabel>Skills</ControlLabel>
           <InputGroup>
-            <FormControl type="text" placeholder="Add Skills" />
+            <FormControl name="skill" type="text" placeholder="Add Skills" value={this.state.skill} onChange={this.getInput}/>
             <InputGroup.Addon>
               <FontAwesome name="plus-circle" className="left-spacer add-skills-icon" style={{ cursor: "pointer" }} onClick={this.onAdd} />
             </InputGroup.Addon>

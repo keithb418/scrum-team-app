@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the Profile component correctly 1`] = `
+<Col
+  bsClass="col"
+  componentClass="div"
+  md={6}
+>
+  <h3>
+    Profile
+  </h3>
+  <ul
+    className="member-info"
+  >
+    <li
+      key="name"
+    >
+      Marc
+    </li>
+    <li
+      key="email"
+    >
+      mtest@mail.com
+    </li>
+    <li
+      key="teamLead"
+    >
+      Team Lead: 
+      No
+    </li>
+    <li
+      key="role"
+    >
+      Fullstack Developer
+    </li>
+    <li
+      key="experience"
+    >
+      4 years
+    </li>
+  </ul>
+</Col>
+`;
+
+exports[`should render the Profile component with an empty data 1`] = `
+<Col
+  bsClass="col"
+  componentClass="div"
+  md={6}
+>
+  <h3>
+    Profile
+  </h3>
+  <ul
+    className="member-info"
+  />
+</Col>
+`;

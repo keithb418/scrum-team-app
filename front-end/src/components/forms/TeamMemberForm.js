@@ -11,7 +11,7 @@ import CancelButton from "./CancelButton";
 import { isEmailValid } from "../../utils/stringHelpers"
 
 class TeamMemberForm extends Component {
-  constructor (props, title, onSubmitAction) {
+  constructor (props) {
     super(props);
     this.state = {
       name: props.teamMember ? props.teamMember.name : "",
@@ -21,7 +21,7 @@ class TeamMemberForm extends Component {
       experience: props.teamMember ? props.teamMember.experience : "",
       role: props.teamMember ? props.teamMember.role : "",
       skills: props.teamMember ? props.teamMember.skills : [],
-      title
+      title: props.title
     };
   }
 
@@ -161,14 +161,12 @@ class TeamMemberForm extends Component {
               name="team"
               teams={this.props.teams}
               selected={this.state.team}
-              onSelect={(e) => {
-              this.onInputChange(e); }} />
+              onSelect={this.onInputChange} />
 
             <SelectRole
               roles={this.props.roles}
               selected={this.state.role}
-              onSelect={(e) => {
-              this.onInputChange(e);}} />
+              onSelect={this.onInputChange} />
 
             <AddSkills
               id="add-skills"

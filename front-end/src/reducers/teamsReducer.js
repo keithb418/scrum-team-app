@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         teams: [
-          ...state,
+          ...state.teams,
           action.team
         ]
       } 

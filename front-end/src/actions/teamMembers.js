@@ -8,7 +8,7 @@ export const fetchTeamMembers = teamMembers => ({
 	teamMembers
 });
 
-export const addTeamMember = teamMember => dispatch => ({
+export const addTeamMember = teamMember => ({
 	type: types.CREATE_TEAM_MEMBER,
 	teamMember: {
 		...teamMember,
@@ -18,7 +18,7 @@ export const addTeamMember = teamMember => dispatch => ({
 
 export const handleFetchTeamMember = id => dispatch => {
 	dispatch(fetchData())
-	API.getTeamMember(id)
+	return API.getTeamMember(id)
 	.then(res => {
 		dispatch(fetchTeamMember(res.data))
 		dispatch(fetchDataSuccess());
@@ -33,7 +33,7 @@ export const fetchTeamMember = teamMember => ({
 
 export const handleCreateTeamMember = (teamMember) => (dispatch) => {
   dispatch(addTeamMember(teamMember))
-	API.createTeamMember(teamMember)
+	return API.createTeamMember(teamMember)
 	.then(res => res.data)
     .catch(err =>
 	  console.log('Could not create a team member:', err.message)
@@ -42,7 +42,7 @@ export const handleCreateTeamMember = (teamMember) => (dispatch) => {
 
 export const handleUpdateTeamMember = (teamMember) => (dispatch) => {
 	dispatch({ type: types.UPDATE_TEAM_MEMBER, teamMember});
-	API.updateTeamMembers(teamMember)
+	return API.updateTeamMembers(teamMember)
 	.then(res => res.data)
 	.catch(err =>
 	  console.log('Could not update team member:', err.message)
@@ -51,7 +51,7 @@ export const handleUpdateTeamMember = (teamMember) => (dispatch) => {
 
 export const handleDeleteTeamMember = (id) => (dispatch) => {
 	dispatch({ type: types.DELETE_TEAM_MEMBER, id })
-	API.deleteTeamMembers(id)
+	return API.deleteTeamMembers(id)
 	.then(res => res.data)
 	.catch(err =>
 	  console.log('Could not delete team member:', err.message)
@@ -61,7 +61,7 @@ export const handleDeleteTeamMember = (id) => (dispatch) => {
 export const handleChangeTeam = (_id, team) => (dispatch) => {
 	let teamChangeInfo = { _id, team };
 	dispatch({ type: types.CHANGE_TEAM, result: teamChangeInfo });
-	API.updateTeamMembers(teamChangeInfo)
+	return API.updateTeamMembers(teamChangeInfo)
 	.then(res => res.data)
 	.catch(err => console.error('There was an error updating Team Members: ', err))
 }

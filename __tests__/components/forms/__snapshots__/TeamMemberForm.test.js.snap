@@ -1,0 +1,473 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render TeamMemberForm correctly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="form-section col-md-6 offset-md-3 col-xs-12"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Test Team Form
+      </h3>
+    </div>
+    <hr />
+    <Form
+      bsClass="form"
+      componentClass="form"
+      horizontal={false}
+      inline={false}
+      onSubmit={[Function]}
+    >
+      <ControlLabel
+        bsClass="control-label"
+        srOnly={false}
+      >
+        Name
+        <sup>
+          <i
+            className="fa fa-asterisk required"
+          />
+        </sup>
+      </ControlLabel>
+      <FormGroup
+        bsClass="form-group"
+        controlId="name"
+      >
+        <FormControl
+          autoFocus={true}
+          bsClass="form-control"
+          componentClass="input"
+          name="name"
+          onChange={[Function]}
+          placeholder="Enter your name"
+          required={true}
+          type="text"
+          value="Marc"
+        />
+      </FormGroup>
+      <ControlLabel
+        bsClass="control-label"
+        srOnly={false}
+      >
+        Email
+        <sup>
+          <i
+            className="fa fa-asterisk required"
+          />
+        </sup>
+      </ControlLabel>
+      <FormGroup
+        bsClass="form-group"
+        controlId="email"
+      >
+        <FormControl
+          bsClass="form-control"
+          componentClass="input"
+          name="email"
+          onChange={[Function]}
+          placeholder="Enter your email"
+          type="email"
+          value="mtest@mail.com"
+        />
+      </FormGroup>
+      <FormGroup
+        bsClass="form-group"
+        controlId="teamLead"
+      >
+        <span
+          className="right-spacer"
+        >
+          Team Lead
+        </span>
+        <Checkbox
+          bsClass="checkbox"
+          checked=""
+          disabled={false}
+          inline={true}
+          name="teamLead"
+          onChange={[Function]}
+          title=""
+          value={false}
+        />
+      </FormGroup>
+      <ControlLabel
+        bsClass="control-label"
+        srOnly={false}
+      >
+        Experience
+      </ControlLabel>
+      <FormGroup
+        bsClass="form-group"
+        controlId="experience"
+      >
+        <Radio
+          bsClass="radio"
+          checked={false}
+          className="right-spacer"
+          disabled={false}
+          inline={true}
+          name="experience"
+          onChange={[Function]}
+          title=""
+          value="Senior Level"
+        >
+          <span
+            className="left-spacer"
+          >
+            Senior Level
+          </span>
+        </Radio>
+        <Radio
+          bsClass="radio"
+          checked={false}
+          className="right-spacer"
+          disabled={false}
+          inline={true}
+          name="experience"
+          onChange={[Function]}
+          title=""
+          value="Mid Level"
+        >
+          <span
+            className="left-spacer"
+          >
+            Mid Level
+          </span>
+        </Radio>
+        <Radio
+          bsClass="radio"
+          checked={false}
+          className="right-spacer"
+          disabled={false}
+          inline={true}
+          name="experience"
+          onChange={[Function]}
+          title=""
+          value="Junior Level"
+        >
+          <span
+            className="left-spacer"
+          >
+            Junior Level
+          </span>
+        </Radio>
+        <Radio
+          bsClass="radio"
+          checked={false}
+          className="right-spacer"
+          disabled={false}
+          inline={true}
+          name="experience"
+          onChange={[Function]}
+          title=""
+          value="Level not applicable"
+        >
+          <span
+            className="left-spacer"
+          >
+            Level not applicable
+          </span>
+        </Radio>
+      </FormGroup>
+      <SelectTeam
+        name="team"
+        onSelect={[Function]}
+        selected="1abc"
+        teams={
+          Array [
+            Object {
+              "_id": "1",
+              "name": "Team 1",
+            },
+            Object {
+              "_id": "2",
+              "name": "Team 2",
+            },
+          ]
+        }
+      />
+      <SelectRole
+        onSelect={[Function]}
+        roles={
+          Array [
+            Object {
+              "_id": "1",
+              "name": "Front-End Developer",
+            },
+            Object {
+              "_id": "2",
+              "name": "Back-End Developer",
+            },
+            Object {
+              "_id": "3",
+              "name": "Full-Stack Developer",
+            },
+            Object {
+              "_id": "4",
+              "name": "Manual Tester",
+            },
+            Object {
+              "_id": "5",
+              "name": "Automation Tester",
+            },
+          ]
+        }
+        selected="Fullstack Developer"
+      />
+      <AddSkills
+        id="add-skills"
+        onChange={[Function]}
+        skills={
+          Array [
+            "react",
+          ]
+        }
+      />
+      <p>
+        Please enter one skill at a time
+      </p>
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="primary"
+        disabled={false}
+        type="submit"
+      >
+        Test Team Form
+      </Button>
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="default"
+        disabled={false}
+        type="reset"
+      >
+        Reset
+      </Button>
+      <CancelButton />
+    </Form>
+  </div>
+</div>
+`;
+
+exports[`should render invalid TeamMemberForm correctly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="form-section col-md-6 offset-md-3 col-xs-12"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      />
+    </div>
+    <hr />
+    <Form
+      bsClass="form"
+      componentClass="form"
+      horizontal={false}
+      inline={false}
+      onSubmit={[Function]}
+    >
+      <ControlLabel
+        bsClass="control-label"
+        srOnly={false}
+      >
+        Name
+        <sup>
+          <i
+            className="fa fa-asterisk required"
+          />
+        </sup>
+      </ControlLabel>
+      <FormGroup
+        bsClass="form-group"
+        controlId="name"
+      >
+        <FormControl
+          autoFocus={true}
+          bsClass="form-control"
+          componentClass="input"
+          name="name"
+          onChange={[Function]}
+          placeholder="Enter your name"
+          required={true}
+          type="text"
+          value=""
+        />
+      </FormGroup>
+      <ControlLabel
+        bsClass="control-label"
+        srOnly={false}
+      >
+        Email
+        <sup>
+          <i
+            className="fa fa-asterisk required"
+          />
+        </sup>
+      </ControlLabel>
+      <FormGroup
+        bsClass="form-group"
+        controlId="email"
+      >
+        <FormControl
+          bsClass="form-control"
+          componentClass="input"
+          name="email"
+          onChange={[Function]}
+          placeholder="Enter your email"
+          type="email"
+          value=""
+        />
+      </FormGroup>
+      <FormGroup
+        bsClass="form-group"
+        controlId="teamLead"
+      >
+        <span
+          className="right-spacer"
+        >
+          Team Lead
+        </span>
+        <Checkbox
+          bsClass="checkbox"
+          checked=""
+          disabled={false}
+          inline={true}
+          name="teamLead"
+          onChange={[Function]}
+          title=""
+          value={false}
+        />
+      </FormGroup>
+      <ControlLabel
+        bsClass="control-label"
+        srOnly={false}
+      >
+        Experience
+      </ControlLabel>
+      <FormGroup
+        bsClass="form-group"
+        controlId="experience"
+      >
+        <Radio
+          bsClass="radio"
+          checked={false}
+          className="right-spacer"
+          disabled={false}
+          inline={true}
+          name="experience"
+          onChange={[Function]}
+          title=""
+          value="Senior Level"
+        >
+          <span
+            className="left-spacer"
+          >
+            Senior Level
+          </span>
+        </Radio>
+        <Radio
+          bsClass="radio"
+          checked={false}
+          className="right-spacer"
+          disabled={false}
+          inline={true}
+          name="experience"
+          onChange={[Function]}
+          title=""
+          value="Mid Level"
+        >
+          <span
+            className="left-spacer"
+          >
+            Mid Level
+          </span>
+        </Radio>
+        <Radio
+          bsClass="radio"
+          checked={false}
+          className="right-spacer"
+          disabled={false}
+          inline={true}
+          name="experience"
+          onChange={[Function]}
+          title=""
+          value="Junior Level"
+        >
+          <span
+            className="left-spacer"
+          >
+            Junior Level
+          </span>
+        </Radio>
+        <Radio
+          bsClass="radio"
+          checked={false}
+          className="right-spacer"
+          disabled={false}
+          inline={true}
+          name="experience"
+          onChange={[Function]}
+          title=""
+          value="Level not applicable"
+        >
+          <span
+            className="left-spacer"
+          >
+            Level not applicable
+          </span>
+        </Radio>
+      </FormGroup>
+      <SelectTeam
+        name="team"
+        onSelect={[Function]}
+        selected=""
+      />
+      <SelectRole
+        onSelect={[Function]}
+        selected=""
+      />
+      <AddSkills
+        id="add-skills"
+        onChange={[Function]}
+        skills={Array []}
+      />
+      <p>
+        Please enter one skill at a time
+      </p>
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="primary"
+        disabled={true}
+        type="submit"
+      />
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="default"
+        disabled={false}
+        type="reset"
+      >
+        Reset
+      </Button>
+      <CancelButton />
+    </Form>
+  </div>
+</div>
+`;

@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render TeamColumn component correctly 1`] = `
+<div
+  className="panel panel-default team-column"
+  onDragOver={[Function]}
+  onDrop={[Function]}
+>
+  <Connect(TeamHeader)
+    id="1"
+    teamMembers={
+      Array [
+        Object {
+          "_id": "1",
+          "email": "mtest@mail.com",
+          "experience": "4 years",
+          "name": "Marc",
+          "role": "Fullstack Developer",
+          "skills": Array [
+            "react",
+          ],
+          "team": "1abc",
+          "teamLead": false,
+        },
+        Object {
+          "_id": "2",
+          "email": "dtest@mail.com",
+          "experience": "3 years",
+          "name": "Dennis",
+          "role": "Fullstack Developer",
+          "skills": Array [
+            "react",
+          ],
+          "team": "2abc",
+          "teamLead": false,
+        },
+        Object {
+          "_id": "3",
+          "email": "m1test@mail.com",
+          "experience": "2 years",
+          "name": "Matt",
+          "role": "Fullstack Developer",
+          "skills": Array [
+            "react",
+          ],
+          "team": "1abc",
+          "teamLead": false,
+        },
+      ]
+    }
+    teamName="Team 1"
+  />
+  <div
+    className="panel-body team-body"
+    onDragOver={[Function]}
+    onDrop={[Function]}
+  >
+    <Connect(TeamMember)
+      id="1"
+      key="1"
+      name="Marc"
+      role="Fullstack Developer"
+      teamLead={false}
+    />
+    <Connect(TeamMember)
+      id="2"
+      key="2"
+      name="Dennis"
+      role="Fullstack Developer"
+      teamLead={false}
+    />
+    <Connect(TeamMember)
+      id="3"
+      key="3"
+      name="Matt"
+      role="Fullstack Developer"
+      teamLead={false}
+    />
+  </div>
+</div>
+`;

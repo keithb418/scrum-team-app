@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Form, FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { withRouter } from "react-router";
 
 import CancelButton from "./CancelButton";
 

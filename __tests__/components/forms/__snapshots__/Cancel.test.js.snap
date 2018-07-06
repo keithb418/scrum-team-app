@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the Header component correctly 1`] = `
+<Link
+  replace={false}
+  to="/"
+>
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    disabled={false}
+  >
+    Cancel
+  </Button>
+</Link>
+`;
